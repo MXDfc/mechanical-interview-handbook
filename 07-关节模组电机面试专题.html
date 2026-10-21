@@ -1,0 +1,878 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关节模组电机面试专题</title><style>
+:root{--ink:#182c3a;--muted:#526571;--accent:#116b72;--paper:#fff;--line:#dbe5e8;--bg:#f2f5f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:112px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--accent);text-underline-offset:3px}aside{position:fixed;inset:0 auto 0 0;width:264px;background:#102c3b;color:#d9e9ee;overflow:auto;padding:28px 22px}
+.brand{font-size:12px;letter-spacing:3px;color:#8abec4}.nav-title{font-size:22px;font-weight:700;line-height:1.5;margin:12px 0 10px}.nav-meta{font-size:13px;color:#a5bec7;margin-bottom:24px}
+aside a{display:block;color:#d5e4e8;text-decoration:none;font-size:13px;line-height:1.6;padding:8px 0;border-bottom:1px solid #ffffff13}aside a:hover{color:white}
+main{margin-left:264px;max-width:1264px;padding:36px 48px 90px}.top-note{font-size:12px;letter-spacing:2px;color:var(--accent)}
+h1{font-size:34px;line-height:1.45;letter-spacing:-.5px;margin:12px 0 18px}h2{font-size:25px;line-height:1.5;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--accent)}
+h3{font-size:19px;line-height:1.65;margin:24px 0 12px}p{margin:10px 0 16px}li{margin-bottom:6px}strong{color:#123843}
+.chapter{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:30px;margin:26px 0}.question{padding:8px 0 23px;border-bottom:1px solid var(--line)}.question:last-child{border-bottom:0;padding-bottom:0}.question h3{scroll-margin-top:110px}.answer p{color:#344853}
+.toolbar{position:sticky;top:0;z-index:2;display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 0;background:#f2f5f6f5;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+input[type=search],select,button{font:inherit;font-size:14px;border:1px solid #bdcdd1;border-radius:7px;padding:8px 12px;background:white;color:var(--ink)}input[type=search]{flex:1;min-width:210px}button{cursor:pointer}button:hover{background:#e5f0f1}.count{font-size:12px;color:var(--muted);width:100%}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;display:block;overflow-x:auto}th{background:#eaf3f4;text-align:left;color:#244f56}td,th{padding:12px;border:1px solid var(--line);min-width:110px;vertical-align:top}tr:nth-child(even){background:#fafcfc}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.92em;background:#edf3f4;border-radius:3px;padding:2px 5px;overflow-wrap:anywhere}input[type=checkbox]{accent-color:var(--accent);margin-right:8px}
+pre{overflow-x:auto;padding:18px;background:#edf3f4;border-radius:8px;font-size:13px;line-height:1.7}pre code{background:none;padding:0;white-space:pre;overflow-wrap:normal}.problem{background:#f0f7f8;border-left:3px solid #6ca8ad;padding:10px 16px;margin:14px 0}.problem p{margin:0}
+.practice .answer{display:none}.practice .question{padding-bottom:12px}.empty{padding:30px;background:white;border-radius:10px;border:1px solid var(--line)}[hidden]{display:none!important}.footer{font-size:12px;color:var(--muted);padding-top:12px}
+.oral-answer{background:#edf7f4;border-left:3px solid #218371;padding:15px 18px;margin:14px 0}.oral-answer p{margin:4px 0 0;color:#173d39}.oral-label{font-size:12px;font-weight:700;letter-spacing:1px;color:#267361}.technical-details{border-top:1px dashed #c8d9da;margin-top:18px;padding-top:10px}.technical-details summary{cursor:pointer;font-size:13px;color:#52777d;padding:7px 0}.technical-details[open] summary{margin-bottom:12px}.practice .technical-details{display:none}
+.site-breadcrumb{display:flex;gap:9px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:20px}.site-breadcrumb a{text-decoration:none}.home-link{display:block;margin-bottom:20px;color:#96d7d1!important;font-weight:bold}.question-links{font-size:12px;color:var(--muted);padding-top:12px}.reading-toc summary{cursor:pointer;color:var(--accent)}.chapter:has(#version-history) table{font-size:13px}h2,h3{scroll-margin-top:120px}
+@media(min-width:1600px){main{margin-left:calc(264px + (100vw - 1600px)/2)}}
+@media(max-width:950px){aside{display:none}main{margin:0;padding:24px 20px 60px}h1{font-size:28px}.chapter{padding:22px}table{font-size:13px}}
+@media print{body{background:white;font-size:10pt;line-height:1.6}aside,.toolbar,.top-note,.empty{display:none!important}main{margin:0;max-width:none;padding:0}.chapter{border:0;padding:0;margin:20px 0;display:block!important}.question[hidden],.chapter[hidden]{display:block!important}.answer{display:block!important}h2{break-before:page;font-size:19pt}h3{break-after:avoid;font-size:12pt}p,li{orphans:3;widows:3}table{display:table;font-size:9pt}td,th{min-width:0;padding:6px}a{color:inherit}h1{font-size:24pt}}
+@media print{.practice .technical-details{display:block!important}#intro[hidden]{display:block!important}.technical-details summary{font-size:9pt}.oral-answer{break-inside:avoid}}
+</style></head><body>
+<aside><a class="home-link" href="index.html" target="_top">← 面经聚合 · 总入口</a><div class="brand">MECHANICAL ENGINEERING</div><div class="nav-title">关节模组电机专题</div><div class="nav-meta">60 道题 · v2.7.2<br>口头判断 / 数量级 / 条件 / 来源</div><a href="#reading-guide">阅读导航</a><a href="#chapter-m1">M1. 理论基础与机电接口</a><a href="#chapter-m2">M2. 可观察现象与排查</a><a href="#chapter-m3">M3. 结构设计与量产装配</a><a href="#chapter-m4">M4. 仿真测试与故障验证</a><a href="#chapter-m5">M5. 公式、算例与资料路线</a><a href="#version-history">版本记录</a><div class="footer"><a href="00-工作总结与编辑交接.html" target="_top">编辑交接与维护说明</a></div></aside>
+<main><nav class="site-breadcrumb" aria-label="手册导航"><a href="index.html" target="_top">统一入口</a><span>/</span><a href="机械结构工程师面试与知识强化手册.html">主手册</a><span>/</span><span>关节模组电机专题</span><a href="#version-history">版本记录</a></nav><div class="top-note">ORAL INTERVIEW FIELD GUIDE</div><div id="intro"><h1 id="_1">关节模组电机面试专题</h1>
+<p><strong>机械结构工程师线上面试学习资料｜60题｜v2.7.2</strong></p>
+<p>围绕电机、轴承与减速器、编码器、驱动和散热，集中复习机械接口、装配与验证。</p>
+<p>按目录选择主题；每题先读口头首答，再按需展开依据、算例与操作。</p>
+<p><a href="index.html">五板块总索引</a> · <a href="机械结构工程师面试与知识强化手册.html">完整主手册</a></p>
+<p><strong>岗位背景与准备边界</strong></p>
+<p>面向关节模组机械结构岗位，覆盖电机集成、驱动接口与制造知识。情景同时考虑协作机械臂、人形机器人和工业用途；具体产品架构与岗位分工以实际需求为准，教学方案不代表任何特定企业的产品或真实面试题。</p>
+<p><strong>使用方式</strong>：共60题，包含Q549～Q588的40道电机题，以及20道轴承、传动、刚度和验证基础题的关联复习。每题仍在五大板块中保留唯一主要归属；专题是集中阅读入口，题目不重复计入总数。</p>
+<p><strong>优先掌握12题</strong>：<a href="机械结构工程师面试与知识强化手册.html#Q549">接口Q549</a>、<a href="机械结构工程师面试与知识强化手册.html#Q551">参数口径Q551</a>、<a href="机械结构工程师面试与知识强化手册.html#Q552">选型边界Q552</a>、<a href="机械结构工程师面试与知识强化手册.html#Q554">气隙Q554</a>、<a href="机械结构工程师面试与知识强化手册.html#Q556">热路径Q556</a>、<a href="机械结构工程师面试与知识强化手册.html#Q560">FOC Q560</a>、<a href="机械结构工程师面试与知识强化手册.html#Q563">制动Q563</a>、<a href="机械结构工程师面试与知识强化手册.html#Q569">方案评审Q569</a>、<a href="机械结构工程师面试与知识强化手册.html#Q571">装配公差Q571</a>、<a href="机械结构工程师面试与知识强化手册.html#Q576">驱动散热Q576</a>、<a href="机械结构工程师面试与知识强化手册.html#Q578">EOL Q578</a>、<a href="机械结构工程师面试与知识强化手册.html#Q585">计算Q585</a>。</p>
+<table>
+<thead>
+<tr>
+<th>可能工作方向</th>
+<th>复习重点</th>
+<th>需要向面试官确认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无框电机与高减速比关节</td>
+<td>气隙、定转子固定、输出支承、精度与保持</td>
+<td>自研电机还是集成套件；减速器和输出轴承的责任边界</td>
+</tr>
+<tr>
+<td>低减速比/准直驱、人形关节</td>
+<td>峰值与热工作制、反射惯量、回驱、冲击及线缆</td>
+<td>动作谱、峰值时长、力控方式和安装外载</td>
+</tr>
+<tr>
+<td>协作机械臂</td>
+<td>低速平稳、双编码器、转矩测量、失电保持</td>
+<td>反馈配置、精度定义、交互及功能安全职责</td>
+</tr>
+<tr>
+<td>集成电驱与量产</td>
+<td>电机/功率器件热耦合、绝缘、密封、装配和EOL</td>
+<td>供电范围、冷却方式、关键工艺和量产质量目标</td>
+</tr>
+</tbody>
+</table>
+<p>先练“结论—原因—边界—验证”的口头首答，再展开详细计算。图纸、材料与电压没有输入时，给出设计方法及待确认项，不编造公司参数。</p>
+<!-- NAV_START -->
+</div><div class="toolbar"><input id="query" type="search" placeholder="搜索：数量级、扭矩、Cpk、Q252…" aria-label="搜索题库"><select id="priority" aria-label="筛选优先级"><option value="">全部优先级</option><option value="P0">P0 · 必须掌握</option><option value="P1">P1 · 工程进阶</option></select><button id="toggle" aria-pressed="false">隐藏答复，开始自测</button><button id="expand" aria-pressed="false">展开全部深入复习</button><button id="print">打印</button><div class="count" id="count" aria-live="polite"></div></div><p class="empty" id="empty" hidden>没有匹配的问题，请更换关键词或优先级。</p><section class="chapter"><h2 id="reading-guide">阅读导航</h2><details class="reading-toc"><summary>查看本册目录与相关手册</summary>
+<p><a href="index.html">统一入口</a> · <a href="机械结构工程师面试与知识强化手册.html">主手册</a> · <a href="07-关节模组电机面试专题.html#version-history">本册版本记录</a></p>
+<p><strong>本册目录</strong></p>
+<table>
+<thead>
+<tr>
+<th>板块</th>
+<th>阅读内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="07-关节模组电机面试专题.html#chapter-m1">M1. 理论基础与机电接口</a></td>
+<td>M1. 理论基础与机电接口</td>
+</tr>
+<tr>
+<td><a href="07-关节模组电机面试专题.html#chapter-m2">M2. 可观察现象与排查</a></td>
+<td>M2. 可观察现象与排查</td>
+</tr>
+<tr>
+<td><a href="07-关节模组电机面试专题.html#chapter-m3">M3. 结构设计与量产装配</a></td>
+<td>M3. 结构设计与量产装配</td>
+</tr>
+<tr>
+<td><a href="07-关节模组电机面试专题.html#chapter-m4">M4. 仿真测试与故障验证</a></td>
+<td>M4. 仿真测试与故障验证</td>
+</tr>
+<tr>
+<td><a href="07-关节模组电机面试专题.html#chapter-m5">M5. 公式、算例与资料路线</a></td>
+<td>M5. 公式、算例与资料路线</td>
+</tr>
+</tbody>
+</table>
+<p><strong>五个阅读板块</strong></p>
+<table>
+<thead>
+<tr>
+<th>板块</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="02-理论知识.html">理论知识</a></td>
+<td>理论力学、材料力学、机械原理、机械设计。</td>
+</tr>
+<tr>
+<td><a href="03-生活场景实践分析.html">生活场景实践分析</a></td>
+<td>交通与摩擦、日常产品开合、云台与振动、热变形与寿命。</td>
+</tr>
+<tr>
+<td><a href="04-生产场景量产实践分析.html">生产场景（量产环节）实践分析</a></td>
+<td>项目设计输入、产线设备与工装、加工铸造注塑、装配及质量交付。</td>
+</tr>
+<tr>
+<td><a href="05-仿真测试实践分析.html">仿真测试实践分析</a></td>
+<td>建模方法、SolidWorks操作、案例分析、判据、试验与结果核验。</td>
+</tr>
+<tr>
+<td><a href="06-常用数据和公式汇总.html">常用数据和公式汇总</a></td>
+<td>理论方程、材料力学公式与定理、数量级卡片、经验及现有教学算例。</td>
+</tr>
+</tbody>
+</table>
+<p>五板块按主要主题分配题目；原题号保持不变。完整主手册及原专题链接仍可查阅。</p>
+<!-- NAV_END -->
+
+</details></section>
+<section class="chapter"><h2 id="chapter-m1">M1. 理论基础与机电接口</h2>
+<p>关联速查：<a href="02-理论知识.html#chapter-t4">进入对应主板块</a></p>
+<article class="question" data-priority="P0"><h3 id="Q549">Q549｜关节模组机械工程师应怎样拆解电机系统的设计边界？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会同时画传力、散热和信号三条路径。电机转矩经转子连接与减速器到输出，外部弯矩则应由指定支承承担；绕组和驱动器的热量经接触面到壳体。再确认气隙、编码器、制动器、走线及密封接口，避免只看电机额定转矩就选型。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>接口拆解</strong>：机械输入应含输出转矩—转速—时间谱、径向力/轴向力/倾覆力矩、安装空间、质量、刚度、寿命、环境和维护方式；电气输入应含母线电压范围、相电流限值、控制器尺寸、反馈协议和回馈能力。无框电机通常把支承、定转子定位、散热及防护职责交给系统集成方，不能把定转子套件当完整轴系。</p>
+<p><strong>交付物</strong>：接口剖面与基准图、载荷路径图、功耗/热阻预算、气隙及轴向尺寸链、关键特性清单、装配路线和验证矩阵。区分电机轴转矩、减速器输出转矩、法兰外载及驱动电流，不把不同接口的峰值相加。基础参见<a href="https://www.kollmorgen.com/en-us/developer-network/frameless-motor-mounting-practices-clamping-and-bolting">Kollmorgen无框电机安装说明</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q549">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q549">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q550">Q550｜PMSM、BLDC、伺服电机、力矩电机和无框电机是什么关系？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>这些名称描述的维度不同。PMSM强调永磁同步原理，BLDC常配梯形反电势与六步换相；伺服强调闭环控制，力矩电机强调低速大转矩，无框强调交付形式。关节里可能同时满足其中几个名称，选型必须回到绕组、反馈、热边界和控制方式。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>对结构工作的意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>永磁同步/电子换相</td>
+<td>转子永磁体与旋转磁场同步；极对数与机械角共同决定换相角</td>
+</tr>
+<tr>
+<td>六步/正弦驱动</td>
+<td>波形、噪声、低速纹波及电流定义不同；商业名称可能交叉</td>
+</tr>
+<tr>
+<td>有框/无框</td>
+<td>有框通常含壳体轴承；无框需自行设计支承、定位、保持及散热</td>
+</tr>
+<tr>
+<td>直驱/带减速器</td>
+<td>决定电机尺寸、反射惯量、可回驱性、刚度和传动误差</td>
+</tr>
+</tbody>
+</table>
+<p>步进电机的步距不能直接等同闭环定位精度；高动态关节还要审查失步、共振、速度转矩曲线和发热。异步电机、轴向磁通方案也可能适合某些应用，不能凭行业名称判定路线。正弦换相与电流口径见<a href="https://support.maxongroup.com/hc/en-us/articles/360006288554-Strength-of-BLDC-EC-motor-with-sinusoidal-commutation">maxon技术说明</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q550">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q550">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q551">Q551｜如何解释转矩常数、反电势常数、极对数与电流口径？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>转矩常数把规定口径的电流换成转矩，反电势常数把转速换成感应电压。使用前必须核对相量或线量、峰值或有效值、机械速度或电角速度。母线电流不能直接代替相电流；极对数把机械角映射成电角，换相零位错误会影响转矩和温升。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>基本关系为 T≈KₜI、E=Kₑω，但各自的I、E和ω必须与厂家定义一致。p为极对数，θₑ=pθₘ+θ₀，ωₑ=pωₘ，电频率 fₑ=pn/60；θ用rad，n用r/min。2p是磁极数，不能再把2p代入极对数公式。</p>
+<p>SI制下Kₜ与Kₑ的数值相等只在功率共轭且定义一致的口径下成立；三相目录的线间RMS反电势常数与相RMS转矩常数不能直接照抄此结论。正弦三相平衡时I峰=√2I相RMS，Y接线电流等于相电流；Δ接与换相方式另算。母线电流由瞬时功率和PWM过程决定，低速大转矩时可能明显小于相电流。做计算表时把单位及口径写进列名。参见<a href="https://www.maxongroup.com/medias/sys_master/8815460712478.pdf">maxon电机基础</a>及<a href="https://www.ti.com/lit/an/sprabq2/sprabq2.pdf">TI PMSM FOC报告</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q551">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q551">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q552">Q552｜为什么额定转矩、峰值转矩和最高转速不能同时使用？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>电机可用范围是转矩—转速—时间包络。低速主要受电流与温升限制，高速还受反电势和母线电压限制；峰值有持续时间和初始温度条件。关节最终能力还受减速器、轴承、驱动器及散热约束，应把完整动作轨迹叠到各部件允许范围上。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>区分连续转矩、堵转连续转矩、短时峰值、退磁电流、机械极限转速以及控制器峰值电流持续时间。铭牌连续能力对应指定安装板、环境温度或冷却条件；更换壳体后需要重建热边界。速度越高，反电势越大，绕组电阻压降和电感动态压降也占用电压，不能只用E&lt;母线电压判断余量。</p>
+<p>弱磁可扩展部分高速区，但占用电流、影响效率并涉及磁体退磁限制，不保证所有电机都适用。减速器目录中额定、反复峰值、瞬时峰值也是不同条件；不得用碰撞极限当循环工作能力。可参见<a href="https://global.harmonicdrive.net/products/gear-units/table-finder">Harmonic Drive参数分类</a>，本手册不据此替任何未知型号给出额定值。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q552">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q552">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q553">Q553｜直驱、准直驱与高减速比关节应如何权衡？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>提高减速比可以降低电机侧负载转矩，但会提高电机转速，并把转子惯量按减速比平方反射到输出端。低减速比通常有利于回驱和力控，却要求更大的电机转矩与散热。应一起比较整机质量、损耗、刚度、冲击和任务谱，不能只比峰值转矩密度。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>定义 i=ωₘ/ωₒ&gt;0。正向稳态传功时 Tₒ≈ηiTₘ；负载惯量折算到电机为Jₗ/i²，转子惯量折算到输出为i²Jₘ，惯量的纯几何折算不乘效率。动力学中的摩擦损耗、加减速和反向能量流另列；静止保持不能机械套用运动效率。</p>
+<p>“准直驱”通常描述较低减速比、大转矩电机组合，不是统一数值区间。谐波、行星、摆线等各有刚度、回差、输入速度、润滑和支承边界，需查具体型号。比较表应固定输出速度、连续热边界、附件质量和峰值时长，否则转矩密度不可直接比。算例见<a href="机械结构工程师面试与知识强化手册.html#Q585">Q585</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q553">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q553">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q554">Q554｜电机气隙为什么属于轴系和壳体共同控制的功能尺寸？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>最小气隙由定转子尺寸、支承轴线偏差、跳动、受载挠曲和热变形共同决定。气隙偏心不仅可能擦碰，也会改变磁场和不平衡磁拉力。我会按实际支承建立径向尺寸链，再检查全转角、冷热态和负载下的最小间隙，而不是只控制一个配合直径。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>径向磁通电机名义单边气隙g₀=(D定子内径−D转子外径)/2。偏心e通常直接消耗单边间隙，而直径公差贡献须先除2。纯偏心圆的全跳动读数约为2e，但形状、倾斜和测量基准误差会混入，不能把所有跳动值一律折半。</p>
+<p><strong>图纸链</strong>：轴承座公共基准轴→转子定位圆及端面→定子定位圆；控制圆度/圆柱度、轴线关系与端面倾斜，结合加工装夹实现。轴向磁通结构另检查端面间隙、盘面翘曲与轴向磁力。定转子热膨胀差及不平衡磁拉力需和电磁同事迭代；线性静力分析不能自动反映磁拉力随偏心变化。数值预算见<a href="机械结构工程师面试与知识强化手册.html#Q587">Q587</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q554">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q554">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q555">Q555｜内转子、外转子和轴向磁通电机有哪些结构取舍？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>增大有效作用半径有利于转矩，但也影响转动惯量、磁体保持和外形。内转子通常便于定子向外壳散热；外转子要关注旋转壳体的强度、防护和动平衡；轴向磁通结构还要控制盘面刚度、轴向间隙和磁吸力，不能仅凭薄或大直径判断优劣。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>尺度估算</strong>：径向磁通圆柱面若平均切向应力τ均匀，T≈2πτr²L，只用于解释尺度趋势；τ受磁饱和、电流与冷却影响，不能当材料许用应力。转动惯量按J=∫r²dm，薄环近似mr²；增大半径即使减轻质量，也未必降低惯量。</p>
+<p><strong>先区分比较维度</strong>：内转子/外转子描述旋转件相对定子的位置，径向/轴向磁通描述主要工作气隙中的磁通方向。径向磁通可做内转子，也可做外转子；轴向磁通还需说明单盘、双转子或双定子等拓扑。以下先改变几何参数理解趋势，再结合支承、热路径和转子质量分布选结构，不能把“大直径＝外转子＝轴向磁通”连成等式。</p>
+<p><strong>算例一：同样想提高约56%的电磁转矩，该加大直径还是加长铁芯？</strong></p>
+<p>教学假设：采用径向磁通模型，气隙处有效半径r₀=40 mm，有效叠长L₀=20 mm，平均电磁切向应力τ=20 kPa，三者代入时换成m与Pa。基准T₀≈2π×20000×0.04²×0.02=4.02 N·m。这里r是气隙作用半径，并非整机外半径；L是有效叠长，并非包含端部绕组、轴承和编码器的总长。τ是人为固定的比较条件，不是产品额定值。</p>
+<table>
+<thead>
+<tr>
+<th>候选方案</th>
+<th>保持与改变的量</th>
+<th>一阶转矩结果</th>
+<th>需求导向与代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A：增大作用半径</td>
+<td>r由40增至50 mm，L仍20 mm</td>
+<td>T/T₀=(50/40)²=1.5625，约6.28 N·m</td>
+<td>轴向空间紧、径向空间较宽裕时优先比较；外径、旋转件惯量、外周速度和防护空间可能增加</td>
+</tr>
+<tr>
+<td>B：增加有效叠长</td>
+<td>r仍40 mm，L由20增至31.25 mm</td>
+<td>T/T₀=31.25/20=1.5625，同样约6.28 N·m</td>
+<td>径向包络严、轴向可延长时优先比较；质量、轴向尺寸及支承布置可能受影响，需复核挠曲和热路径</td>
+</tr>
+<tr>
+<td>C：大直径但要求转矩不变</td>
+<td>r增至50 mm，将L缩至12.8 mm</td>
+<td>r²L保持不变，仍约4.02 N·m</td>
+<td>有助于形成短粗布局；不代表总成长度同比缩短，端部绕组、支承和制动器可能成为长度下限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键追问</strong>：A与B虽在固定τ下转矩相同，却不意味着质量、效率或连续能力相同。该近似中T=2τV，V=πr²L只是几何尺度量；在此V固定时，把结构改得更短更粗并不会凭空增加转矩。实际铁铜体积、端部占比、磁路和冷却会改变τ与损耗。若目标是连续保持，应继续比较温升；若目标是频繁反转，应继续比较惯量和峰值电流。参见<a href="机械结构工程师面试与知识强化手册.html#Q556">热边界Q556</a>和<a href="机械结构工程师面试与知识强化手册.html#Q553">减速比Q553</a>。</p>
+<p><strong>算例二：大半径有利于转矩，为什么快速换向时未必占优？</strong></p>
+<p>为了单独看质量分布，假设两套旋转组件都等效为0.40 kg薄环：小半径方案r=30 mm，大半径方案r=50 mm。这不是两台真实内/外转子电机的等性能比较，也不是沿用算例一的电磁半径；此处r是旋转质量的等效分布半径，定子质量不计入转动惯量。</p>
+<ul>
+<li>小半径：J₁=0.40×0.03²=0.00036 kg·m²；大半径：J₂=0.40×0.05²=0.00100 kg·m²，为前者的2.78倍。</li>
+<li>若电机角加速度α=1000 rad/s²，单是加速这些旋转件就分别消耗Jα=0.36 N·m和1.00 N·m，多出的0.64 N·m尚未包含外载、摩擦和其他转动件。</li>
+<li>若两者用于同样的i=10传动，折算到输出端的旋转组件惯量分别为0.036和0.100 kg·m²；这是i²J折算，不乘传动效率。</li>
+<li>即便大半径方案轻到0.25 kg，J仍为0.000625 kg·m²，比小半径的0.00036大约74%。若希望50 mm方案的惯量不超过0.40 kg、30 mm方案，其等效旋转质量须不大于0.40×(30/50)²=0.144 kg。</li>
+</ul>
+<p><strong>按需求判断</strong>：低速、大转矩且加速度不高时，可容忍较大的转子惯量来换取布局或电磁力臂；频繁启停、快速反转、低惯量力控时，应比较可用加速转矩与总等效惯量，而非只比转矩。内转子常有把旋转质量放在较小半径的机会，但最终必须读实际CAD惯量或厂家数据，不能仅凭名称判定。较大惯量也可能平滑某些速度波动，却增加启停能量与响应负担；回驱感受还含摩擦、齿槽和控制，不能单由J决定。</p>
+<p><strong>算例三：轴向磁通做成薄盘，大中空孔和小轴向间隙有什么代价？</strong></p>
+<p>教学模型：每个有效工作面为内半径Rᵢ、外半径Rₒ的圆环，平均切向应力τ均匀。面积微元dA=2πr dr，dT=τr dA；若有N个产生同向转矩的有效工作面，则T≈N×(2πτ/3)(Rₒ³−Rᵢ³)。N是有效工作面数，不是极数；忽略边缘效应且各面的τ相同，不能把增加工作面视为没有材料、热量和厚度代价的免费倍增。</p>
+<p>取N=2、τ=20 kPa、Rₒ=50 mm、Rᵢ=20 mm，T≈9.80 N·m。为了穿更粗的线束或中空轴，把Rᵢ增到30 mm，其他条件不变，则T≈8.21 N·m，下降约16.2%。这说明“大中空”需要牺牲有效工作区域，或通过增大外径、提高电磁负荷/冷却能力等途径补偿；补偿是否可行要重新设计。此数值与算例一的6.28 N·m没有统一总包络、材料及热边界，不能据此宣布轴向磁通更优。</p>
+<p>薄盘的转动惯量也不必然小：均匀圆环盘绕中心轴J=½m(Rₒ²+Rᵢ²)。若两种孔径方案都假定旋转盘质量为0.40 kg，J分别为0.00058和0.00068 kg·m²，后者反而增加约17.2%。这是固定质量、质量分布向外移动的比较；若在同一张盘上直接去掉内圈材料，质量会降低，J也会减少，不能混用两个假设。双转子总惯量还须把两片盘、磁体、轮毂和连接件都加上。</p>
+<p><strong>轴向间隙校核</strong>：若以盘中心参考平面为基准，外缘半径50 mm处发生相对倾斜0.05°，该侧间隙的一阶侵占约Rₒφ=50×0.05π/180=0.0436 mm；这是单侧相对中心的变化，不是整个直径两侧的峰峰差。若名义间隙仅0.30 mm，仅这一项就消耗约14.5%，还未计入平面度、轴承轴向位移、磁吸引起的挠曲和温差翘曲。要用盘体刚度、轴向支承与形位预算保住最小间隙，而不是只把盘做薄。</p>
+<p><strong>把算例转成方案选择：先说优先需求，再说候选与验收重点</strong></p>
+<table>
+<thead>
+<tr>
+<th>具体需求或限制</th>
+<th>优先比较的方向</th>
+<th>必须同步核对，什么情况下需要改选</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关节轴向很薄，允许较大外径</td>
+<td>短叠长、大作用半径的径向磁通方案与轴向磁通盘式方案并列比较</td>
+<td>算总成厚度，包含轴承、端盖、制动器与反馈；若盘面挠曲/公差难保气隙，不能只为薄而选盘式</td>
+</tr>
+<tr>
+<td>外径被臂筒限定，轴向有余量</td>
+<td>先比较小直径、长叠长的径向磁通方案</td>
+<td>复核轴系挠曲、支承跨度、总质量和散热，不能认为加长只改变转矩</td>
+</tr>
+<tr>
+<td>高频启停、快速反转、低输出反射惯量</td>
+<td>优先筛选低实际转子惯量与合适减速比；内转子可作为候选</td>
+<td>用电流/电压边界下的可用转矩减去负载转矩，核对能否加速总惯量；外转子若更轻也应保留比较</td>
+</tr>
+<tr>
+<td>低速大转矩、外圈直接连接负载</td>
+<td>可比较大作用半径外转子或其他大直径力矩电机</td>
+<td>核对旋转外壳的防护、动平衡、负载支承与定子散热；外圈连接方便不等于其能承受全部倾覆力矩</td>
+</tr>
+<tr>
+<td>连续保持或高占空比运行</td>
+<td>优先比较真实绕组到冷却边界的热阻，外定子贴壳的内转子方案可作为基准</td>
+<td>外转子可经固定内支架导热，轴向磁通也可设计有效冷却；以绕组热点和总质量判定，不能按拓扑一票否决</td>
+</tr>
+<tr>
+<td>高电机转速或严苛超速要求</td>
+<td>优先比较较低外周速度、可靠磁体保持与刚度足够的转子方案</td>
+<td>同一角速度下v=ωr；磁体单块F=mω²r。外转子也能高速，但需真实保持/支承/平衡证据，不能凭低关节输出转速忽略电机端转速</td>
+</tr>
+<tr>
+<td>大中空走线、便于量产维护</td>
+<td>同时比较环形径向磁通和轴向磁通方案的整机剖面</td>
+<td>核对通孔、电磁有效区域、线束全行程、装配可达性、检测与返修；材料成本或功率密度单项最优不一定是量产最优</td>
+</tr>
+</tbody>
+</table>
+<p>外转子磁体在外壳内侧、内转子表贴磁体在轴外侧，离心载荷对粘接面的作用方向不同，应按真实几何判断，不统一说“离心力总是拉脱胶层”。还要检查切向转矩、温差、冲击和轴向保持。轴向磁通拓扑的双转子或双定子可能抵消部分轴向磁力，但偏差工况不能默认完全平衡。</p>
+<p><strong>面试中的落点</strong>：“若当前首要约束是轴向厚度，我会先比较大直径短叠长与盘式结构；若更看重频繁换向，则把实际转子惯量与加速电流摆到前面；若主要是连续承载，则优先验证热路径。最终以同一输出任务、供电、总包络和冷却条件下的计算及试验比较定型。”不同优先级可以得出不同方案，关键是给出选择所依赖的条件和退出条件。</p>
+<p><strong>来源与边界</strong>：上述数字均为独立教学假设，计算用于解释取舍，不是厂家参数或已经完成的产品验证。<a href="https://www.kollmorgen.com/en-us/products/motors/direct-drive/tbm-series">Kollmorgen TBM官方资料</a>可用于核对同系列外径、通孔和叠长是不同选型维度；<a href="https://traxial.com/features/next-generation-direct-drives-whitepaper/">Magnax/Traxial轴向磁通白皮书</a>用于了解其特定双转子结构与冷却路径，不把该方案的性能宣称推广到所有轴向磁通电机。深入关联：<a href="机械结构工程师面试与知识强化手册.html#Q554">气隙Q554</a>、<a href="机械结构工程师面试与知识强化手册.html#Q572">转子保持Q572</a>、<a href="机械结构工程师面试与知识强化手册.html#Q573">输出支承Q573</a>、<a href="机械结构工程师面试与知识强化手册.html#Q580">热验证Q580</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q555">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q555">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q556">Q556｜连续转矩为什么由热路径决定，如何解释绕组热点？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>连续转矩对应可持续电流，而电流产生铜耗，温度取决于绕组到定子、定子到壳体及壳体到环境的热阻。壳体温度不等于绕组热点，磁体、轴承润滑脂和驱动器也有各自限制。改善壳体接触和冷却可能有效，但必须验证最先到限的部位。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>平衡三相绕组铜耗Pcu=3I相RMS²R相(T)，电阻必须按工作温度取值。其他损耗含铁耗、磁体/套筒涡流、机械摩擦及逆变器损耗，各自位置不同。简化稳态ΔT≈P损Rθ；真实多热源系统用热阻网络，短脉冲用热容与时间常数。</p>
+<p>绝缘耐热等级不等于整机可持续运行温度；磁体退磁与温度、磁路及电流共同相关，胶黏剂和电子器件可能先失效。传感器位置、延迟及安装热耦合影响保护效果。低转速/堵转时机械输出功率小却可持续大铜耗，单看效率图会漏掉保持发热。见<a href="机械结构工程师面试与知识强化手册.html#Q580">Q580</a>、<a href="机械结构工程师面试与知识强化手册.html#Q586">Q586</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q556">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q556">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q557">Q557｜单编码器与双编码器如何选择，分辨率能代表精度吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>电机侧编码器服务换相和电机运动控制，输出侧编码器能观察传动后的角度。双编码器有助于识别传动误差与变形，但不能自动消除臂杆挠曲。分辨率只是最小数字步长，实际精度还取决于码盘误差、安装偏心、温漂、校准和整个结构链。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>比较增量/绝对、单圈/多圈、磁式/光电/感应式时，核对允许偏心、倾斜、轴向间距、磁场干扰、污染、转速及通信延迟。多圈状态掉电保持能力依赖实现，不能只看“绝对值”三个字。</p>
+<p>对于减速比i的结构，可观察δ=θₘ/i−θₒ，但该差还含零位、比例误差、回差与同步采样误差，不全部是弹性扭转。双环控制引入的柔性模式和延时需联合整定。由角度到末端位移的小角度近似为δx≈Lδθ，角度必须用rad。参见<a href="https://www.heidenhain.com/fileadmin/pdf/en/01_Products/Technische_Dokumentation/Technology_Report_TCP_Robots_ID1233046_en.pdf">HEIDENHAIN机器人位置精度报告</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q557">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q557">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q558">Q558｜电流估算输出转矩和使用转矩传感器有什么差别？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>电流首先估算的是电磁转矩，换成输出转矩还要扣除转子加速、传动摩擦及损耗。输出转矩传感器可直接观察其所在载荷路径上的转矩，但存在温漂、串扰和安装应力。力控或碰撞识别需明确传感位置、动态带宽、标定和误差预算。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>运动中T电磁=J转子αₘ+T机械损耗+T传动输入；再考虑减速器惯性、摩擦及弹性。摩擦对温度、速度、方向、润滑、负载敏感，单一效率无法覆盖零速、反转和冲击。Kₜ也可能受温度、饱和影响。</p>
+<p>应变式转矩传感器的弹性体需兼顾灵敏度、刚度、疲劳和过载；评估轴向力/弯矩串扰及螺栓预紧引起的零点变化。旁路结构若分担转矩，传感器会漏测。校准应覆盖正负加载、回程、温度和装配状态，并把测量不确定度与控制要求比较。仅凭电流阈值不能声称已实现经过认证的人机碰撞安全。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q558">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q558">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q559">Q559｜齿槽转矩、转矩脉动、摩擦和减速器回差如何区分？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>齿槽转矩是永磁场与槽结构作用，可在绕组不通电时出现；转矩脉动还包括通电波形和换相误差。摩擦常与速度、方向和温度相关，回差则表现为换向时的传动空程。应比较断电开路、通电空载和带载状态，再结合角度周期定位。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>诊断变量</strong>：固定角度重复出现还是固定频率出现；随机械转速还是电频率变化；正反方向是否对称；热机是否变化。绕组短接后的拖曳是电磁制动，不能作为“断电机械摩擦”基线。无槽电机可减少齿槽作用，但系统仍可能有电磁纹波、偏心、轴承及传动误差。</p>
+<p>谐波减速器的滞回、非线性刚度和失动量不能全部称为齿隙。隔离测试先建立独立电机、传动和集成状态的对照，再检查编码器角误差、电流采样和装配偏心。概念来源见<a href="https://www.kollmorgen.com/en-us/blogs/everywhere-cogging-torque-and-torque-ripple-what-you-need-to-know">Kollmorgen齿槽与纹波说明</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q559">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q559">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q560">Q560｜机械岗位应怎样解释FOC、d/q轴和电角零位？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>FOC利用转子角度把三相电流转换到随转子旋转的坐标系，分别控制励磁相关与转矩相关分量。对常见表贴永磁电机，基速以下常近似令d轴电流为零，用q轴电流控制转矩。编码器方向、极对数或电角零位错误，会使电流产生错误的磁场方向。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>在幅值不变变换、dq电流采用正弦相电流峰值口径时，Tₑ=(3/2)p[ψf i_q+(L_d−L_q)i_d i_q]，ψf为永磁体磁链，p为极对数。表贴式L_d≈L_q可近似忽略磁阻转矩；内嵌式可能需要最大转矩电流比控制，弱磁区也不再固定i_d=0。不同变换归一化会改变系数。</p>
+<p>机械工程师需守住编码器安装方向、极对数记录、转子与轴连接防滑、电角零位校准和热稳定性。机械零位指关节几何参考，电角零位指换相参考，两者不能互换。算法细节可交控制团队，但必须能解释安装误差如何引起异常电流、发热或抖动。公式依据<a href="https://www.ti.com/lit/an/sprabq2/sprabq2.pdf">TI FOC报告</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q560">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q560">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q561">Q561｜电流环、速度环和位置环为什么与机械刚度有关？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>电流环响应转矩指令，速度环调节运动速度，位置环跟踪目标位置，通常由内到外逐级变慢。轴系、减速器和负载的柔性会形成共振与反共振，限制增益和可用带宽。提高控制增益不能补救松动、低刚度或错误反馈，应先明确机械模型。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>把所有参数统一折算到同一轴，简化两惯量无阻尼模型相对扭转模态为ωₙ≈√[kθ(1/J₁+1/J₂)]，kθ单位N·m/rad；单端固定时才退化为√(kθ/J)。实际轴承、臂杆、安装台和结构阻尼可能带来更多模式。</p>
+<p>控制框图是“位置误差→速度指令→电流/转矩指令→逆变器→电机→传动→负载”，反馈位置随单/双编码器方案不同。采样延迟、滤波、驱动限流和饱和影响稳定性，不能把某个带宽倍率写成通用规范。机械优化着眼于连接刚度、支承跨距、松动和惯量，联合频响实测验证；滤波不等于消除结构应力。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q561">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q561">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q562">Q562｜驱动器的PWM、母线电容和再生制动如何影响结构设计？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>三相逆变桥用PWM调节绕组电压，并通过电流闭环形成所需转矩。减速或负载下落时，电机可能把机械能送回直流母线。结构上需考虑功率器件与电容的散热、紧凑连接、绝缘间距和制动能量去向，不能认为断开驱动命令就没有能量流。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>PWM频率影响开关损耗、纹波、噪声与EMI，不能把提高频率看成纯收益。母线电流不等于相电流；母线电容是有限能量缓冲，允许吸收ΔE=½C(V₂²−V₁²)。回馈去向可能是可回馈电源、电池、公共母线的其他轴或制动电阻，取决于系统是否允许吸能。</p>
+<p>机械接口关注驱动底板平面度、TIM压缩、元器件支承、连接器锁止、线缆磨损及振动载荷；耐压/爬电/电气间隙由电压、绝缘等级、污染、海拔和适用规范共同确定，不能照搬汽车高压或固定毫米值。制动电阻还要满足脉冲能量、平均功率与表面热隔离。原理参见<a href="https://webhelp.kollmorgen.com/akd2g/english/Content/AKD2G-S%20Install/e/AKD2S_install_07_16_Electrical%20motor%20braking.htm">Kollmorgen电气制动说明</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q562">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q562">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q563">Q563｜保持制动器、动态制动与STO为什么不是一回事？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>保持制动器负责在规定工况下锁住负载，动态制动负责消耗运动能量，STO则阻止驱动产生转矩。STO本身不保证轴停住，也不等于电气隔离。竖直关节要设计电机承载与制动器释放、抱紧的交接时序，并验证失电时的负载行为。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>弹簧施加、电磁释放是常见保持方案，但不能假定所有产品如此。检查静态保持转矩、允许动态接合能量、动作时间、磨损、温升及寿命；未被允许的保持制动器不能反复承担高速急停。装在电机侧时，减速器后的连接失效未必能被其保持。</p>
+<p>正常释放应先建立承载转矩再松闸；停止时先受控减速，按实际动作反馈/时间完成抱闸再移除电机支撑，具体时序由系统设计。停电、反馈失效和垂直轴下滑需按风险评估确定冗余或机械防护，不能凭装了一只闸就宣称安全等级。参见<a href="https://www.kollmorgen.com/en-us/developer-network/akd2g-controlled-stop-and-holding-brake-timing-0">Kollmorgen保持制动时序</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q563">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q563">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q564">Q564｜如何用损耗和工作制解释关节的“转矩密度”？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>转矩密度必须说明分子是连续还是短时峰值，分母是否包含驱动、减速器、壳体和冷却附件。工作制决定均方根电流及热积累，速度又改变铁耗和机械损耗。比较产品时应统一环境、安装方式和动作谱，才能判断小体积是否真的可持续输出。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>运动输出功率P=Tω，ω=2πn/60；机械效率与电效率应分别定义边界。静止保持时P机械=0，输出转矩却不为零，此时用“效率很低”不能替代温升计算。重复短周期可先用I_RMS,周期=√(ΣI_k²t_k/Σt_k)估铜耗，I_k应为同口径有效电流。</p>
+<p>若脉冲时长接近或大于绕组热时间常数，均方根指标通过仍可能出现短时热点；还须校核峰值电流、饱和、退磁与驱动限值。RMS转矩替代RMS电流仅在Kₜ近似不变且关系线性时适用。输出峰值不能用稳态效率直接覆盖静止、换向和回馈工况。参见<a href="https://www.maxongroup.com/medias/sys_master/8815460712478.pdf">maxon基础与选型说明</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q564">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q564">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q054">Q054｜轴承怎样选型并校核寿命？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>轴承先看载荷方向、力矩、速度、刚度和安装，再校核静载与寿命。L10是90%可靠度含义下的基本疲劳寿命，不是每颗轴承保证寿命，冲击和润滑还需另查。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：从径向／轴向载荷、倾覆力矩、速度、安装空间、刚度和环境选型，分别检查静载、疲劳寿命、极限转速、润滑和配合。基本额定寿命 <code>L10=(C/P)^p</code>，单位为百万转；球轴承 p=3、滚子轴承 p=10/3，L10 对应 90% 的统计可靠度，而非每个轴承保证寿命。<a href="https://cdn.skfmediahub.skf.com/api/public/0901d196802809de/pdf_preview_medium/Rolling_bearings_-_17000_1_EN_pdf_preview_medium.pdf">SKF 基本寿命资料</a></p>
+<p><strong>追问／风险</strong>：摆动冲击关节还需关注压痕、微动和润滑，不能只算 L10。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q054">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q054">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q057">Q057｜伺服为什么既要看峰值扭矩又要看 RMS 扭矩？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>峰值扭矩管短时加减速，持续能力要看循环热负荷与转速曲线。功率够不代表每个转速下扭矩都够；下行还可能涉及再生，抱闸也不默认用于频繁动态制动。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：峰值扭矩满足短时加减速，持续发热与工作循环相关，可用 <code>Trms=√(ΣTi²ti/Σti)</code> 作适用条件下的初算，再核对厂家热模型、转速、停留和散热。检查再生制动与电源能力；抱闸通常主要用于保持，不能默认可频繁动态急停。</p>
+<p><strong>追问／风险</strong>：“电机功率够”不证明低速扭矩、过载时间或高转速区扭矩够。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q057">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q057">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q060">Q060｜轴、键、花键和联轴器如何一起设计？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>轴、键和联轴器是一条传载链，除了扭矩还要看弯曲、挠度、应力集中和定位。柔性联轴器只能容许有限误差，不能替代正确轴系安装。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：轴校核弯扭、挠度、疲劳与应力集中；键／花键校核剪切、承压和配合；联轴器按扭矩、转速、惯量、偏移补偿与扭转刚度选择。止口、肩部和轴向锁紧承担各自定位作用，不能靠一个紧定螺钉包办。</p>
+<p><strong>追问／风险</strong>：柔性联轴器可容许有限安装误差，不能替代轴承正确对中。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q060">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q060">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q061">Q061｜轴承为什么经常采用定位端与浮动端？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>定位端建立轴向基准，浮动端释放热伸长和误差，避免过约束。具体预紧轴系还需按配对和热状态分析，不能机械地让每个端部都夹死。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：定位端建立轴向基准，浮动端容许热伸长与误差，避免轴向过约束；具体实现可在轴承内部或配合处释放。若使用成对预紧轴承，应分析配对方向、隔圈、锁紧和热状态，不能机械套用浮动方案。</p>
+<p><strong>追问／风险</strong>：两个端部都夹死，冷态正常而热态发热卡死的机理是什么？</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q061">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q061">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q063">Q063｜密封、防尘和润滑如何影响结构设计？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>密封、润滑和防护会改变摩擦、温升与维护。结构需给正确接触、导入、沟槽和排泄空间，防护做得更严也可能牺牲散热，不能只靠多涂胶。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：从介质、压力、速度、温度、污染和维护周期选密封及润滑方案；考虑密封沟槽、表面粗糙度、压缩量、装配导入和排泄／透气路径。动密封会引入摩擦热，过量润滑也可能导致温升或污染。</p>
+<p><strong>追问／风险</strong>：提高防护水平是否影响散热、摩擦和维修？不能只靠涂一圈胶。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q063">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q063">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q064">Q064｜线束、滑环和气管为什么是结构工程师的责任之一？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>线束与管路必须适应全行程和循环寿命，包括弯曲、防磨、应力释放及维护。连续旋转时电滑环、气接头和支承各有职责，要与电气一起验证。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：结构需要保证弯曲半径、动态寿命、应力释放、夹持、防磨、接头拔插和防扭；传输大电流、编码器和高速信号的接口需求不同。连续旋转可能需要电滑环、气动旋转接头或改变布局，且需协同电气验证。</p>
+<p><strong>追问／风险</strong>：测试全运动范围、反复循环和接插件维修路径，而非只检查静态走线。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q064">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q064">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q065">Q065｜如何给机器人建立精度与刚度预算？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我把末端误差分成几何、回差、连接与结构柔度、温漂和控制项，先找主导来源。只提高加工精度或电机分辨率，未必能解决实际末端误差。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：将末端误差拆为几何、关节回差、轴承／传动／结构柔度、温漂、标定及控制项，按姿态映射到工具端；确定静载挠度、重复性、绝对精度与稳定时间各自指标。优先改善主导项，避免把全部误差分配给加工公差。</p>
+<p><strong>追问／风险</strong>：减速器角度回差乘以臂长，对末端误差有多大影响？</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q065">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q065">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q416">Q416｜轴承基本额定动载荷C、静载荷C0与L10分别代表什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>C用于基于滚动接触疲劳的基本寿命计算，C0用于与永久接触变形有关的静承载评价，二者不是实际允许载荷的同义词。L10是统计意义上的基本额定寿命，对应一组同类轴承在规定条件下90%的可靠度，不是每颗轴承的保证寿命或整机全部失效寿命。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>基本关系<code>L10=(C/P)^p</code>，单位百万转；球轴承p＝3，滚子轴承p＝10/3。恒速n（r/min）时<code>L10h=10⁶L10/(60n)</code>。P是对应轴承类型与载荷方向的等效动载荷，不能默认是径向和轴向力的欧氏合力。</p>
+<p><strong>边界</strong>：污染、润滑、偏斜、温度、压痕和密封等可能决定实际服役寿命；静载及瞬时冲击仍需单独评定。来源MD2。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q416">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q416">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q417">Q417｜角接触轴承的背对背、面对面和串联配置有哪些理论区别？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>背对背和面对面通过不同接触线布置共同承担双向轴向载荷，背对背通常具有更大的有效支承跨距和抗倾覆刚度。串联主要提高同一方向的轴向承载，通常还需另一方向的支承安排。配置、预紧和热变形要一起看，不能只依据外观排列判断。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>通常称背对背为O形、面对面为X形。比较应在相近轴承、预紧及安装条件下进行；预紧提高一定工作范围内的刚度，也可能增加摩擦热及内部载荷。各配置对轴和座相对热伸长的敏感性不同。</p>
+<p><strong>易错点</strong>：把预紧等同于消除所有系统位移；轴、座、隔圈和接触变形仍串联进入总柔度。来源MD2、MD9。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q417">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q417">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q421">Q421｜齿轮传动误差、侧隙和弹性扭转变形为何不能混称为回差？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>侧隙是相应几何间隙，反向时会造成一定空程；传动误差是实际位置相对理想传动关系的偏离，可以在单向运动中出现；弹性扭转变形随载荷变化。三者可能共同影响定位，但机制不同，不能用一次正反转位移差就把所有误差归结为齿隙。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>传动误差可来自制造偏差、安装偏差及啮合弹性变形，周期啮合刚度变化也会激励振动。理想线性扭转柔度下<code>Δθ=T/kθ</code>；小角度条件下，相关节圆切向空隙j可用<code>Δθ≈j/r工作</code>估计对应单轮角量，必须注明测量与折算位置。</p>
+<p><strong>辨析</strong>：预紧或双齿消隙可以减少反向间隙，却会改变内部载荷和摩擦，不会自动消除齿形误差及系统弹性。来源MD3、MD11。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q421">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q421">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q479">Q479｜轴承选型应先形成哪些输入，哪些标准各管什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先明确载荷及力矩历程、转速、寿命与可靠度、空间、精度刚度、温度、润滑污染和装拆要求，再选类型与型号。动载寿命、静载、轴承公差、内部游隙和失效分类分别有对应规范，不能用一个寿命计算代替整套选型。最终还要以具体厂商型号和使用条件复核。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>规范分工：ISO 281涉及动载荷额定值和额定寿命，ISO 76涉及静额定载荷；ISO 492涉及向心轴承几何规范和公差，ISO 5753-1涉及适用向心轴承径向内部游隙，ISO 15243用于滚动轴承损伤分类。尺寸系列、轴承类型和其他专用规范还需按产品确认。</p>
+<p><strong>输出</strong>：型号及后缀、配置图、载荷计算、寿命／静载／速度校核、配合与工作游隙、润滑密封、装配和验证计划。标准目录只确认范围，实际项目记录采用版本及厂商资料修订号。来源BR1、BR16。</p>
+</details></div><div class="question-links">关联阅读：<a href="02-理论知识.html#Q479">理论知识专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q479">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-m2">M2. 可观察现象与排查</h2>
+<p>关联速查：<a href="03-生活场景实践分析.html#chapter-v8">进入对应主板块</a></p>
+<article class="question" data-priority="P0"><h3 id="Q565">Q565｜机器人手臂停在空中不动，为什么电机仍持续升温？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>停住只代表速度为零，重力矩仍需要由电机、制动器或配重承担。如果电机持续出转矩，就有绕组铜耗，静止时散热条件也可能更差。我会先核对姿态与负载、保持电流和闸的状态，再排查摩擦、换相零位及散热路径。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>情景</strong>：桌面机械臂伸直搬持物体，空载收臂时温度较低。先按重心臂长算T重≈mgℓ，分别考察各关节姿态，不能只把物体重量当输出转矩。对比同姿态有无外载的相电流、绕组传感器及壳体温度，记录时间，区分热惯性与异常持续上升。</p>
+<p>保持时不能用恒定运动效率把重力矩精确换算为电机电流；齿轮静摩擦可能分担也可能不稳定。应由实测/静力模型评估。可行改进包括改变待机姿态、采用适用制动器或平衡机构、优化热接触、降低连续负载。不能简单降低保护阈值要求或放宽电流到未知安全区。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q565">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q565">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q566">Q566｜关节断电后难以手推，能否判定轴承装得太紧？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能直接下结论。抱闸、减速器摩擦、齿槽作用及电机绕组是否被短接都会影响手推阻力。先支撑负载并确认电气和制动状态，再比较正反向、不同角度及不同温度的阻力；必要时分离电机和传动，才能定位轴承预紧或擦碰。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>情景</strong>：同一关节拔掉电源后更难转动，而拆开相线后阻力下降。原因可能是控制器在断电状态通过电路形成电流路径，反电势产生制动力；应由电气人员确认，不能带电拔插大电流连接器作为试验操作。</p>
+<p>若开路慢速时每转固定角位置有卡点，检查偏心、气隙擦碰与编码器支架；热态均匀变重，关注润滑及预紧变化；启用伺服后变硬也可能只是位置环保持。手感可用于筛查，正式比较应用已知力臂和力/转矩测量，并规定角速度、姿态及制动状态。高减速比并不自动等同自锁。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q566">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q566">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q567">Q567｜低速转动“爬行、嗡鸣、细抖”，应先换电机还是调控制？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会先把现象按断电是否存在、是否随转速变化和是否随负载变化分开。断电卡点偏向机械或齿槽问题，通电才出现还要查换相、编码器和环路。比较独立电机与装入减速器后的结果，结合电流、角度和振动同步记录，再决定改结构或控制。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>具体顺序</strong>：检查紧固/干涉和反馈方向；限能量低速运行记录q轴电流与实际角；正反转和空/负载对照；确认电角零位、极对数和反馈校准；再由控制同事检查死区补偿、采样与环路。反复提高增益可能激发薄壁壳体或两惯量模式。</p>
+<p>每机械转一周的误差可能与编码器偏心或转子几何相关；与电频率或槽极周期相关的分量提示电磁来源，但仅凭某条频谱峰不能定罪。高频PWM声音、低频爬行和机械松动可能同时存在。验收应分别规定速度波动、角度误差、振动和噪声工况。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q567">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q567">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q568">Q568｜机械臂向下运动或急减速时母线过压，怎样从机械侧分析？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>负载下降释放势能，减速释放动能，电机可把这部分能量送回母线。若电源不能吸收，电容电压就会上升。我会计算最不利能量和功率，并核对动作时间、回馈路径及制动器件；不能把过压都归咎于驱动板故障。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>情景</strong>：水平往复正常，竖直轴下降报警。先核对负载、下降高度、各转动惯量和速度变化，计算可释放能量，再扣除有依据的损耗。共享母线的其他轴只有在同期确实耗能时才能计入吸收能力；不能假定总有另一个轴消耗。</p>
+<p>减慢动作可降低回馈功率，但同样高度下降释放的势能并不会消失；仅放大电容也可能不足。结构方案可调整储能/配重、热安装空间和动作轨迹，电气方案则确认电源吸能、回馈或制动电阻。过压阈值不应随意提高；定量示例见<a href="机械结构工程师面试与知识强化手册.html#Q588">Q588</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q568">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q568">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q318">Q318｜云台增益调大、机械结构加硬，为什么有时抖得更厉害？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>更大增益可能放大测量噪声、摩擦或柔性模态，并消耗相位裕量；加硬则会移动模态和传递路径。结构、执行器、传感器与控制要一起看，不是增益或刚度越大就一定更稳，先区分机械共振和闭环振荡。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>判别</strong>：固定姿态比较不同增益、载荷与支承，观察振动频率和电流；改变结构后重新调参。原厂自动调参通常也以正确机械配平为前提。[P-S4、P-S9]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q318">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q318">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q320">Q320｜同样停在一个位置，正向到达和反向到达却不一样，为什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>常见候选是回差、摩擦滞后和弹性变形，方向反转时接触侧或传动受力改变。编码器若在电机侧，也可能看不到输出端误差。我会做同向和反向到位对照，先区分重复性、回差和绝对精度。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／验证</strong>：增加预紧可能减小回差，但也增加摩擦与温升；不能只靠软件回零掩盖机械问题。用输出端测量和载荷变化区分几何间隙与弹性滞后。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q320">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q320">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q338">Q338｜电机轴静强度足够，为什么台阶处运行后疲劳断裂？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>静强度只回答一次载荷，旋转轴表面在固定空间横向力下会反复受拉压。台阶、键槽和表面缺陷提高局部循环损伤，弯扭还可能同时作用。我会重建材料点的应力历程，再检查圆角、加工纹路、配合和载荷谱，而不是只增加静安全系数。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>名义应力<code>σb=32M/(πd³)</code>、<code>τt=16T/(πd³)</code>。稳定空间弯矩通常对应旋转弯曲交变应力；恒定传递扭矩常对应材料点的平均剪应力。先定义坐标及各分量时程，再使用适用多轴疲劳方法，不能把静von Mises峰值直接当全反复应力幅。</p>
+<p><strong>取证</strong>：断口起源、表面刀痕、台阶半径、轴承跨距、装配偏斜、扭矩波动和每转载荷。挪动危险截面、增大允许圆角、缩短悬伸、改善表面通常值得比较；改圆角还需保证轴承倒角避让。教学静算见C5算例B。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q338">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q338">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-m3">M3. 结构设计与量产装配</h2>
+<p>关联速查：<a href="04-生产场景量产实践分析.html#chapter-p10">进入对应主板块</a></p>
+<article class="question" data-priority="P0"><h3 id="Q569">Q569｜给定关节任务，怎样完成电机与结构方案的第一轮评审？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先把任务转换为输出转矩、速度、加速度和外载谱，选几组电机与减速比候选，再同步校核热、惯量和传动寿命。剖面里先落实输出支承、转子轴系、定子定位、编码器和走线，最后形成能加工、能装配、能验证的接口与公差表。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>教学任务</strong>：输出最高30 r/min，某循环段需要30 N·m，峰值只持续1 s；径向外载与悬臂距离尚待提供，不能据此完成轴承定型。若先比较i=10、运动效率η=0.9的方案，这一段电机负载转矩约3.33 N·m、输出达到最高转速时电机为300 r/min；两者是否同时发生以轨迹为准，还需加电机自身惯量加速转矩。</p>
+<table>
+<thead>
+<tr>
+<th>评审层</th>
+<th>必须给出的证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入与边界</td>
+<td>负载谱、峰值持续/重复率、环境、供电范围、安装刚度</td>
+</tr>
+<tr>
+<td>结构方案</td>
+<td>输出力/力矩由谁承担；电机、减速器和轴承的定位关系</td>
+</tr>
+<tr>
+<td>参数预算</td>
+<td>连续热能力、速度电压余量、气隙、编码器误差、预紧与密封</td>
+</tr>
+<tr>
+<td>制造验证</td>
+<td>关键工序能力、装配顺序、转矩/温升/绝缘/EOL项目</td>
+</tr>
+</tbody>
+</table>
+<p>对人形关节可重点追问冲击、回驱和质量；协作臂可强调低速平稳、力控与保持；工业用途可强调刚度、连续工作和可靠性。这些是不同应用方向的准备重点，具体方案仍须按实际岗位与任务确认。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q569">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q569">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q570">Q570｜无框电机定子应选择压装、胶接还是夹持，怎样保证散热？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>定子固定同时承担反转矩、定位和导热。压装要防薄壁壳体及铁芯变形，胶接要控制胶层和固化，夹持要保证真实接触与防松。我会按壳体材料、温差、维修和产量选择工艺，并验证热态抗转、气隙以及热阻，而不是只看常温装得牢。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>对于均匀圆柱摩擦界面，抗转能力可初估T≈μp(πDL)(D/2)；对于均匀胶层剪切可写T≈τ(πDL)(D/2)。两者分别依赖接触压力或许用胶层剪应力；边缘应力、表面处理、温度、老化和热循环会使实际能力降低，不能直接用胶的室温拉伸强度替代。</p>
+<p>过盈压装需计算厚壁/薄壁变形、接触压力与热膨胀差，避免损伤绕组或把铁芯压成椭圆。胶层过厚可能增加热阻且固化偏移；夹环应有有效夹紧行程，防止压板先碰止口却未夹住定子。按供应商禁止受力区、绝缘温度及安装方式建立作业书。参见<a href="https://www.kollmorgen.com/sites/default/files/Framless%20motor%20Mounting%20%26%20Installation%20Guidlines.pdf">Kollmorgen安装指南</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q570">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q570">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q571">Q571｜同一壳体集成定子和两处轴承，基准、公差与装配顺序怎样安排？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会把轴承实际建立的回转轴线作为功能基准，再约束定子定位圆、转子安装圆和编码器位置。尺寸公差解决配合，形位控制解决偏心与倾斜，两者分开预算。装配按可达性设计，让压装力通过被装配套圈，并在定子固定及轴承预紧后复查气隙。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>教学结构</strong>：内转子套件，两处轴承在同一壳体中支承转子轴，输出另有支承。候选基准为轴承座公共轴线A、轴向定位端面B、周向安装特征C；是否用公共基准、基准顺序和检验方法应符合图纸采用的GPS体系。定子定位圆对A的关系、支承端面对A的垂直关系及轴上转子座跳动须由<a href="机械结构工程师面试与知识强化手册.html#Q587">气隙预算Q587</a>分配，不凭经验一律标0.01。</p>
+<p><strong>装配路线</strong>：零件计量与去毛刺清洁→定子固定/固化或热装并复测孔系→轴与转子连接及所需平衡→用导向防吸合工装装入→按实际结构装轴承与调整件→设定预紧/锁紧→检查全转角阻力及气隙→装反馈并标定→接入限流测试。若封闭结构要求先装某套圈，应在工装评审改顺序；不能强行让装配力穿过滚动体。轴承公差细节串联<a href="机械结构工程师面试与知识强化手册.html#Q535">Q535</a>，但不沿用其H7/g6教学假设作为电机配合规范。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q571">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q571">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q572">Q572｜转子、磁体和轮毂的连接怎样兼顾转矩、离心力与动平衡？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>需要分别检查轮毂传扭、磁体保持和整套旋转件平衡。粘接、过盈或机械连接都要覆盖温差、峰值转矩和超速边界；套筒还会影响气隙与涡流。平衡应针对规定装配状态，不能认为单个转子合格就等于带编码器和联接件的总成合格。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>磁体单块离心力可初估F=mω²r，但需按内/外转子和支承接触决定法向及剪切载荷方向；胶层还传递切向电磁力。保持套筒的厚度与材料影响周向应力、磁气隙和损耗，必须联合磁场、强度及工艺验证。转子轮毂的轴向对齐按具体电机图纸控制，端面齐平不一定就是磁中心对齐。</p>
+<p>关键工艺包括磁体极性/位置确认、表面处理、胶量与固化、定位防偏、异物控制、跳动、平衡记录和防松追溯。不得任意磨削磁体或改动保持结构作为平衡修正；校正面、材料去除区和允许残余不平衡需设计批准。超速试验须有额定边界和防护工装，不能把面试估算直接当试验指令。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q572">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q572">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q573">Q573｜为什么电机转子轴承不能默认承担关节输出端的全部外载？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>电机轴承可能只按转子支承设计，而输出端还存在径向力、轴向力和倾覆力矩。若把外载经减速器和细长转子轴传回，会改变气隙、预紧与齿轮啮合。我会画出力流，确认减速器是否自带合格输出支承，再分别校核轴承、壳体和连接。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>例如输出法兰受F作用于距支承ℓ处，额外倾覆力矩M=Fℓ；其引起的轴承载荷依赖支承跨距、类型及刚度，不能只将F均分。交叉滚子或成对角接触轴承需分别审查力矩、预紧、座圈变形和安装面，而不只查基本额定动载荷。</p>
+<p>谐波组件、完整减速器单元和带输出轴承的执行器职责不同；柔轮/刚轮/波发生器的连接按厂家要求控制定位与紧固，薄壁件不得因螺栓预紧变形失效。连接刚度和安装台刚度都应进入性能验证。热膨胀的浮动位置要与轴承功能一致，不能一边要求浮动一边用端盖两端夹死。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q573">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q573">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q574">Q574｜编码器装好能读数，为什么还必须做机械与电角校准？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>能通信只证明有数据，不证明方向、角度精度和换相关系正确。先控制码盘或磁环的偏心、倾斜和间距，再校验方向、极对数、电角零位与关节机械零位。双编码器还要校核传动比和同步性，校准结果要与整机序列号绑定并能追溯。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>工序</strong>：按传感器型号确认尺寸窗口→无负载或受控约束下核对读数方向→在限电流/限位移工况完成换相辨识→建立机械基准→多角度检查误差→验证断电重启、温漂及重装影响。标定算法和激励步骤由对应控制/电气方案批准；不能在悬空重载轴上盲目执行自动辨识。</p>
+<p>电角偏移需要和相序、编码器方向及极对数一起存储。替换转子、编码器、驱动板或重装连接可能改变对应关系，不能复制邻机参数。磁式反馈还要检查电机漏磁、制动线圈和铁磁螺钉干扰。单点调零不能补偿全圈偏心误差，分辨率不能替代精度报告。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q574">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q574">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q575">Q575｜电机、编码器和驱动器的线缆与密封怎样共同设计？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>线缆要同时满足空间、弯折、固定、绝缘和干扰要求。动力线、敏感反馈线与屏蔽接地方案应同电气团队确定，避免线缆被转子磨伤、端子受力或密封处进液。中空走线还要审查全行程扭转与最小弯曲半径，不能只看静态装得下。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>结构核查</strong>：出口护套/圆角、应力释放、连接器锁止与防错、维修拔插空间、转子间隙、扎带边缘、密封压缩和线缆公差；反复弯折按线材厂家规定的动态半径和扭转寿命验证，不能用一条通用倍径规则。</p>
+<p>屏蔽终端、接地路径与功率回路布置由EMC方案确定；机械侧保证导电接触、涂层避让、屏蔽连续及振动后可靠性。防水透气件或灌封会改变冷凝、压力循环、热阻和维修性；材料还需兼容油脂和清洁剂。IP等级必须对应整机连接器、线缆与试验状态，不等于长期浸泡或耐所有冷却液。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q575">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q575">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q576">Q576｜电机和驱动器共用壳体时，怎样设计热路径和功率器件安装？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会把绕组、功率器件和电容等热源分别建模，追踪它们到壳体与冷却介质的路径。共享壳体能节省空间，但会互相加热。接触面平面度、TIM厚度与压缩、紧固顺序和冷板密封都影响结果，应按器件允许载荷和实际热边界验证。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>两种情景</strong>：自然冷却小关节重点检查定子—壳体接触与外表面对流；集成液冷电驱则增加流道压降、密封、冷却液兼容、凝露以及功率器件到冷板的接触。不能将整机平均温度代替半导体结温、绕组热点或电容芯温。</p>
+<p>TIM选型考虑导热系数、实际厚度、泵出/干涸、压缩曲线及电绝缘职责；R≈t/(kA)只是材料层的一阶估算，真实还有接触热阻。压得更薄可能降低热阻，也可能造成器件/PCB应力或击穿风险。螺钉载荷、垫片、止挡和公差应保证压力窗口，热循环后复测泄漏、绝缘与热性能。</p>
+<p>电驱封装及热机械接口适用于多种集成关节方案。冷却方式与供电平台应由实际功耗、空间和应用条件确定，不预设为液冷或汽车电压平台。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q576">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q576">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q577">Q577｜电机侧保持制动器的装配和交接时序怎样验证？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>装配先控制摩擦面清洁、气隙、同轴和轴向定位，再核对释放电压及温升。验证要看抱闸能否保持、释放是否拖磨，以及电机承载与制动器交接时有没有下滑。静态保持和紧急动态接合分开评价，所有工况都要有负载防坠措施。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>机械侧确认轴毂联接防滑、反力件固定、摩擦面不沾胶/油脂、允许轴向窜动及装配误差。制动线圈通电发热会改变邻近编码器和润滑温度，残余拖矩也可能成为异常温升源。</p>
+<p>试验包含额定条件正反向静态保持、冷热态释放/抱合、响应时间、磨损后间隙及掉电行为。电机侧闸按实际传动静态能力换算负载，不能直接用正向运动效率给反向静态保持保证。若产品允许动态接合，才按其能量和次数边界试验；若不允许，则系统必须另行处理运动停止。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q577">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q577">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q578">Q578｜关节模组量产EOL应测什么，怎样关联工艺追溯？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>EOL应验证制造中容易失控且能快速测出的关键特性，包括电气连通与绝缘、反馈方向和零位、低速阻力、空载电流及基本转矩功能。结果要绑定零件批次、装配参数和软件版本。长时间温升与寿命不能全部塞进节拍，而应由型式试验和抽检覆盖。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><table>
+<thead>
+<tr>
+<th>工序/站点</th>
+<th>记录与筛查目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来料与装配</td>
+<td>定转子/磁体批次、孔轴尺寸、清洁度、胶量固化、压装曲线、锁紧参数</td>
+</tr>
+<tr>
+<td>电气检查</td>
+<td>温度修正后的相/线电阻及一致性、连接、绝缘与传感器有效性</td>
+</tr>
+<tr>
+<td>标定与运转</td>
+<td>相序/编码器方向、极对数、电角与机械零位、低速电流/拖矩、制动状态</td>
+</tr>
+<tr>
+<td>放行追溯</td>
+<td>序列号、BOM/固件/参数版本、工装与测量系统状态、异常及返工闭环</td>
+</tr>
+</tbody>
+</table>
+<p>边界由设计验证和过程能力建立，不能直接把样机均值±3σ当功能合格线。坏样本挑战、测量系统分析、工位互校和返修后复测防止“全部绿灯但漏检”。绝缘耐压是否整机测试、测试电压和对电子器件的隔离必须按批准规程；不能直接给装有驱动板的总成套用裸电机耐压条件。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q578">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q578">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q499">Q499｜轴承轴颈和座孔的公差带，应按什么顺序设计？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先判断内外圈各自的载荷旋转关系和定位功能，再按型号、载荷大小、温度、材料和装拆方式选候选公差带。随后计算实际配合极限及对工作游隙的影响，最后配套几何精度和表面要求。不能从图纸模板抄一组H7/k6就直接完成设计。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>设计链</strong>：厂家适用表及脚注 → 轴承套圈尺寸公差 → 轴／孔公差带与尺寸段 → 最大／最小过盈或间隙 → 弹性及热态影响 → 装配可行性与功能验证。</p>
+<p>常见h、js、k、m等轴带以及H、J／JS、K、M、N等孔带只是候选范围；应记录为什么需要该配合，是否允许套圈轴向移动。公开表基于钢轴、铸铁／钢座时，不能无条件用于铝座或薄壁结构。来源BR5、BR10。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q499">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q499">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q535">Q535｜一对角接触轴承内孔H7、外径g6，同轴同座安装，轴和加工件怎样设计与装配？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>这两个公差带不能单独决定轴和座的最终要求。我会保留题设套圈条件，先补充尺寸、配对方式、载荷和温度，算出实际配合，再分开设计径向定位、轴向夹紧与预紧。轴和座都要控制座面形状及挡肩方向，装配力只能作用于正在克服配合阻力的套圈，最终以锁紧后的转矩、刚度和热态表现复核。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>1. 把题目补全成可计算的教学场景</strong></p>
+<p>用户原条件是：一对角接触轴承，内孔H7、外圈g6；两内圈安装到同一主轴，两外圈固定在同一加工件。这里将g6解释为外圈<strong>外径</strong>公差带，保留该假设，不将其暗换成普通商品轴承公差。实际采购角接触轴承须按完整型号、精度级和厂家套圈数据另算，见Q536。</p>
+<p>为展开流程，<strong>增加以下教学条件</strong>，它们不是用户已提供的产品参数，也不是某型号推荐值：</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th>教学设定及作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>几何</td>
+<td>两只单列、不可分离角接触球轴承；d＝30mm、D＝62mm、名义宽度各16mm；不指定实际商品型号</td>
+</tr>
+<tr>
+<td>配对</td>
+<td>已由供方匹配、相邻背对背DB安装，接触角及预置预紧由配对技术条件定义；并非任意两只散件</td>
+</tr>
+<tr>
+<td>工况</td>
+<td>钢实心轴旋转，钢质一体座静止；径向载荷方向相对座固定，同时存在需由该DB组承受的双向轴向载荷；低至中速、非冲击的教学分析起点</td>
+</tr>
+<tr>
+<td>定位</td>
+<td>该轴承组是轴向定位组，本题无第二个会锁死轴向热伸长的远端支承</td>
+</tr>
+<tr>
+<td>结构</td>
+<td>轴为一个连续安装圆柱＋轴肩＋锁紧螺母；座为一个可从端盖侧装入的连续座孔＋座肩＋可拆端盖</td>
+</tr>
+<tr>
+<td>温度／精度</td>
+<td>先在20℃参考状态算尺寸；实际Fr、Fa、n、热梯度、允许径向移动和回转误差仍未给出，不能据此签发生产图</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. 套圈尺寸与候选轴座配合</strong></p>
+<p>按普通孔轴公差带展开题设：30H7为30.000～30.021mm，62g6为61.971～61.990mm；30落在“超过18至30”段，62在“超过50至80”段。公差带数值按AC1的配合数值表及AC6代码体系核对；<strong>这里只借用普通H7/g6数值建立假设，不宣称厂家轴承套圈符合这两个带</strong>。</p>
+<p>先按固定载荷外圈可考虑间隙配合、轴肩及端盖负责轴向止动的路线，列出候选：</p>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>候选尺寸／mm</th>
+<th>与题设套圈组合的结果</th>
+<th>能否据此定案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>轴颈采用常见30k6</td>
+<td>30.002～30.015</td>
+<td>过盈定义I＝轴−孔，I为−19～+15μm，可能有间隙</td>
+<td><strong>不能保证本题内圈过盈</strong>；不能照抄标准轴承经验</td>
+</tr>
+<tr>
+<td>轴颈采用自定义评审候选</td>
+<td>30.025～30.030</td>
+<td>I为4～30μm</td>
+<td>仅几何上保证过盈；要查最小有效过盈、最大套圈应力和装后预紧</td>
+</tr>
+<tr>
+<td>座孔采用62H6</td>
+<td>62.000～62.019</td>
+<td>间隙g＝座孔−外圈，g为10～48μm</td>
+<td>可作为便于插装的候选，但是否容许该径向移动尚未证明</td>
+</tr>
+</tbody>
+</table>
+<p>候选轴写法可用<code>⌀30 +0.030/+0.025</code>，不能错误贴成k6。内圈H7本身宽21μm，已经限制了任意互换时可实现的过盈窗口宽度，见Q546。</p>
+<p><strong>关键限制</strong>：H6座孔路线下，最大直径间隙48μm对应单侧几何移动尺度24μm。如果功能允许的轴线径向移动只有10μm，即使座孔位置度很小，也不能靠“端盖压紧”证明满足；可能需要改套圈输入、选配、过渡／过盈路线或另有经过验证的保持方案。外圈受旋转载荷、强振动或高定位要求时，须重新选配合，不能沿用本候选。</p>
+<p>若题目进一步明确“两外圈也必须过盈”，则另列自定义座孔候选<code>61.965～61.970mm</code>，外径61.971～61.990与之组合得到<strong>1～25μm直径过盈</strong>。这只是区间演示，不证明1μm有效过盈足够，更不允许继续使用后述“外圈自由插装”的流程；双紧配合装配改走Q541，套圈变形与预紧也须重算。</p>
+<p><strong>3. 轴的尺寸与形位要求：先定义基准，再给控制对象</strong></p>
+<p>连续安装圆柱建立轴基准A，轴肩端面作为轴向基准B；若实际采用两个分离轴颈，应按图定义共同轴线或主次基准并控制它们的关系，不能给两个互不相关的“⌀30”就结束。以下数值仅是<strong>待复核的教学图纸候选</strong>，不是由H7/g6推导的通用标准。</p>
+<table>
+<thead>
+<tr>
+<th>轴上对象</th>
+<th>应给出的要求</th>
+<th>教学候选／需查条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>轴承安装圆柱</td>
+<td>尺寸极限、圆柱度、有效配合长度、表面状态</td>
+<td>尺寸见上表；圆柱度0.002mm、Ra 0.4μm作为评审起点；核对实际局部尺寸与环变形</td>
+</tr>
+<tr>
+<td>轴肩支承端面</td>
+<td>对A的方向／端面全跳动及有效环面</td>
+<td>可暂以端面全跳动0.004mm评审；不能与预紧位移直接等同</td>
+</tr>
+<tr>
+<td>工作端／工具定位面</td>
+<td>相对A的圆跳动、全跳动或位置要求</td>
+<td>按实际输出功能分配，不由轴承座圆柱度自动保证</td>
+</tr>
+<tr>
+<td>轴肩直径、圆角、退刀槽</td>
+<td>套圈支承范围、ra上限和工具可达性</td>
+<td><strong>须用实际型号安装尺寸表</strong>；本题不能凭d、D、B推造da和ra</td>
+</tr>
+<tr>
+<td>锁紧螺纹和锁紧件</td>
+<td>与A的对中关系、承载、防松、压紧端面质量</td>
+<td>不能让偏斜锁紧面把套圈压歪；夹紧力／扭矩按配对及连接要求计算</td>
+</tr>
+<tr>
+<td>轴向长度链</td>
+<td>两内圈的实际贴合状态、锁紧件行程、避让槽</td>
+<td>两个16mm名义宽度相加不等于已经定义预紧；不得用螺纹退刀槽顶住套圈</td>
+</tr>
+</tbody>
+</table>
+<p>圆柱度是自身形状控制，不应给该圆柱相对自身基准A再标一个无意义的径向跳动。Ra是表面粗糙度，不能替代形状误差和有效过盈分析。若工艺或功能预算不支持上表数值，应调整结构和分配，而非宣称“达到该数字就合格”。</p>
+<p><strong>4. 加工件／座体的尺寸与形位要求</strong></p>
+<p>以整机真实安装界面建立外部基准系M、N、P（例如安装底面、侧向定位面、端部定位要素）；座孔派生轴线记为C，用于座肩及端盖工作面的关联。不要为简化加工而把与实际装机无关的毛坯外边当主基准。</p>
+<table>
+<thead>
+<tr>
+<th>加工件对象</th>
+<th>应给出的要求</th>
+<th>教学候选／需查条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>连续座孔</td>
+<td>直径带、圆柱度、配合长度、表面质量</td>
+<td>主路线62H6；圆柱度0.005mm、Ra 0.8μm作评审起点，不覆盖锁紧变形</td>
+</tr>
+<tr>
+<td>座孔对整机定位关系</td>
+<td>轴线相对M、N、P的位置与方向</td>
+<td>可示范圆柱位置公差带⌀0.020mm；这是孔轴线位置指标，不是主轴回转跳动20μm保证</td>
+</tr>
+<tr>
+<td>座肩</td>
+<td>相对C的端面全跳动／方向，连续有效支承环面</td>
+<td>教学候选端面全跳动0.005mm；依安装尺寸表核对支承直径与倒角避让</td>
+</tr>
+<tr>
+<td>两段座孔（若非连续）</td>
+<td>同一功能轴线下的相互关系</td>
+<td>不能只各给尺寸公差；按基准方案控制位置、方向和形状，并评估装夹状态</td>
+</tr>
+<tr>
+<td>端盖</td>
+<td>工作压紧面的平面度、平行关系、定位和刚度</td>
+<td>教学候选工作面平面度0.003mm；在实际锁紧状态检查偏压和座孔形变</td>
+</tr>
+<tr>
+<td>安装底面与紧固处</td>
+<td>功能平面、定位、防错及紧固变形</td>
+<td>平面度、孔位与拧紧状态按整机安装预算，不能将螺钉通孔当精密定位</td>
+</tr>
+<tr>
+<td>腔深／端盖伸出量</td>
+<td>保证外圈贴合、端盖不意外先触底、夹紧过程可测</td>
+<td>按实际配对端面尺寸和规定装配状态建链；算例Q547</td>
+</tr>
+</tbody>
+</table>
+<p><strong>同一加工件不等于自动同轴</strong>：连续孔在同一次可靠装夹中完成有利于控制关系，但刀具挠曲、热漂移和锁紧变形仍需测量；最终验收基准与加工基准应有清楚关联。</p>
+<p><strong>5. 主路线的可执行装配顺序</strong></p>
+<p>以下仅适用于已确认允许的“内圈紧配合＋外圈有间隙插入＋相邻DB匹配组”路线。用制造商规定的夹紧力使配对端面正确靠合，与通过滚动体传递压装阻力是两回事。</p>
+<ol>
+<li><strong>装前确认</strong>：核对完整型号、配对编号、DB方向图、润滑和限温要求；实测轴、孔、套圈及端面，复算该配组范围。去毛刺、清洁，检查轴肩圆角与套圈倒角不相顶。</li>
+<li><strong>核对空间路径</strong>：在剖视图中检查主轴肩、螺母、工装及两外圈能从端盖侧通过；座肩开口不能挡住应穿过的轴部，端盖及锁紧件要有可操作空间。几何无法通过时先改结构，不能靠装配时强压解决。</li>
+<li><strong>安装内圈到轴</strong>：按厂家允许的方法加热或用套筒对内圈施力，依配对顺序装到轴肩。第二内圈的支撑路径须经正确内圈端面／工装，不让压入力经球传到外圈；不敲击外圈推内圈上轴。</li>
+<li><strong>轴侧初步锁定与检查</strong>：按该配对产品的要求处理内圈端面靠合与螺母锁定。尚未形成完整外圈约束时，不依据临时手感判定最终预紧；记录受力和轴向贴合情况。</li>
+<li><strong>转子组件入座</strong>：主路线外圈应能在规定清洁、温度及姿态下插入座孔，靠合座肩；支承整个组件，避免倾斜卡入。若出现超出预期的阻力，停止检查局部尺寸、形状和毛刺，不能通过主轴强拉使外圈越过阻力。</li>
+<li><strong>外圈夹紧及最终锁定</strong>：端盖正确定位、均匀对称靠合，按型号及连接设计所需夹紧力完成内外圈最终锁定。外圈压紧面不得压到密封或保持架；端盖法兰不可在外圈未靠合前先触底。采用定位置结构时不得把多余端盖压入量当成任意预紧调节手段。</li>
+<li><strong>装后复核</strong>：检查最终锁定后贴肩、端隙或规定预紧相关量、低速转矩—角度、轴端受载位移及工作面跳动；采用有意义的基准与载荷，不能只看空转时间。</li>
+<li><strong>工作态验证</strong>：按实际转速、载荷、温度和润滑跑合，记录温升及其趋势、转矩、振动和精度；复核匹配组预紧受配合及温差影响的结果，再决定是否达到该产品要求。</li>
+</ol>
+<p><strong>6. 本题能给出的结论与还缺的参数</strong></p>
+<p>已给出两种配合路线、明确的轴／座控制对象、带数字的候选图纸要求和可检查的装配路径；<strong>没有给出足以批准任意实际产品的最终公差方案</strong>。必须补充实际轴承完整型号及允许配合／预紧、Fr/Fa/力矩与n、温差、功能精度预算、环及座结构、寿命与装配方式，再确定最终尺寸带、形位数值、夹紧力和验收阈值。</p>
+<p><strong>面试追问</strong>：为什么k6在该假设中不保证过盈？H6外圈间隙能否满足10μm径向定位？端盖先触底会发生什么？为什么双过盈后不能沿用原装配顺序？分别见Q546、Q548、Q547和Q541。来源AC1～AC5、AC7。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q535">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q535">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-m4">M4. 仿真测试与故障验证</h2>
+<p>关联速查：<a href="05-仿真测试实践分析.html#chapter-s9">进入对应主板块</a></p>
+<article class="question" data-priority="P0"><h3 id="Q579">Q579｜怎样搭建可信的关节转矩—转速和效率验证？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先定义测电机还是整机，再用校准的转矩、转速和电功率测量建立能量边界。连续能力要满足规定安装和热稳定条件，峰值要说明初温及持续时间。测试还应覆盖正反转与回馈，扣除或说明夹具损耗，不能只展示一个最好看的效率点。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>边界示例：直流输入Pin=平均[u(t)i(t)]，输出Pout=Tₒωₒ；电源显示平均电压×平均电流未必等于真实功率，尤其有纹波/回馈时。三相端功率应使用适当功率分析仪，不能把母线功率称为裸电机输入。回馈区明确符号与效率定义，低功率接近零处不报无意义比例。</p>
+<p>测功机/转矩传感器需考虑量程、带宽、零漂、联轴器对中、支承摩擦和安装刚度。记录冷却、安装面温度、绕组估计温度、相电流、母线电压以及限流状态。转矩—转速网格与工作循环均需覆盖，连续点采用项目定义的热稳定判据，峰值点另标持续/恢复时间和允许次数。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q579">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q579">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q580">Q580｜堵转温升与热仿真怎样关联，壳体凉能否证明电机安全？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>壳体凉可能说明损耗小，也可能说明内部导热差，不能直接判断安全。热仿真需输入各位置损耗和实际接触热阻，试验同时测壳体、定子与绕组相关温度。堵转要有防转工装和限流保护，并检查不同电角位置造成的相绕组发热差异。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>建模路径</strong>：电磁/驱动损耗映射→绕组、铁芯、壳体、TIM与冷却边界→稳态和瞬态求解→传感器位置对比→按物理证据修正接触热阻。不能把全部损耗均匀施加在壳体，或只调对流系数直到一个测点吻合。用独立工况验证校准后的模型。</p>
+<p>铜绕组电阻测温可用T₂≈T₁+(R₂/R₁−1)/α₁，α₁为T₁附近的铜电阻温度系数（20℃附近常用约0.00393 K⁻¹作教学近似）；引线电阻与测量延迟需修正，得到的是电阻加权平均温度，不是热点。静止FOC三相电流通常不是各相随时间正弦轮换，单相热点随转子电角位置变化；额定运行RMS热结论不能无条件搬到堵转。算例见<a href="机械结构工程师面试与知识强化手册.html#Q586">Q586</a>。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q580">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q580">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q581">Q581｜如何区分关节回差、扭转刚度、滞回和编码器误差？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>应在受控边界下对输出端正反向加载，同时记录外部角度、输出编码器和电机编码器。曲线斜率反映刚度，换向空程与回程环反映失动和滞回，但都可能混入夹具变形。先去除零位和夹具影响，再讨论传动本体，不能只读控制器跟踪误差。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>设输入端固定或按规定伺服状态保持，输出施加已知转矩；固定输入和伺服保持是不同边界，报告需注明。局部切线刚度kθ=dT/dθ、割线刚度T/θ及分段刚度不是同一指标；小角度测量需rad统一单位。多级载荷、正负回程和冷热态有助于区分摩擦、弹性及预紧变化。</p>
+<p>有限元可先检验轴、壳体、法兰和连接的柔度，减速器采用经验证的等效非线性刚度/滞回模型；全刚性连接会高估性能。双编码器差值还需时间同步与传动比校准，外部高精度角度基准用于检验系统误差。减速器标称低回差不等于整机关节零滞回。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q581">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q581">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q582">Q582｜电机集成后噪声升高，怎样做阶次分析与仿真实测闭环？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先同步采集转速、相电流、振动和声音，通过升降速区分随转速移动的阶次与固定结构共振。再对比独立电机、带传动和装入壳体的状态。频谱只能提出假设，还要通过改变负载、反馈校准或安装刚度验证，避免看到一倍频就只做动平衡。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>机械转频fᵣ=n/60，电频率fₑ=pfᵣ；普通齿轮啮合频率可由齿数×对应轴转频构造。槽极组合、绕组谐波、偏心、轴承几何和PWM可带来更多分量，不能统一把齿槽频率当电频率。谐波减速器啮合运动需按真实拓扑推导。</p>
+<p>结构模态模型包括实际安装约束、紧固接触和附加质量；电磁激励需来源于可信电磁计算或测量，普通静力结果不提供噪声幅值。若通过某转速时噪声陡增且频率与模态接近，可检查共振；若全速域一倍频随转速变化，也仍需排查对中、偏心与磁拉力。记录传感器位置、采样、窗函数和阶次跟踪方法，避免混叠及声压与振动单位混用。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q582">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q582">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q583">Q583｜如何用相电阻、反电势和绝缘测试定位电机装配缺陷？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>相电阻可筛查接触与绕组不一致，反电势有助于检查相序、磁体和绕组状态，绝缘测试用于检查对地及规定回路的隔离。每项都要说明温度、转速、接线和测试边界。测试驱动板连接的总成前，必须确认电子器件是否承受得住相应试验。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p>低电阻采用适当四线测量并修正温度；Y接且无并联路径时线间电阻为两相串联，三条线间值比较可以发现不对称，但不能直接定位所有匝间缺陷。反电势在受控转速、开路及规定带宽下测量，核对波形、幅值和相位；峰峰值、峰值、RMS以及线/相量分开记。</p>
+<p>绝缘电阻、介电强度和匝间检查目的不同，某一项通过不能代表其他项通过。按具体绝缘设计、供应商规程和适用标准规定电压、时间、泄漏判据、隔离与放电，由具备资质的人员及防护工装执行；不在手册给未知电机套用通用电压。返工后要复核引线压伤、灌封裂纹、异物及连接器针脚错误。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q583">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q583">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q584">Q584｜关节模组的耐久与环境试验怎样覆盖实际失效？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会从实际任务谱和失效模式出发，把转矩、转速、反转、外载、温度及停机保持组合起来。评价不只看还能否转动，还要跟踪温升、电流、回差、刚度和绝缘漂移。碰撞与紧急制动单独定义边界，不能用一次过载通过替代长期寿命。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>矩阵例</strong>：连续低速保持检验绕组/闸热；高频换向检验连接疲劳与线缆；冷热循环检验胶接、过盈、TIM和密封；带倾覆力矩运行检验支承与气隙；环境粉尘/湿热检验防护与反馈。工况优先级来自任务和风险，不是所有产品都要采用相同试验组合。</p>
+<p>建立初始、阶段和终止性能基线，拆检磁体保持、磨痕、润滑、滚道、螺纹与绝缘。加速试验要证明失效机理未改变；盲目提温/提载可能产生实际不会发生的失效。样本数、可靠度、置信度和失效判据由验证计划确定，单台无故障不等于统计寿命保证。这里给出计划方法，不宣称已有实测结果。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q584">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q584">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q126">Q126｜螺栓、轴承与接触如何简化才可信？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>简化连接要保留实际允许运动、预紧和柔度。全绑定可能虚增刚度，轴承也不应锁死所有方向；整体模型给连接力后，可再做局部细化。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：根据所求结果保留关键刚度、自由度、预紧和接触状态。螺栓连接要考虑接合面是否分离／滑移；轴承不能默认锁死所有方向；绑定接触只适用于确实不相对运动的连接。必要时局部子模型补充热点分析。</p>
+<p><strong>追问／风险</strong>：把本可滑移的接触全部绑定，往往虚增刚度并改变载荷分配。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q126">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q126">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q128">Q128｜模态结果能告诉你什么、不能告诉你什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>模态告诉我固有频率和振型，用于识别柔弱方向和可能共振。振型通常归一化，实际振幅还需激励与阻尼，不能把显示变形直接当毫米值。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：给固有频率和振型，帮助识别可能与激励接近的柔弱模式；线性模态振型幅值常被归一化，不能当实际振幅。需要考虑载荷、边界、预紧、质量和阻尼；响应幅值还需激励与频响／瞬态分析。</p>
+<p><strong>追问／风险</strong>：电机转频、齿轮啮合频率、路面激励和控制带宽中，哪些可能激发结构？</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q128">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q128">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q135">Q135｜采样率、滤波、传感器安装与标定为什么重要？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>采样、带宽、滤波和安装都会改变测得的峰值与频率。先选能覆盖目标信号的传感与采集链，再保留原始数据，不能把分辨率或采样率单独当准确性。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>期望答复</strong>：采样需覆盖目标频带并避免混叠，峰值测量还取决于传感器带宽与滤波；安装刚度、方向、附加质量与零漂可能改变信号。量程过大可能分辨不足，过小会饱和；记录原始与处理数据及处理参数。</p>
+<p><strong>追问／风险</strong>：普通手机视频通常不能直接支持短时冲击峰值或高带宽响应结论。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q135">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q135">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q240">Q240｜怎样从装配间隙、公差和温漂确定变形限值？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我从名义间隙扣掉制造偏差、未计入模型的热闭合和必须保留的余量，得到机械闭合预算。然后比较两件同一方向的相对位移，不能只看屏幕绝对下沉。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><div class="problem"><p><strong>场景与提问</strong>：屏幕下方与 PCB 的名义间隙 0.60 mm，制造／装配最坏偏差会使间隙减少 0.15 mm，另有尚未计入结构仿真的热闭合量 0.05 mm，要求加载后仍保留至少 0.10 mm。求允许机械闭合量，并判断软件结果。</p>
+</div><p><strong>1. 建预算</strong>：定义机械变形导致两者靠近的量 c_mech 为正，则：</p>
+<p><code>g_remaining=0.60−0.15−0.05−c_mech≥0.10 mm</code>。</p>
+<p>因此 <code>c_mech≤0.30 mm</code>。<strong>0.30 mm 是由本题功能链推导出的限值，不是材料许用变形，也不是通用经验值。</strong></p>
+<p><strong>2. 软件读数</strong>：假设同一工况／时刻屏幕向下位移 0.42 mm，PCB 向下位移 0.18 mm；在小变形且选点代表间隙的假设下，闭合量为 <code>0.42−0.18=0.24 mm</code>。</p>
+<p><strong>3. 判定</strong>：剩余间隙 <code>0.60−0.15−0.05−0.24=0.16 mm≥0.10 mm</code>，该位置该工况通过，间隙余量为 0.06 mm。不能因屏幕绝对位移 0.42 mm 大于 0.30 mm 就误判失败。</p>
+<p><strong>4. 变体</strong>：若可靠闭合量为 0.34 mm，则剩余 0.06 mm，小于要求 0.10 mm，不通过；即便应力安全系数很高也不能放行。</p>
+<p><strong>5. 实际应用</strong>：扫描全部潜在最小间隙位置和工况；有大转角或接触时应直接评定变形后的几何间隙，不能简单用任意两点位移差。热变形如果已在耦合结果里计算，则不能再次扣 0.05 mm；装配公差同样要避免重复计入。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q240">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q240">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-m5">M5. 公式、算例与资料路线</h2>
+<p>关联速查：<a href="06-常用数据和公式汇总.html#chapter-r11">进入对应主板块</a></p>
+<article class="question" data-priority="P0"><h3 id="Q585">Q585｜怎样计算电机转矩、转速、惯量及循环RMS电流？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先明确所有量所在的轴，再把输出载荷换算到电机侧，另外计入电机侧旋转件的加速转矩。峰值检查电流和短时能力，RMS电流只作热负荷的一阶筛查，转速还要检查电压余量。效率、惯量与零速保持的适用条件不能混在同一个公式里。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>教学假设</strong>：i=10，正向运动效率η=0.9；某时刻输出所需转矩Tₒ=30 N·m，已包含负载惯性和外载；αₒ=5 rad/s²，电机侧自身总惯量Jₘ=0.0002 kg·m²，不计其他输入端损耗。则αₘ=iαₒ=50 rad/s²，Tₘ=Tₒ/(ηi)+Jₘαₘ=3.333+0.010≈3.343 N·m。不能再把输出负载惯性重复加一次。</p>
+<p>若该时刻输出nₒ=30 r/min，则nₘ=300 r/min；负载惯量Jₗ=0.02 kg·m²折算至电机为0.0002 kg·m²。电机惯量折算到输出为0.020 kg·m²，说明提高减速比不一定改善输出端动态感受。</p>
+<p>另给一组已经完成动力学计算的电机相RMS电流：8 A持续1 s、3 A持续3 s、0 A持续2 s，则周期RMS=√[(8²×1+3²×3)/6]≈3.894 A。仅当散热与损耗假设成立且周期相对热时间常数足够短时，可用其比较连续热能力；8 A峰段仍须单独校核。若Kₜ=0.5 N·m/A相RMS，则前一时刻需约6.687 A相RMS，此Kₜ是教学值，不是真实产品参数。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q585">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q585">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q586">Q586｜三相铜耗、稳态温升和一阶热响应怎样手算？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先把线间电阻转换到真实接法的相电阻，再用三相电流平方和计算铜耗。稳态用损耗乘热阻估温升，瞬态再加入热容。必须说明电阻温度和热阻边界，计算得到的是简化温度节点，不能把它直接当最热点或正式热额定。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>教学假设</strong>：对称Y接，运行温度下R线间=0.6 Ω，因此R相=0.3 Ω；平衡正弦运行I相RMS=4 A。Pcu=3×4²×0.3=14.4 W。其他进入同一简化热节点的损耗假设5.6 W，合计20 W。注意此处不是把冷态电阻直接当热态电阻。</p>
+<p>环境40℃，节点到环境Rθ=2 K/W，则稳态节点温度T∞=40+20×2=80℃。若接触恶化使Rθ=3 K/W，其余仍按题设固定，则估为100℃；真实铜阻随温度上升，需迭代计算，结果可能更高。不能把这个100℃当所有电机的限值。</p>
+<p>若初始温度等于环境，Cθ=60 J/K，τ=RθCθ=120 s，则ΔT(t)=PRθ[1−exp(−t/τ)]，120 s时温升约25.285 K、温度约65.285℃。多热源、多层绕组或强温变条件应改用热网络/仿真。堵转固定电角下，应按瞬时各相电流平方和及各相热点分析，不能不加区分地用4 A当每相直流电流。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q586">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q586">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q587">Q587｜气隙预算与编码器角误差怎样换成可比较的结构指标？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>气隙按单边径向量做最坏组合，并把尺寸、偏心、轴承位移、弹性和热变形的定义写清，防止把直径公差直接相加。编码器则分别算分辨率和准确度对应的末端位移，通常真实角度误差远大于一个数字计数，不能只追求更高位数。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>气隙教学预算</strong>：名义单边g₀=0.50 mm；互不重复的单边侵占分别为定位偏心0.04、尺寸/形状径向贡献0.02、轴承位移0.03、负载挠曲0.05、热态相对变化0.04 mm。最坏gmin=0.50−0.04−0.02−0.03−0.05−0.04=0.32 mm。若项目教学目标要求保留0.15 mm，则预算余量0.17 mm；这些数不是厂商气隙规范。矢量偏差和相关性可进一步建模，但未经过程能力证明不得随意以RSS代替碰擦风险的最坏核查。</p>
+<p><strong>角度教学预算</strong>：20 bit单圈分辨率Δθ=360°/2²⁰≈0.0003433°=1.236 arcsec；有效力臂L=0.4 m，单个计数对应L×2π/2²⁰≈2.397 μm。若实际系统角度准确度为±0.03°，对应末端切向误差约±0.4×0.03π/180=±209.44 μm，还未加臂杆挠曲与其他关节误差。均匀量化最近舍入时的量化误差界可为半计数，但通信、插值和真实编码器不只含量化误差。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q587">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q587">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q588">Q588｜下降负载的再生能量，母线电容能全部吸收吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>用重力势能和动能变化计算可能回馈的能量，再与母线电容允许电压窗口的储能差比较。通常还需可吸能电源或制动支路。平均制动功率只能说明长期热负担，短脉冲还要校核峰值功率、能量、开关和器件电压边界。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>教学假设</strong>：2 kg负载下降0.3 m，取g=9.81 m/s²，额外释放旋转动能1 J，则机械释放能量=2×9.81×0.3+1=6.886 J。假设其中70%净回到母线，E回=4.8202 J；70%只是本题简化，不是通用回馈效率。</p>
+<p>母线电容C=2200 μF=0.0022 F，初始48 V，允许到60 V，则ΔEcap=½×0.0022×(60²−48²)=1.4256 J。若电源不吸能、其他负载不耗能，尚需处理3.3946 J。60 V只为算例上限，真实上限应低于器件及系统允许边界并留动态余量。</p>
+<p>若剩余能量在0.2 s内被制动支路吸收，则该时段平均功率约16.973 W；若每5 s重复一次，对应长期平均约0.679 W。电阻不能仅按0.679 W选：还须核对P瞬=V²/R、斩波占空比、最小允许阻值、脉冲耐量、散热和故障模式。实际钳位起点与母线控制会改变电容/电阻分能，须以最不利波形复核。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q588">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q588">主手册同题</a></div></article>
+<h3 id="_3">关节模组电机公式与接口速查</h3>
+<p>下表用于先建立量纲和计算边界；有型号时以该型号数据定义、测试条件与批准规范为准。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>一阶关系</th>
+<th>必须说明的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功率与角速度</td>
+<td>P=Tω；ω=2πn/60</td>
+<td>T为N·m，n为r/min，P为W；不等于电输入功率</td>
+</tr>
+<tr>
+<td>电角与极数</td>
+<td>θₑ=pθₘ+θ₀；fₑ=pn/60</td>
+<td>p为极对数，角度与方向统一</td>
+</tr>
+<tr>
+<td>转矩电流</td>
+<td>T≈KₜI</td>
+<td>区分相/线、峰值/RMS、dq归一化；母线电流不可直接代入</td>
+</tr>
+<tr>
+<td>表贴PMSM近似</td>
+<td>Tₑ≈1.5pψf i_q</td>
+<td>幅值不变dq、i_q为峰值口径；忽略磁阻转矩与饱和</td>
+</tr>
+<tr>
+<td>正向传动</td>
+<td>Tₒ≈ηiTₘ；nₘ=inₒ</td>
+<td>运动稳态；加速项另列，静止/回驱另建边界</td>
+</tr>
+<tr>
+<td>惯量折算</td>
+<td>Jₗ→ₘ=Jₗ/i²；Jₘ→ₒ=i²Jₘ</td>
+<td>同一轴系口径，惯量本身不乘效率</td>
+</tr>
+<tr>
+<td>循环热指标</td>
+<td>Ieq=√(ΣI_k²t_k/Σt_k)</td>
+<td>各段I同口径；峰值/热点/铁耗仍须检查</td>
+</tr>
+<tr>
+<td>三相铜耗</td>
+<td>Pcu=ΣR_k I_k,RMS²</td>
+<td>平衡时为3R相I相RMS²；R须温度修正</td>
+</tr>
+<tr>
+<td>Y接电阻</td>
+<td>R线间=2R相</td>
+<td>对称绕组，排除其他并联路径；Δ接不能照搬</td>
+</tr>
+<tr>
+<td>热网络</td>
+<td>ΔT≈PRθ；τ=RθCθ</td>
+<td>单节点近似；多源需热阻网络</td>
+</tr>
+<tr>
+<td>气隙</td>
+<td>g₀=(D定子−D转子)/2</td>
+<td>径向磁通；再减偏心、形变与热态侵占</td>
+</tr>
+<tr>
+<td>转子尺度</td>
+<td>F离心=mω²r；J薄环≈mr²</td>
+<td>只作载荷/惯量估算，不替代磁体保持强度</td>
+</tr>
+<tr>
+<td>角度误差</td>
+<td>δx≈Lδθ</td>
+<td>δθ用rad，小角度；分辨率与准确度分开</td>
+</tr>
+<tr>
+<td>扭转刚度</td>
+<td>kθ=dT/dθ</td>
+<td>N·m/rad；边界和加载历史必须一致</td>
+</tr>
+<tr>
+<td>再生储能</td>
+<td>ΔE=½C(V₂²−V₁²)</td>
+<td>电压余量、初始状态、共享母线与回馈路径</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">关节模组专题阅读路线与资料来源</h3>
+<p><strong>从结构入手</strong>：<a href="机械结构工程师面试与知识强化手册.html#Q549">接口Q549</a>→<a href="机械结构工程师面试与知识强化手册.html#Q552">选型Q552</a>→<a href="机械结构工程师面试与知识强化手册.html#Q553">减速比Q553</a>→<a href="机械结构工程师面试与知识强化手册.html#Q554">气隙Q554</a>→<a href="机械结构工程师面试与知识强化手册.html#Q569">完整方案Q569</a>→<a href="机械结构工程师面试与知识强化手册.html#Q571">装配Q571</a>→<a href="机械结构工程师面试与知识强化手册.html#Q578">EOL Q578</a>。</p>
+<p><strong>补足跨领域基础</strong>：<a href="机械结构工程师面试与知识强化手册.html#Q551">参数口径Q551</a>→<a href="机械结构工程师面试与知识强化手册.html#Q560">FOC Q560</a>→<a href="机械结构工程师面试与知识强化手册.html#Q561">控制三环Q561</a>→<a href="机械结构工程师面试与知识强化手册.html#Q562">驱动与回馈Q562</a>→<a href="机械结构工程师面试与知识强化手册.html#Q563">保持与STO Q563</a>→<a href="机械结构工程师面试与知识强化手册.html#Q579">测试Q579</a>。集中阅读见<a href="07-关节模组电机面试专题.html">关节模组电机面试专题</a>。</p>
+<table>
+<thead>
+<tr>
+<th>原始资料</th>
+<th>对应知识与使用边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.kollmorgen.com/en-us/developer-network/frameless-motor-mounting-practices-clamping-and-bolting">Kollmorgen无框安装说明</a>；<a href="https://www.kollmorgen.com/sites/default/files/Framless%20motor%20Mounting%20%26%20Installation%20Guidlines.pdf">安装指南PDF</a></td>
+<td>定转子保持、定位、支承和安装边界；具体尺寸与工艺以型号图纸为准</td>
+</tr>
+<tr>
+<td><a href="https://www.maxongroup.com/medias/sys_master/8815460712478.pdf">maxon电机基础</a>；<a href="https://support.maxongroup.com/hc/en-us/articles/360006288554-Strength-of-BLDC-EC-motor-with-sinusoidal-commutation">正弦换相说明</a></td>
+<td>电流/转矩/反电势与RMS概念，不把不同目录口径直接混用</td>
+</tr>
+<tr>
+<td><a href="https://www.ti.com/lit/an/sprabq2/sprabq2.pdf">TI PMSM FOC报告</a></td>
+<td>dq、电角和控制原理；教学公式注明变换尺度</td>
+</tr>
+<tr>
+<td><a href="https://www.heidenhain.com/fileadmin/pdf/en/01_Products/Technische_Dokumentation/Technology_Report_TCP_Robots_ID1233046_en.pdf">HEIDENHAIN机器人精度报告</a></td>
+<td>输出端反馈与系统精度，不把分辨率当末端准确度</td>
+</tr>
+<tr>
+<td><a href="https://global.harmonicdrive.net/products/gear-units/table-finder">Harmonic Drive参数表</a></td>
+<td>额定/峰值/刚度等不同指标分类，不移植某产品数值到未知关节</td>
+</tr>
+<tr>
+<td><a href="https://www.kollmorgen.com/en-us/blogs/everywhere-cogging-torque-and-torque-ripple-what-you-need-to-know">Kollmorgen齿槽与转矩纹波</a></td>
+<td>断电齿槽、通电纹波与相关概念</td>
+</tr>
+<tr>
+<td><a href="https://webhelp.kollmorgen.com/akd2g/english/Content/AKD2G-S%20Install/e/AKD2S_install_07_16_Electrical%20motor%20braking.htm">Kollmorgen电气制动</a>；<a href="https://www.kollmorgen.com/en-us/developer-network/akd2g-controlled-stop-and-holding-brake-timing-0">保持制动时序</a></td>
+<td>再生能量、受控停止及抱闸交接；具体安全架构须按实际产品评审</td>
+</tr>
+</tbody>
+</table>
+<p>资料用于概念和方法核验；Q569、Q585～Q588及其他明示数字例均为教学假设，不是真实产品参数、生产公差或已完成试验结果。机械工程师的答题重点是说明接口、假设、误差/载荷路径和验证方法，并能与电磁、控制、电气和工艺团队对齐。</p>
+<!-- VERSIONS_START -->
+</section>
+<section class="chapter"><h2 id="version-history">版本记录</h2>
+<p>版本号按项目记录统一编排；v1.x为历史阶段的回溯标签，日期统一记为资料整理日，不代表当时曾发布同名版本。版本表只记录编辑沿革，技术参数的来源与适用条件仍见正文。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>日期</th>
+<th>变更内容</th>
+<th>对本册的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v2.7</td>
+<td>2026-10-19</td>
+<td>关节模组电机与电驱集成的跨板块补充</td>
+<td>建立60题集中阅读专题，含40道电机题及20道关联基础题；首页保留五主板块并提供独立专题入口。</td>
+</tr>
+<tr>
+<td>v2.7.1</td>
+<td>2026-10-20</td>
+<td>Q555电机拓扑与尺寸取舍算例深化</td>
+<td>深化Q555：增加半径/叠长、惯量与加速、轴向磁通中空及间隙三组算例和七类需求取舍表；题数不变。</td>
+</tr>
+<tr>
+<td>v2.7.2</td>
+<td>2026-10-21</td>
+<td>公开仓库准备与应聘背景匿名化</td>
+<td>移除应聘企业名称、背景与公司介绍链接，匿名化个人材料索引；保留公开技术资料、题号及分类。</td>
+</tr>
+</tbody>
+</table>
+<!-- VERSIONS_END --></section><p class="footer">口头先讲判断、依据和条件；详细计算供追问或线下复习。数字不替代受控设计要求，例题不替代真实经历。</p></main><script>
+const query=document.querySelector('#query'),priority=document.querySelector('#priority'),count=document.querySelector('#count');
+const chapters=[...document.querySelectorAll('.chapter')],questions=[...document.querySelectorAll('.question')];
+function filter(){
+ const terms=query.value.trim().toLowerCase().split(/\s+/).filter(Boolean),level=priority.value;let shown=0;
+ questions.forEach(q=>{const content=q.textContent.toLowerCase();const ok=terms.every(t=>/^q\d{3}$/.test(t)?q.querySelector('h3').id.toLowerCase()===t:content.includes(t))&&(!level||q.dataset.priority===level);q.hidden=!ok;if(ok)shown++});
+ const active=terms.length>0||!!level;
+ chapters.forEach(c=>{const qs=[...c.querySelectorAll('.question')];c.hidden=active&&(qs.length===0||qs.every(q=>q.hidden))});
+ document.querySelector('#intro').hidden=active;
+ count.textContent=`显示 ${shown} / ${questions.length} 道题 · 关键词检索覆盖问题与答案 · 可按题号检索`;
+ document.querySelector('#empty').hidden=shown!==0;
+}
+query.addEventListener('input',filter);priority.addEventListener('change',filter);
+document.querySelector('#toggle').addEventListener('click',()=>{const active=document.body.classList.toggle('practice');document.querySelector('#toggle').textContent=active?'显示期望答复':'隐藏答复，开始自测';document.querySelector('#toggle').setAttribute('aria-pressed',String(active))});
+document.querySelector('#expand').addEventListener('click',()=>{const ds=[...document.querySelectorAll('.technical-details')];const expand=ds.some(d=>!d.open);ds.forEach(d=>d.open=expand);document.querySelector('#expand').textContent=expand?'收起全部深入复习':'展开全部深入复习';document.querySelector('#expand').setAttribute('aria-pressed',String(expand))});
+let printState=[];
+window.addEventListener('beforeprint',()=>{printState=[...document.querySelectorAll('details')].map(d=>[d,d.open]);printState.forEach(([d])=>d.open=true)});
+window.addEventListener('afterprint',()=>printState.forEach(([d,open])=>d.open=open));
+document.querySelector('#print').addEventListener('click',()=>window.print());
+document.querySelectorAll('aside a').forEach(a=>a.addEventListener('click',()=>{query.value='';priority.value='';filter()}));
+filter();
+function revealHash(){const id=decodeURIComponent(location.hash.slice(1));const target=document.getElementById(id);if(!target)return;query.value='';priority.value='';filter();let p=target.parentElement;while(p){if(p.tagName==='DETAILS')p.open=true;p=p.parentElement}requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}));}
+window.addEventListener('hashchange',revealHash);if(location.hash)revealHash();
+function notifyReader(){if(window.parent!==window){window.parent.postMessage({type:'handbook-loaded',file:decodeURIComponent(location.pathname.split('/').pop()),fragment:location.hash,title:document.title},'*');}}
+notifyReader();window.addEventListener('hashchange',notifyReader);
+</script></body></html>

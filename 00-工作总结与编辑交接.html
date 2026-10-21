@@ -1,0 +1,206 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>工作总结与编辑交接</title><style>
+body{max-width:1120px;margin:35px auto;padding:0 24px;color:#213a45;background:#f5f8f9;font:16px/1.85 "Microsoft YaHei",system-ui,sans-serif}h1{font-size:32px}h2{margin-top:42px;border-bottom:2px solid #368883;padding-bottom:10px}h3{font-size:19px}a{color:#176c75}table{width:100%;border-collapse:collapse;display:block;overflow-x:auto;background:white;font-size:14px}th,td{border:1px solid #ccdce0;padding:10px;text-align:left;vertical-align:top;min-width:100px}th{background:#e5f1f2}pre{overflow:auto;background:#e6eef0;padding:16px;border-radius:8px}code{font:14px/1.8 Consolas,"Microsoft YaHei",monospace;overflow-wrap:anywhere}blockquote{border-left:4px solid #32887f;margin-left:0;padding:14px 20px;background:#e9f4ef}p,li{overflow-wrap:anywhere}@media print{body{background:white;font-size:10pt;margin:0}h2{break-after:avoid}table{display:table}th,td{min-width:0;font-size:9pt}pre{white-space:pre-wrap}}
+</style></head><body><h1 id="_1">面试手册工作总结与编辑交接</h1>
+<p><strong>维护版本：v2.7.2｜更新日期：2026-10-21｜工作目录：仓库根目录</strong></p>
+<h2 id="1">1. 当前阅读组织</h2>
+<p>整套资料按五个板块阅读。每一道题在五板块中只有一个主要归属，合计588道唯一题目；理论知识分为理论力学、材料力学、机械原理、机械设计四门科目。首页为每个板块提供独立索引、分组题目目录、全文阅读与板块检索。</p>
+<table>
+<thead>
+<tr>
+<th>板块</th>
+<th>阅读文件</th>
+<th style="text-align: right;">题数</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①理论知识</td>
+<td><a href="02-理论知识.html">02-理论知识</a></td>
+<td style="text-align: right;">202</td>
+<td>T1理论力学34题、T2材料力学36题、T3机械原理36题、T4机械设计96题及对应清单；含电机、FOC、编码器与制动基础</td>
+</tr>
+<tr>
+<td>②生活场景实践分析</td>
+<td><a href="03-生活场景实践分析.html">03-生活场景实践分析</a></td>
+<td style="text-align: right;">68</td>
+<td>摩擦、倾覆、开合、热环境与寿命；V5尺寸偏差；V6轴承表现；V7成对轴承锁紧与温差现象；V8电机保持、回驱、抖动与回馈</td>
+</tr>
+<tr>
+<td>③生产场景（量产环节）实践分析</td>
+<td><a href="04-生产场景量产实践分析.html">04-生产场景量产实践分析</a></td>
+<td style="text-align: right;">142</td>
+<td>项目、设备工装、制造与质量；P07尺寸链；P08轴承规范；P09成对角接触轴承的轴座图纸与装配场景；P10电机集成与量产</td>
+</tr>
+<tr>
+<td>④仿真测试实践分析</td>
+<td><a href="05-仿真测试实践分析.html">05-仿真测试实践分析</a></td>
+<td style="text-align: right;">124</td>
+<td>建模、案例、判据与实测；S6公差；S7轴承；S8成对轴承几何、预紧和功能验证；S9电机机电验证</td>
+</tr>
+<tr>
+<td>⑤常用数据和公式汇总</td>
+<td><a href="06-常用数据和公式汇总.html">06-常用数据和公式汇总</a></td>
+<td style="text-align: right;">52</td>
+<td>公式、数量级与经验；R8公差尺寸链；R9轴承计算；R10成对轴承配合、端盖链和精度推演；R11电机计算、公式与来源</td>
+</tr>
+</tbody>
+</table>
+<p><a href="index.html">统一入口</a> · <a href="01-手册索引.md">Markdown索引</a>。五板块共有263项已有复习勾选项，分别为106、0、74、83、0项。题目内公式仍随完整题目保留，第五板块集中既有独立公式表、记忆卡和算例，不拆改题目答案。</p>
+<h2 id="2">2. 编辑主源与兼容文件</h2>
+<p><a href="机械结构工程师面试与知识强化手册.md">机械结构工程师面试与知识强化手册.md</a>保留完整原文和原章节锚点，是题目及知识段落的编辑主源。五板块的Markdown由<code>maintenance/build_sections.py</code>依照<code>organization.json</code>抽取现有内容并排列，HTML再从Markdown生成。不要在五板块派生文件中单独改题，以免重建覆盖。</p>
+<p>原理论力学、SolidWorks、口头数量级、工程现象四份专题仍保留文件和链接，用于兼容题目正文中的旧引用；首页将它们集中在“完整主手册与原专题链接”，不作为五个主板块并列入口。它们的题数不加进588题。</p>
+<p>原章节代码B、C、J、O、P用于定位源内容；C6、D1、E1分别保存三科纯理论Q359～Q430，按T2～T4编入阅读分册；F1～F5保存公差与尺寸链Q431～Q478；E2～E6保存轴承Q479～Q528；E7～E11保存成对角接触轴承Q529～Q548；E12～E16保存关节模组电机Q549～Q588；新阅读代码为T1～T4、V1～V8、P01～P10、S1～S9、R1～R11。任何Q编号均不改变。云台Q303～Q316在源文件B4完整保留，但五板块按概念、生活操作和测试验收分别归入理论、生活、仿真测试；不再要求它们在新分类中归属同一分册。</p>
+<h2 id="3">3. 分类与内容保护</h2>
+<ul>
+<li><code>maintenance/catalog.json</code>：文档元数据、版本、题号清单。<code>kind=category</code>为五板块，<code>source</code>为主源，<code>legacy</code>为兼容专题，<code>topic</code>为跨板块集中阅读专题。</li>
+<li><code>maintenance/organization.json</code>：五板块、分组顺序、唯一题目归属和非题知识段落的抽取位置。</li>
+<li><code>maintenance/reorganization-baseline.json</code>：重排前358道题目全文的SHA-256；v2.2校验必须零新增、零删除、零修改。</li>
+<li><code>maintenance/theory-expansion-baseline.json</code>：v2.3增加72道纯理论题的校验基线；原358题内容保持不变。</li>
+<li><code>maintenance/tolerance-expansion-baseline.json</code>：v2.4的48道公差与尺寸链新增题校验基线，原430题保持不变。</li>
+<li><code>maintenance/bearing-expansion-baseline.json</code>：v2.5增加50道轴承题的基线，核对原478题内容不变。</li>
+<li><code>maintenance/angular-expansion-baseline.json</code>：v2.6增加20道成对角接触轴承场景题的基线，核对原528题不变。</li>
+<li><code>maintenance/motor-expansion-baseline.json</code>：v2.7增加40道电机题的基线，核对原548题不变。</li>
+<li><code>maintenance/q555-refinement-baseline.json</code>：v2.7.1仅修改Q555，核对其余587题不变；题号和分类保持不变。</li>
+<li><code>maintenance/publication-baseline.json</code>：公开版本仅允许Q569、Q576、Q585调整应聘背景措辞，其余585题不变。</li>
+<li><code>maintenance/section-sources.json</code>：被编入五板块的独立资料来源及文本哈希。</li>
+<li><code>maintenance/releases.json</code>：版本沿革；由导航脚本生成各册文末版本表。</li>
+<li><code>maintenance/last-validation.json</code>：最近的结构、链接、共享题和内容保护校验结果。</li>
+</ul>
+<p>理论知识各科先读基础理论，再结合原有概念与综合追问。Q359～Q382为材料力学，Q383～Q406为机械原理，Q407～Q430为机械设计；每组配套知识链表和原始来源。公差与尺寸链在T4增加理论16题，V5增加生活6题，P07增加量产12题，S6增加验证8题，R8增加算例6题；跨板块路线和TL来源总表在R8。轴承Q479～Q528按理论16、生活4、量产14、验证8、计算8题编入T4／V6／P08／S7／R9；BR来源表在R9。Q529～Q548围绕用户给定的套圈H7/g6条件展开，按理论4、生活2、生产8、验证3、推演3题编入五板块；Q535是完整主案例，Q536～Q542为七个结构变式，AC来源与路线在R10。</p>
+<p>题目块包括原始三级标题、优先级、口头首答和深入复习正文，截止于下一二级／三级标题。重排只选择完整块并改变顺序，不改标题、编号、措辞、公式、来源、案例或答案。非题知识段落直接抽取；布局标题、目录、版本及链接路由是导航元数据。</p>
+<p>Q535保留“轴承内孔H7、外圈外径g6”的字面教学假设，不将其冒称标准轴承公差。补充d30/D62、DB和钢轴钢座等条件是教学设定；轴座尺寸与形位数值是待评审候选，缺实际型号、载荷、温度和精度输入时不作为正式生产规范。</p>
+<p>轴承配合、公差级、游隙组和预紧是不同口径，载荷方向按相对套圈转动判断。Q524的公差值采用NTN Class 0向心轴承适用表及脚注，其余计算例为教学假设；不得把示例k6/H7、游隙区间、系数或加热温度当通用规范。</p>
+<p>公差和几何规范应先明确ISO GPS、GB/T或ASME语境及图纸版本，不混用默认原则。Q473～Q478均为教学假设；测量判定采用题设约定规则，不冒称所有合同或标准统一适用。</p>
+<p>如后续用户明确要求新增或修改题目，应按新的授权维护内容和版本；v2.2哈希基线保留为此次纯重排的历史证据，不冒用它证明后续版本题目未改。当前最大题号Q588，下一个Q589。</p>
+<p><strong>电机专题维护</strong>：<a href="07-关节模组电机面试专题.html">07-关节模组电机面试专题</a>由<code>organization.topics</code>生成，包含40道电机题及20道已有基础题；五板块唯一归属不变。开篇提供通用岗位准备边界、不同关节方向的复习重点与12道优先题。Q585～Q588是教学算例，注明电流口径、热边界及能量流；不得当成真实型号参数。原始资料与公式表位于R11。</p>
+<h2 id="4">4. 重建流程</h2>
+<pre><code class="language-powershell"># 只改分类：编辑organization.json，保持catalog对应题号清单一致
+# 修改主源题目（仅当新请求授权）后，先同步兼容专题
+python maintenance/sync_questions.py --write
+
+# 编排五板块、刷新导航与版本、生成全部阅读页及首页，再校验
+python maintenance/rebuild.py
+
+# 只读校验
+python maintenance/validate.py
+
+# 浏览器检查；需配置本机Playwright和浏览器路径
+node maintenance/check_portal.cjs
+node maintenance/check_motor_topic.cjs
+</code></pre>
+<p><code>build_sections.py</code>在生成时确认每题与主源逐字一致；<code>validate.py</code>核对五板块对588题构成无重叠完整划分，理论恰有四科，并核对共享题、口头首答和本地HTML链接。重建会处理11份正文：1主源、5板块、4兼容专题、1跨板块电机专题。</p>
+<p><code>maintenance/portal.css</code>和<code>portal.js</code>由首页构建脚本内嵌，因此index.html仍可离线打开。<code>build_portal.py</code>为稳定调用入口，具体五板块生成位于<code>build_five_portal.py</code>。历史迁移脚本不得作为日常重建工具。</p>
+<h2 id="5">5. 必须保持的内容规范与证据边界</h2>
+<p>每题仍以30～60秒口头首答开始，详细计算与软件操作按需展开。若未来修改技术内容，数值需记录对象、条件、单位和可靠来源，区分典型值、保证值、教学假设、经验起点与正式判据。编辑沿革仅放文末版本表。</p>
+<p>没有实际运行SolidWorks求解、生成真实有限元云图、验证用户实物或读取未提供的视频、CAD、BOM与实测记录。手册案例不代表用户亲历，不是产品放行依据。原简历与作品集副本位于<code>references/inputs/</code>，包含个人信息，不公开发布；本次重排无需再次读取个人附件。</p>
+<h2 id="6">6. 验收与历史备份</h2>
+<p>检查首页五个入口和五个专门索引、理论四科、板块及科目筛选、Q题定位、页内阅读与返回、原文链接、窄屏横向表格和打印展开。自动校验不替代目视检查；纯重排的题目哈希比较比技术重写检查更直接。</p>
+<p><code>archive/关节模组电机补充前-v2.6-20261019/</code>保存电机专题补充前的正文、HTML与维护文件。<code>archive/角接触轴承场景前-v2.5-20261011/</code>保存成对轴承具体场景深化前的正文、HTML与维护文件。<code>archive/轴承补充前-v2.4-20261011/</code>保存轴承扩充前的正文、HTML与维护文件。<code>archive/公差尺寸链补充前-v2.3-20261011/</code>保存本次补充前全部正文、HTML与维护文件。<code>archive/理论题补充前-v2.2-20261011/</code>保存理论补充前全部原文、HTML和维护文件。<code>archive/五板块重排前-v2.1-20261011/</code>保存重排之前的原文、HTML与维护脚本。更早的迁移、规范化和材料力学扩充快照继续保留。<code>migration-manifest.json</code>是原迁移时点证据，不随后续编辑重写。</p>
+<p>v2.7验收记录：<code>maintenance/last-validation.json</code>核对原548题哈希、40道新增、五板块唯一归属、共享正文和本地链接；<code>maintenance/qa/five-sections-check.json</code>与<code>motor-topic-check.json</code>记录浏览器功能及窄屏检查，截图位于同目录。<code>motor-calculation-audit.json</code>记录教学算例独立复算。</p>
+<p>v2.7.1按用户要求深化Q555，增加几何尺度、惯量与加速度、轴向磁通中空孔及气隙三组教学算例，并给出七类需求的方案取舍表。主源、T4与07专题同步；<code>qa/q555-calculation-audit.json</code>记录复算。修改前快照见<code>archive/Q555取舍深化前-v2.7-20261020/</code>。</p>
+<p>v2.7.2公开仓库版本去除应聘企业背景及介绍链接、匿名化材料索引；保留公开厂商技术来源和全部588题。历史备份、个人附件、迁移清单及本地QA文件由<code>.gitignore</code>排除，不随仓库分发。仓库只从处理后的版本建立首个提交。</p>
+<h2 id="7">7. 后续接手说明</h2>
+<blockquote>
+<p>从index.html五板块继续维护；07为跨板块电机专题，不是第六分类。当前v2.7.2共588题，Q549～Q588按16／4／10／6／4分入T4／V8／P10／S9／R11，原548题与v2.6哈希一致。v2.7.1仅深化Q555，其余587题与v2.7一致。题目以主手册为主源，五分册与07专题均从organization生成。保留原题号、旧链接和历史基线，后续修改按用户授权维护来源、归属与版本。</p>
+</blockquote>
+<h2 id="8-git">8. Git与公开分发</h2>
+<p>仓库入口与维护命令见<a href="README.md">README</a>。修改主源后运行同步和重建，检查<code>git diff</code>、暂存文件及本地校验结果再提交。旧版备份与个人附件只保存在原本机，不应通过强制添加绕过忽略规则。浏览器检查会生成本地QA目录，截图不纳入版本控制。</p>
+<h2 id="_2">版本记录</h2>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>日期</th>
+<th>工作范围</th>
+<th>维护影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1.0～v1.3（回溯）</td>
+<td>2026-10-10</td>
+<td>基础题库、刚体与消费电子案例、仿真操作及应力／形变判定。</td>
+<td>形成Q001～Q250及理论力学、仿真专题。</td>
+</tr>
+<tr>
+<td>v1.4～v1.5（回溯）</td>
+<td>2026-10-10</td>
+<td>口头首答、数量级记忆及现象分析。</td>
+<td>总库达到334题，形成四份专题。</td>
+</tr>
+<tr>
+<td>v1.6（回溯）</td>
+<td>2026-10-10</td>
+<td>云台配平与动平衡集中到理论力学B4～B5。</td>
+<td>Q303～Q316保留原号，其他专题使用索引。</td>
+</tr>
+<tr>
+<td>v1.7（回溯）</td>
+<td>2026-10-10</td>
+<td>文件迁移到面经聚合；编写交接总结及可迁移工具。</td>
+<td>以当前Markdown为主源，归档旧拼接脚本。</td>
+</tr>
+<tr>
+<td>v2.0</td>
+<td>2026-10-11</td>
+<td>正文去除编辑沿革，统一文末版本表和导航；建立离线HTML入口。</td>
+<td>catalog与releases管理元数据；rebuild生成手册、索引和统一入口。</td>
+</tr>
+<tr>
+<td>v2.1</td>
+<td>2026-10-11</td>
+<td>材料力学基础题深化；补齐公式、定理、经验和场景；9个教学算例与22组来源。</td>
+<td>总库358题，C～C5含36题；新题Q335～Q358，下一个Q359；同步目录、专题入口及网页版。</td>
+</tr>
+<tr>
+<td>v2.2</td>
+<td>2026-10-11</td>
+<td>按五板块及四门理论科目重排；首页设置专门索引。</td>
+<td>358道题目逐题哈希一致；保留源内容与旧链接，五板块按主要主题唯一归属。</td>
+</tr>
+<tr>
+<td>v2.3</td>
+<td>2026-10-11</td>
+<td>材料力学、机械原理、机械设计各增加24道纯理论题及知识链／来源。</td>
+<td>总库430题、理论150题；Q359～Q430为新题，原358题内容不变，下一个Q431。</td>
+</tr>
+<tr>
+<td>v2.4</td>
+<td>2026-10-11</td>
+<td>公差、几何规范与尺寸链从理论到实践补充48题，分入五板块。</td>
+<td>总库478题；新题Q431～Q478，原430题不变；包含6个已复算教学算例、公式表及跨板块路线，下一个Q479。</td>
+</tr>
+<tr>
+<td>v2.5</td>
+<td>2026-10-11</td>
+<td>轴承选型、关键计算、公差带、装配规范与诊断补充50题。</td>
+<td>总库528题；新题Q479～Q528，原478题不变；R9含8个算例及真实配合表复算，下一个Q529。</td>
+</tr>
+<tr>
+<td>v2.6</td>
+<td>2026-10-11</td>
+<td>用户指定H7/g6套圈、同轴同座角接触轴承场景深化；补充主案例、七变式及三组推演。</td>
+<td>总库548题；新增Q529～Q548，原528题不变；按4／2／8／3／3题分入五板块，下一个Q549。</td>
+</tr>
+<tr>
+<td>v2.7</td>
+<td>2026-10-19</td>
+<td>关节模组电机、驱动关联基础、结构集成与量产验证补充40题，建立60题专题入口。</td>
+<td>总库588题；Q549～Q588按16／4／10／6／4分入五板块，原548题不变；新增07专题、4组算例和原始资料索引，下一个Q589。</td>
+</tr>
+<tr>
+<td>v2.7.1</td>
+<td>2026-10-20</td>
+<td>Q555增加三组算例与七类需求取舍表，区分结构拓扑、几何尺度、惯量、热与气隙。</td>
+<td>仍588题，仅Q555内容改变，其余587题哈希不变；同步主源、理论分册和电机专题。</td>
+</tr>
+<tr>
+<td>v2.7.2</td>
+<td>2026-10-21</td>
+<td>公开仓库准备：去除应聘企业背景、匿名化材料索引，保留公开技术来源。</td>
+<td>仍588题，仅3题调整背景措辞；排除个人附件、旧备份及本地QA。</td>
+</tr>
+</tbody>
+</table>
+<p>历史版本标签依据项目记录回溯编排，不表示当时曾发布同名版本。后续修改应在这里及releases.json记录真实变更，技术来源日期与发布日期分别维护。</p></body></html>

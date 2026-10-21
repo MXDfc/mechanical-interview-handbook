@@ -1,0 +1,33 @@
+# Original personal materials and pre-publication snapshots stay local.
+/archive/
+/references/
+/migration-manifest.json
+/.local-publication/
+
+# Local reports, screenshots, caches and obsolete migration utilities.
+/maintenance/qa/
+/maintenance/last-validation.json
+/maintenance/normalize_v2.py
+/maintenance/browser_check.cjs
+/maintenance/review_summary.cjs
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Credentials and private configuration must never enter the repository.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+
+# Personal attachments are not part of this text/HTML handbook.
+*.pdf
+*.docx
+*.doc
+*.pptx
+*.xlsx

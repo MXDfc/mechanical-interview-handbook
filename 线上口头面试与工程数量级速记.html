@@ -1,0 +1,1372 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>线上口头面试与工程数量级速记</title><style>
+:root{--ink:#182c3a;--muted:#526571;--accent:#116b72;--paper:#fff;--line:#dbe5e8;--bg:#f2f5f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:112px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--accent);text-underline-offset:3px}aside{position:fixed;inset:0 auto 0 0;width:264px;background:#102c3b;color:#d9e9ee;overflow:auto;padding:28px 22px}
+.brand{font-size:12px;letter-spacing:3px;color:#8abec4}.nav-title{font-size:22px;font-weight:700;line-height:1.5;margin:12px 0 10px}.nav-meta{font-size:13px;color:#a5bec7;margin-bottom:24px}
+aside a{display:block;color:#d5e4e8;text-decoration:none;font-size:13px;line-height:1.6;padding:8px 0;border-bottom:1px solid #ffffff13}aside a:hover{color:white}
+main{margin-left:264px;max-width:1264px;padding:36px 48px 90px}.top-note{font-size:12px;letter-spacing:2px;color:var(--accent)}
+h1{font-size:34px;line-height:1.45;letter-spacing:-.5px;margin:12px 0 18px}h2{font-size:25px;line-height:1.5;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--accent)}
+h3{font-size:19px;line-height:1.65;margin:24px 0 12px}p{margin:10px 0 16px}li{margin-bottom:6px}strong{color:#123843}
+.chapter{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:30px;margin:26px 0}.question{padding:8px 0 23px;border-bottom:1px solid var(--line)}.question:last-child{border-bottom:0;padding-bottom:0}.question h3{scroll-margin-top:110px}.answer p{color:#344853}
+.toolbar{position:sticky;top:0;z-index:2;display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 0;background:#f2f5f6f5;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+input[type=search],select,button{font:inherit;font-size:14px;border:1px solid #bdcdd1;border-radius:7px;padding:8px 12px;background:white;color:var(--ink)}input[type=search]{flex:1;min-width:210px}button{cursor:pointer}button:hover{background:#e5f0f1}.count{font-size:12px;color:var(--muted);width:100%}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;display:block;overflow-x:auto}th{background:#eaf3f4;text-align:left;color:#244f56}td,th{padding:12px;border:1px solid var(--line);min-width:110px;vertical-align:top}tr:nth-child(even){background:#fafcfc}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.92em;background:#edf3f4;border-radius:3px;padding:2px 5px;overflow-wrap:anywhere}input[type=checkbox]{accent-color:var(--accent);margin-right:8px}
+pre{overflow-x:auto;padding:18px;background:#edf3f4;border-radius:8px;font-size:13px;line-height:1.7}pre code{background:none;padding:0;white-space:pre;overflow-wrap:normal}.problem{background:#f0f7f8;border-left:3px solid #6ca8ad;padding:10px 16px;margin:14px 0}.problem p{margin:0}
+.practice .answer{display:none}.practice .question{padding-bottom:12px}.empty{padding:30px;background:white;border-radius:10px;border:1px solid var(--line)}[hidden]{display:none!important}.footer{font-size:12px;color:var(--muted);padding-top:12px}
+.oral-answer{background:#edf7f4;border-left:3px solid #218371;padding:15px 18px;margin:14px 0}.oral-answer p{margin:4px 0 0;color:#173d39}.oral-label{font-size:12px;font-weight:700;letter-spacing:1px;color:#267361}.technical-details{border-top:1px dashed #c8d9da;margin-top:18px;padding-top:10px}.technical-details summary{cursor:pointer;font-size:13px;color:#52777d;padding:7px 0}.technical-details[open] summary{margin-bottom:12px}.practice .technical-details{display:none}
+.site-breadcrumb{display:flex;gap:9px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:20px}.site-breadcrumb a{text-decoration:none}.home-link{display:block;margin-bottom:20px;color:#96d7d1!important;font-weight:bold}.question-links{font-size:12px;color:var(--muted);padding-top:12px}.reading-toc summary{cursor:pointer;color:var(--accent)}.chapter:has(#version-history) table{font-size:13px}h2,h3{scroll-margin-top:120px}
+@media(min-width:1600px){main{margin-left:calc(264px + (100vw - 1600px)/2)}}
+@media(max-width:950px){aside{display:none}main{margin:0;padding:24px 20px 60px}h1{font-size:28px}.chapter{padding:22px}table{font-size:13px}}
+@media print{body{background:white;font-size:10pt;line-height:1.6}aside,.toolbar,.top-note,.empty{display:none!important}main{margin:0;max-width:none;padding:0}.chapter{border:0;padding:0;margin:20px 0;display:block!important}.question[hidden],.chapter[hidden]{display:block!important}.answer{display:block!important}h2{break-before:page;font-size:19pt}h3{break-after:avoid;font-size:12pt}p,li{orphans:3;widows:3}table{display:table;font-size:9pt}td,th{min-width:0;padding:6px}a{color:inherit}h1{font-size:24pt}}
+@media print{.practice .technical-details{display:block!important}#intro[hidden]{display:block!important}.technical-details summary{font-size:9pt}.oral-answer{break-inside:avoid}}
+</style></head><body>
+<aside><a class="home-link" href="index.html" target="_top">← 面经聚合 · 总入口</a><div class="brand">MECHANICAL ENGINEERING</div><div class="nav-title">口头与数量级</div><div class="nav-meta">70 道题 · v2.7.2<br>口头判断 / 数量级 / 条件 / 来源</div><a href="#reading-guide">阅读导航</a><a href="#chapter-o1">O1. 线上口头面试：先说判断，再给量级</a><a href="#chapter-o2">O2. 材料数量级记忆卡：记什么、怎么说、哪些不能直接用</a><a href="#chapter-o3">O3. 力、形变、热与工艺：最值得记的工程锚点</a><a href="#chapter-o4">O4. 数量级与口头应对：20道题</a><a href="#chapter-o5">O5. 数值记忆训练与资料来源</a><a href="#chapter-o6">O6. 跨领域数量级速记：传动、制造、质量、测试与仿真</a><a href="#chapter-o7">O7. 跨领域口头追问：16道</a><a href="#chapter-o8">O8. 跨领域数字的网络核对与记忆层级</a><a href="#chapter-p1">P1. 现象分析题：把个例迁移成可复用的判断</a><a href="#chapter-p2">P2. 附着、流体与摩擦：8道场景</a><a href="#chapter-p3">P3. 加速度、载荷转移与倾覆：8道场景</a><a href="#chapter-p4">P4. 云台与动平衡：关联阅读</a><a href="#chapter-p5">P5. 举一反三：振动、接触、热、密封与寿命18题</a><a href="#chapter-p6">P6. 现象迁移、数量级记忆与模拟追问</a><a href="#version-history">版本记录</a><div class="footer"><a href="00-工作总结与编辑交接.html" target="_top">编辑交接与维护说明</a></div></aside>
+<main><nav class="site-breadcrumb" aria-label="手册导航"><a href="index.html" target="_top">统一入口</a><span>/</span><a href="机械结构工程师面试与知识强化手册.html">主手册</a><span>/</span><span>口头与数量级</span><a href="#version-history">版本记录</a></nav><div class="top-note">ORAL INTERVIEW FIELD GUIDE</div><div id="intro"><h1 id="_1">线上口头面试与工程数量级速记</h1>
+<p><strong>机械结构工程师线上面试学习资料｜70题｜v2.6</strong></p>
+<p>共70题：数量级36题、现象分析34题，另有24张记忆卡和原厂／官方资料索引。</p>
+<p>先用O1练表达，再记O2～O3核心量级；O6～O8覆盖传动、制造、质量、测试与仿真。</p>
+<p>先用30～60秒口述结论、主导原因和必要边界，再按需展开推导、算例与操作。材料典型值、经验范围、教学假设和正式验收值应分别使用。</p>
+<p>公式适用条件与经验边界见<a href="机械结构工程师面试与知识强化手册.html#chapter-c1">主手册材料力学C1～C2</a>；<a href="机械结构工程师面试与知识强化手册.html#chapter-c5">C5</a>提供恒力／恒位移／恒能量对照和可复算案例。</p>
+<!-- NAV_START -->
+</div><div class="toolbar"><input id="query" type="search" placeholder="搜索：数量级、扭矩、Cpk、Q252…" aria-label="搜索题库"><select id="priority" aria-label="筛选优先级"><option value="">全部优先级</option><option value="P0">P0 · 必须掌握</option><option value="P1">P1 · 工程进阶</option></select><button id="toggle" aria-pressed="false">隐藏答复，开始自测</button><button id="expand" aria-pressed="false">展开全部深入复习</button><button id="print">打印</button><div class="count" id="count" aria-live="polite"></div></div><p class="empty" id="empty" hidden>没有匹配的问题，请更换关键词或优先级。</p><section class="chapter"><h2 id="reading-guide">阅读导航</h2><details class="reading-toc"><summary>查看本册目录与相关手册</summary>
+<p><a href="index.html">统一入口</a> · <a href="机械结构工程师面试与知识强化手册.html">主手册</a> · <a href="线上口头面试与工程数量级速记.html#version-history">本册版本记录</a></p>
+<p><strong>本册目录</strong></p>
+<table>
+<thead>
+<tr>
+<th>板块</th>
+<th>阅读内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o1">O1. 线上口头面试</a></td>
+<td>O1. 线上口头面试：先说判断，再给量级</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o2">O2. 材料数量级记忆卡</a></td>
+<td>O2. 材料数量级记忆卡：记什么、怎么说、哪些不能直接用</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o3">O3. 力、形变、热与工艺</a></td>
+<td>O3. 力、形变、热与工艺：最值得记的工程锚点</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o4">O4. 数量级与口头应对</a></td>
+<td>O4. 数量级与口头应对：20道题</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o5">O5. 数值记忆训练与资料来源</a></td>
+<td>O5. 数值记忆训练与资料来源</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o6">O6. 跨领域数量级速记</a></td>
+<td>O6. 跨领域数量级速记：传动、制造、质量、测试与仿真</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o7">O7. 跨领域口头追问</a></td>
+<td>O7. 跨领域口头追问：16道</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-o8">O8. 跨领域数字的网络核对与记忆层级</a></td>
+<td>O8. 跨领域数字的网络核对与记忆层级</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-p1">P1. 现象分析题</a></td>
+<td>P1. 现象分析题：把个例迁移成可复用的判断</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-p2">P2. 附着、流体与摩擦</a></td>
+<td>P2. 附着、流体与摩擦：8道场景</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-p3">P3. 加速度、载荷转移与倾覆</a></td>
+<td>P3. 加速度、载荷转移与倾覆：8道场景</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-p4">P4. 云台与动平衡</a></td>
+<td>P4. 云台与动平衡：关联阅读</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-p5">P5. 举一反三</a></td>
+<td>P5. 举一反三：振动、接触、热、密封与寿命18题</td>
+</tr>
+<tr>
+<td><a href="线上口头面试与工程数量级速记.html#chapter-p6">P6. 现象迁移、数量级记忆与模拟追问</a></td>
+<td>P6. 现象迁移、数量级记忆与模拟追问</td>
+</tr>
+</tbody>
+</table>
+<p><strong>五个阅读板块</strong></p>
+<table>
+<thead>
+<tr>
+<th>板块</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="02-理论知识.html">理论知识</a></td>
+<td>理论力学、材料力学、机械原理、机械设计。</td>
+</tr>
+<tr>
+<td><a href="03-生活场景实践分析.html">生活场景实践分析</a></td>
+<td>交通与摩擦、日常产品开合、云台与振动、热变形与寿命。</td>
+</tr>
+<tr>
+<td><a href="04-生产场景量产实践分析.html">生产场景（量产环节）实践分析</a></td>
+<td>项目设计输入、产线设备与工装、加工铸造注塑、装配及质量交付。</td>
+</tr>
+<tr>
+<td><a href="05-仿真测试实践分析.html">仿真测试实践分析</a></td>
+<td>建模方法、SolidWorks操作、案例分析、判据、试验与结果核验。</td>
+</tr>
+<tr>
+<td><a href="06-常用数据和公式汇总.html">常用数据和公式汇总</a></td>
+<td>理论方程、材料力学公式与定理、数量级卡片、经验及现有教学算例。</td>
+</tr>
+</tbody>
+</table>
+<p>五板块按主要主题分配题目；原题号保持不变。完整主手册及原专题链接仍可查阅。</p>
+<!-- NAV_END -->
+
+</details></section>
+<section class="chapter"><h2 id="chapter-o1">O1. 线上口头面试：先说判断，再给量级</h2>
+<p><strong>适用场景：没有白板、计算器或软件共享界面的线上口头面试。</strong> 每题先练简明首答；详细推导、数值演算和操作步骤供深入复习，面试官追问时再展开。</p>
+<p>推荐顺序是 <strong>结论 → 一两个原因 → 一个有条件的数量级或具体例子 → 验证／适用边界</strong>。这是一种表达顺序，不要求每次机械报四个标题。例如：“7075更强，但同几何下不会让铝支架明显更硬，因为常见铝合金模量都在70 GPa附近。如果下沉是主问题，我先改截面和支撑，再看强度与重量代价。”</p>
+<p><strong>三档应答</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>对话节奏</th>
+<th>你要做到什么</th>
+<th>不必做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20～30秒首答</td>
+<td>给结论、主导机理，必要时一个记忆锚点</td>
+<td>不背全部假设和公式</td>
+</tr>
+<tr>
+<td>30～60秒展开</td>
+<td>补比较对象、设计动作和主要边界</td>
+<td>不逐项朗读软件菜单</td>
+</tr>
+<tr>
+<td>追问时深入</td>
+<td>给参数来源、关键关系、经验范围或真实项目证据</td>
+<td>未被要求时不现场算到四位小数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>怎样说“经验数值”更自然</strong>：“室温初估我会先按……这个量级；这里指的是……材料状态／几何条件。若要放行，我再查……。”不要只回答“看情况”，也不要把一串无条件数字当经验。没有做过的工艺／项目应直接说明，用“我会这样分析”表达方法，不把示例改写成亲历。</p>
+<h3 id="_3">计算知识的口头表达</h3>
+<table>
+<thead>
+<tr>
+<th>深入复习形式</th>
+<th>线上面试更可能的问法</th>
+<th>首答应留下的判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算机械臂关节力矩</td>
+<td>电机扭矩够不够，你首先看什么？</td>
+<td>最不利姿态、力臂、动态和工作制；峰值与连续能力分开</td>
+</tr>
+<tr>
+<td>推导梁挠度</td>
+<td>支架强度够，但末端下沉，怎么改？</td>
+<td>刚度主导；模量、截面、跨度和连接柔度</td>
+</tr>
+<tr>
+<td>解多个支反力</td>
+<td>工件压装时为什么翘起来？</td>
+<td>载荷作用位置、支撑范围、单边接触和局部柔度</td>
+</tr>
+<tr>
+<td>计算冲击峰值</td>
+<td>手机一米跌落，大概什么量级？</td>
+<td>速度几米每秒、能量几焦耳；峰值还取决于停止过程</td>
+</tr>
+<tr>
+<td>列出全部仿真菜单</td>
+<td>你做仿真的完整思路是什么？</td>
+<td>目的、材料／连接、载荷／约束、网格、可信度、判据</td>
+</tr>
+<tr>
+<td>现场计算应力许用值</td>
+<td>150 MPa 对这个材料算大吗？</td>
+<td>先辨材料和状态，再比强度尺度、裕量和失效模式</td>
+</tr>
+<tr>
+<td>算完公差链</td>
+<td>两个件各自合格为何装不上？</td>
+<td>功能尺寸链未闭合，公差／温漂／涂层可能叠加</td>
+</tr>
+</tbody>
+</table>
+<p>本手册的长算例是帮助形成这些判断的后台知识。普通线上面试中，先说趋势和关键边界比先列方程更容易让面试官评估你的工程理解。</p>
+</section>
+<section class="chapter"><h2 id="chapter-o2">O2. 材料数量级记忆卡：记什么、怎么说、哪些不能直接用</h2>
+<p><strong>四种数字要分开</strong>：①单位换算／基础物理锚点；②有牌号、状态、温度和方法的材料代表数据；③用于口头初筛的近似范围；④由项目批准的验收值。前三者不能自动变成第四类。本节给代表实例与取整后的口头记法，均不声称是每个批次的保证值。</p>
+<h3 id="_4">第一层：先记模量与密度，比记几十个强度数更划算</h3>
+<table>
+<thead>
+<tr>
+<th>材料类别与条件</th>
+<th style="text-align: right;">室温口头模量锚点</th>
+<th style="text-align: right;">密度锚点 g/cm³</th>
+<th>面试里怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常见铝合金</td>
+<td style="text-align: right;">约70 GPa</td>
+<td style="text-align: right;">约2.7，7075约2.8</td>
+<td>换高强铝一般不显著改变同几何弹性挠度</td>
+</tr>
+<tr>
+<td>常见钢／不锈钢</td>
+<td style="text-align: right;">约200 GPa，钢种略有差异</td>
+<td style="text-align: right;">约7.8～8.0</td>
+<td>同几何下通常比铝刚约3倍，也重约3倍</td>
+</tr>
+<tr>
+<td>常见未增强ABS／PC／PC+ABS</td>
+<td style="text-align: right;">约2～3 GPa</td>
+<td style="text-align: right;">约1.0～1.2</td>
+<td>与铝模量差几十倍；温度、时间、结构布局很重要</td>
+</tr>
+<tr>
+<td>未增强POM，具体牌号有差异</td>
+<td style="text-align: right;">约3 GPa</td>
+<td style="text-align: right;">约1.4</td>
+<td>可用于初步刚度比较，不代表塑料接头可长期承受接近屈服的应力</td>
+</tr>
+<tr>
+<td>PA66-GF30等增强塑料</td>
+<td style="text-align: right;">约几到十GPa，受取向和调湿影响</td>
+<td style="text-align: right;">必须按实际牌号查</td>
+<td>不能当成各向同性“低密度铝”</td>
+</tr>
+<tr>
+<td>例：Gorilla Glass 3盖板玻璃</td>
+<td style="text-align: right;">约70 GPa</td>
+<td style="text-align: right;">约2.4</td>
+<td>弹性模量接近铝不代表韧性、强度和失效方式相同</td>
+</tr>
+<tr>
+<td>橡胶／硅胶／胶层</td>
+<td style="text-align: right;">先查牌号、变形区间和曲线</td>
+<td style="text-align: right;">按牌号查</td>
+<td>例如Sandia测得特定制样Sylgard 184在23℃的杨氏模量为1.84MPa，作为软材料量级实例；不拿单一值包办所有橡胶、大变形、泡棉和约束压缩。[M13]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>记忆句</strong>：“钢二百、铝七十、普通硬塑两三；铝二点七、钢近八、硬塑约一多。”其中“普通硬塑”不包括玻纤增强、泡棉、弹性体和所有温度状态。POM约1.4的密度应单独记。</p>
+<p>上表是以本节官方实例归纳的初估锚点，精确输入见下表与参考资料。<strong>同几何、同载荷、同约束、线弹性</strong>时，挠度常随模量增大而减小；同重量比较还受厚度和截面变化影响，不能把“钢更刚”直接等同于“轻量化设计总是选钢”。</p>
+<h3 id="_5">第二层：把强度与牌号、状态一起记</h3>
+<table>
+<thead>
+<tr>
+<th>具体实例与数据性质</th>
+<th style="text-align: right;">模量代表值</th>
+<th style="text-align: right;">强度代表值，注意名称</th>
+<th>口头记法与条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kaiser 6061-T6/T651，板材手册典型数据</td>
+<td style="text-align: right;">68.3 GPa</td>
+<td style="text-align: right;">拉伸屈服276 MPa，抗拉310 MPa</td>
+<td>“T6态6061屈服大致二百多MPa，模量约70 GPa。”典型值不是采购保证下限。[M1]</td>
+</tr>
+<tr>
+<td>同手册6061-T451</td>
+<td style="text-align: right;">68.3 GPa</td>
+<td style="text-align: right;">屈服145 MPa</td>
+<td>“6061不说状态，强度可能差很多；模量却差不多。”不要只背6061=276。[M1]</td>
+</tr>
+<tr>
+<td>Hydro所述6061-T6挤压产品实例</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">约240 MPa级屈服下限实例，依产品规格</td>
+<td>与276典型值的区别是口径和产品，不是任选较大值；实际查形态、厚度与交货标准。[M2]</td>
+</tr>
+<tr>
+<td>Kaiser 7075-T6管材典型数据</td>
+<td style="text-align: right;">71 GPa</td>
+<td style="text-align: right;">屈服503 MPa，抗拉572 MPa</td>
+<td>“T6态7075屈服五百MPa量级，但模量仍七十左右。”不能自动用于任意板厚、方向和状态。[M3]</td>
+</tr>
+<tr>
+<td>同7075资料T73态典型数据</td>
+<td style="text-align: right;">71 GPa</td>
+<td style="text-align: right;">屈服434 MPa</td>
+<td>“状态会改变强度与其他性能，不能把所有7075都说成五百多。”[M3]</td>
+</tr>
+<tr>
+<td>Kaiser 5052-H32管材典型实例</td>
+<td style="text-align: right;">70 GPa</td>
+<td style="text-align: right;">屈服195 MPa；O态实例90 MPa</td>
+<td>“H32态约二百MPa量级，退火态低得多。”这是管材实例，钣金必须另查板材规格。[M4]</td>
+</tr>
+<tr>
+<td>Outokumpu Core 304/4301，20℃表列产品条件</td>
+<td style="text-align: right;">200 GPa</td>
+<td style="text-align: right;">Rp0.2约210～230 MPa，抗拉约520～750 MPa，随形态</td>
+<td>“退火供货常见304规定塑性延伸强度约二百MPa，不能把五六百抗拉强度当屈服。”冷作硬化件另查。[M5]</td>
+</tr>
+<tr>
+<td>ABS Terluran GP-35，所引ASTM产品页、23℃</td>
+<td style="text-align: right;">约2.50 GPa（362000 psi换算）</td>
+<td style="text-align: right;">拉伸屈服约45 MPa（6520 psi换算）</td>
+<td>“普通ABS模量两三个GPa，屈服四五十MPa量级。”不同地区／试验法资料可能略有差异。[M6]</td>
+</tr>
+<tr>
+<td>PC Makrolon 2405，23℃/50%RH典型表</td>
+<td style="text-align: right;">2.4 GPa</td>
+<td style="text-align: right;">屈服65 MPa</td>
+<td>“普通未增强PC屈服六十多MPa、模量两点几GPa。”不把试样屈服应变当卡扣循环许用应变。[M7]</td>
+</tr>
+<tr>
+<td>PC+ABS Bayblend T65 XF，相应室温典型表</td>
+<td style="text-align: right;">2.35 GPa</td>
+<td style="text-align: right;">屈服54 MPa</td>
+<td>“PC/ABS常见实例五十多MPa，但具体配方和阻燃等级要查。”[M8]</td>
+</tr>
+<tr>
+<td>POM Delrin 500P，设计指南23℃实例</td>
+<td style="text-align: right;">3.25 GPa</td>
+<td style="text-align: right;">屈服68 MPa</td>
+<td>“POM约3GPa、屈服六七十MPa。”所引指南100℃实例模量约0.70GPa、屈服28MPa，说明温度不能忽略。[M9]</td>
+</tr>
+<tr>
+<td>PA66-GF30 Ultramid A3WG6 LT BK，干态／调湿典型数据</td>
+<td style="text-align: right;">10／6.8 GPa</td>
+<td style="text-align: right;"><strong>断裂应力</strong>190／127 MPa，不是屈服值</td>
+<td>“玻纤尼龙可到十GPa级，调湿后明显下降，方向与熔接线还会影响。”不把断裂应力列入屈服列。[M10]</td>
+</tr>
+<tr>
+<td>Corning Gorilla Glass 3</td>
+<td style="text-align: right;">70 GPa</td>
+<td style="text-align: right;">不给通用许用拉伸强度</td>
+<td>“玻璃能记模量，不能凭一个固定强度数判屏幕破裂。”[M11]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>把上述数据变成三级记忆</strong>：</p>
+<ul>
+<li><strong>必须脱口而出</strong>：模量“200／70／2～3 GPa”；密度“8／2.7／约1～1.4”；“强度不是刚度”。</li>
+<li><strong>能近似说出即可</strong>：6061-T6屈服二百多、7075-T6五百左右、常见退火304约二百、普通ABS约四五十、PC约六十多、PC/ABS五十多、POM六七十，单位均MPa。每次都附状态／牌号／室温短时的前提。</li>
+<li><strong>正式设计再查</strong>：准确保证下限、温度曲线、厚度／方向、疲劳、蠕变、缺口、成型／调湿、玻璃与胶接统计强度。以上近似记忆不替代实际材料卡。</li>
+</ul>
+<h3 id="_6">第三层：应力数字一出现，先能说出什么</h3>
+<p>以下是<strong>经验初筛反应</strong>，不是合格判定表；所有反应都以应力位置、定义与模型可信为前提。</p>
+<table>
+<thead>
+<tr>
+<th>面试官给的结果</th>
+<th>建议口头首反应</th>
+<th>接着应问／查什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常温6061-T6件50 MPa</td>
+<td>“相对二百多MPa的屈服尺度，静态名义裕量可能较宽。”</td>
+<td>是否真实热点、工作制、疲劳、刚度与安全系数</td>
+</tr>
+<tr>
+<td>常温6061-T6件150 MPa</td>
+<td>“已是需要认真算裕量的水平，不能只凭未屈服通过。”</td>
+<td>强度保证下限和要求系数；如题设240/1.5，限值160</td>
+</tr>
+<tr>
+<td>常温6061-T6件300 MPa</td>
+<td>“已接近或超过常见T6态屈服尺度，先查热点和线弹性适用性。”</td>
+<td>是否奇异、实际材料状态、非线性／残余变形</td>
+</tr>
+<tr>
+<td>普通未增强ABS件50 MPa</td>
+<td>“已接近甚至超过某些室温短时屈服实例，不能按普通低应力看待。”</td>
+<td>牌号、温度、应变、熔接线、持续时间</td>
+</tr>
+<tr>
+<td>普通未增强PC件50 MPa</td>
+<td>“相对六十多MPa短时屈服不算宽裕，更不能覆盖长期载荷。”</td>
+<td>高温、蠕变、允许应变与项目裕量</td>
+</tr>
+<tr>
+<td>未增强普通塑料件100 MPa</td>
+<td>“对这里列举的普通ABS／PC／PC+ABS／POM，值得立即检查材料与模型。”</td>
+<td>先排单位、点载荷和奇异性；增强或特殊牌号另论</td>
+</tr>
+<tr>
+<td>退火304件250 MPa</td>
+<td>“可能达到规定塑性延伸强度附近，但钢种和冷作状态差异很大。”</td>
+<td>不能误用抗拉强度当不屈服标准</td>
+</tr>
+<tr>
+<td>玻璃件50 MPa</td>
+<td>“我不会仅凭50MPa报安全，要看主拉应力、边缘缺陷、强化状态与验证。”</td>
+<td>残余应力、表面／边缘质量、试验散布</td>
+</tr>
+</tbody>
+</table>
+<p><strong>自然表达例</strong>：“150 MPa如果是6061-T6，我会觉得它不是离谱结果，但裕量要认真看；如果是普通ABS，我会马上怀疑已经超出适用强度或存在热点建模问题。数量级帮助我发现问题，最终还是对照具体材料和功能要求。”</p>
+</section>
+<section class="chapter"><h2 id="chapter-o3">O3. 力、形变、热与工艺：最值得记的工程锚点</h2>
+<h3 id="_7">可心算的物理锚点</h3>
+<table>
+<thead>
+<tr>
+<th>记忆锚点</th>
+<th>对应条件与用途</th>
+<th>不要误说成什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 kg重物约10 N；200 g手机约2 N</td>
+<td>取g≈10做口头估算</td>
+<td>不把质量kg直接当力N</td>
+</tr>
+<tr>
+<td>10 N作用在10 cm力臂上约1 N·m</td>
+<td>力垂直有效力臂</td>
+<td>不是所有铰链都需要1N·m</td>
+</tr>
+<tr>
+<td>1 MPa=1 N/mm²；1 GPa=1000 MPa</td>
+<td>精确单位关系</td>
+<td>模量70GPa不是70MPa</td>
+</tr>
+<tr>
+<td>10 N均匀作用在100 mm²上，平均压强0.1 MPa</td>
+<td>仅平均压力</td>
+<td>不是零件最大弯曲应力或接触峰值</td>
+</tr>
+<tr>
+<td>1 bar=100 kPa=0.1 MPa</td>
+<td>压差单位换算</td>
+<td>不把表压、绝压和负压幅值混用</td>
+</tr>
+<tr>
+<td>60 kPa压差×1 cm²有效面积≈6 N理想吸力</td>
+<td>有效压差和面积、法向理想值</td>
+<td>不是考虑泄漏／偏载后的可用搬运力</td>
+</tr>
+<tr>
+<td>一米自由跌落：速度约4.4 m/s，口头说四五米每秒</td>
+<td>静止释放、忽略空气阻力</td>
+<td>没有停止过程就不能得峰值力</td>
+</tr>
+<tr>
+<td>200 g物体一米跌落：能量约2 J</td>
+<td>仅重力势能量级</td>
+<td>不是撞击力2N或2kN</td>
+</tr>
+<tr>
+<td>一公斤以0.1 m/s匀速抬升，机械功率约1 W</td>
+<td>只计重力；实际驱动还需动态与损耗</td>
+<td>不是直接用于电机最终功率选型</td>
+</tr>
+<tr>
+<td>6000 r/min对应100 Hz转频</td>
+<td>转速除60</td>
+<td>叶片通过、齿轮啮合可能是转频倍数</td>
+</tr>
+<tr>
+<td>刚度增加4倍、质量不变，单自由度固有频率约2倍</td>
+<td>线性简化与同一主导模式</td>
+<td>不是复杂结构所有模态都等比变化</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">形变数量级必须绑上尺度和功能</h3>
+<table>
+<thead>
+<tr>
+<th>数字锚点</th>
+<th>怎么说才有工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 μm=0.001 mm；10 μm=0.01 mm；100 μm=0.1 mm</td>
+<td>先把单位说对；精密光学、外观缝隙与粗放支架不是同一种容差问题</td>
+</tr>
+<tr>
+<td>0.1 mm变形</td>
+<td>对仅0.2mm的间隙已吃掉一半；对毫米级可变形缓冲件却可能很小。不能独立报合格</td>
+</tr>
+<tr>
+<td>倾斜0.1°、力臂约30 mm</td>
+<td>边缘位移约0.05 mm，说明小角度也能显著影响精密对位；这是几何心算锚点</td>
+</tr>
+<tr>
+<td>悬臂长度加倍，其他不变</td>
+<td>梁近似中挠度约8倍；缩短力臂通常很有效</td>
+</tr>
+<tr>
+<td>矩形梁弯曲厚度加倍，其他不变</td>
+<td>弯曲刚度约8倍、质量约2倍；厚度方向要对，壳体接触／几何改变时需重算</td>
+</tr>
+<tr>
+<td>弯曲厚度增加约20%</td>
+<td>理想矩形梁刚度约1.7倍，挠度约六成；可说“提升明显，但带来质量和工艺代价”</td>
+</tr>
+<tr>
+<td>钢／铝相同几何、相同载荷</td>
+<td>在模量主导的线弹性挠度中，钢约为铝的三分之一；同质量比较需重新考虑截面</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">热与材料的取整记法</h3>
+<p>下表按所引具体材料数据取整，只用于初步估算；热膨胀系数有温度区间，导热率随材料状态变化。</p>
+<table>
+<thead>
+<tr>
+<th>实例</th>
+<th style="text-align: right;">线膨胀系数初估 ×10⁻⁶/K</th>
+<th style="text-align: right;">导热率初估 W/(m·K)</th>
+<th>面试中的结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6061-T6铝</td>
+<td style="text-align: right;">约23～24</td>
+<td style="text-align: right;">约170</td>
+<td>金属壳体热膨胀可影响零点几毫米的间隙；导热较好但还要看接触和对流。[M1]</td>
+</tr>
+<tr>
+<td>Core 304不锈钢</td>
+<td style="text-align: right;">约16</td>
+<td style="text-align: right;">约15</td>
+<td>不要把“不锈钢也是金属”误当作它与铝导热相近。[M5]</td>
+</tr>
+<tr>
+<td>Gorilla Glass 3</td>
+<td style="text-align: right;">约7.6</td>
+<td style="text-align: right;">本表不提供</td>
+<td>比铝自由热伸长小，同长度粘接会产生热失配；不能把所有玻璃都定为该值。[M11]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>记忆故事</strong>：一段100 mm长的6061件，温升50 K，按23×10⁻⁶/K估算自由伸长约0.115 mm。记成“<strong>十厘米铝件升温五十度，伸长约一成毫米</strong>”。这是自由伸长，不是热应力；能自由伸长就不应人为固定出巨大应力。该故事的长度和温差是教学设定，不是产品环境要求。</p>
+<h3 id="_10">可以记住，但必须带条件的工艺经验</h3>
+<table>
+<thead>
+<tr>
+<th>经验起点</th>
+<th>建议口头说法</th>
+<th>需要供应商／项目确认的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常见注塑筋根厚可从邻壁约40%～60%初筛</td>
+<td>“我会先按半壁厚左右检查缩水风险，再结合材料和DFM调整。”</td>
+<td>外观、材料、筋高、交汇厚区、充填和模具；不是强制通用标准。[M12]</td>
+</tr>
+<tr>
+<td>特定PC/ABS牌号收缩实例0.5%～0.7%</td>
+<td>“这个牌号手册试样约千分之五到七，不能直接当整件各方向固定缩放。”</td>
+<td>流向、保压、几何、冷却、模具修正。[M8]</td>
+</tr>
+<tr>
+<td>网格变化几％可作为某次研究的预设观察门槛</td>
+<td>“我看关心量的连续细化趋势，门槛按决策精度预先定。”</td>
+<td>不是软件统一合格值，也不能替代材料／边界正确</td>
+</tr>
+<tr>
+<td>安全系数1.5或2可作面试假设演示</td>
+<td>“我会先说明这是题设或暂定数，再给出处和批准条件。”</td>
+<td>不属于所有消费电子零件的行业统一值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>不建议背成通用数值</strong>：M2／M3螺钉统一拧紧扭矩、所有塑料统一允许应变、所有密封垫统一压缩率、所有接触统一摩擦系数、所有部件统一0.1mm变形、所有手机统一跌落高度、所有铰链统一扭矩。这些缺少材料／界面／几何／功能条件时，给得越精确越容易暴露理解问题。</p>
+</section>
+<section class="chapter"><h2 id="chapter-o4">O4. 数量级与口头应对：20道题</h2>
+<article class="question" data-priority="P0"><h3 id="Q251">Q251｜常见结构材料，你能不查表说出哪些数量级？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我先记模量：钢约200 GPa、铝约70 GPa、普通未增强ABS或PC约2～3 GPa。强度要连状态记，例如6061-T6屈服二百多MPa、7075-T6五百左右，普通ABS四五十、PC六十多。它们用于初筛，最终要查具体牌号、温度和保证下限。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：先记“200／70／2～3”，再记“T6六系二百多、七系五百级、普通塑料几十”。若被问准确值，选O2里一个具体供应商实例，说“典型值约……，不是任意批次保证值”，不要硬报小数。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q251">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q251">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q252">Q252｜6061支架仿真应力150 MPa，你直觉上觉得大吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>如果是常温6061-T6，150 MPa已经值得认真看裕量，但还不能直接判超强度；我记得它屈服是二百多MPa量级。接着确认材料下限和要求系数，例如题设240 MPa与1.5，许用就是160 MPa，150虽通过但余量不大；若不是T6态，结论可能不同。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：先说“不是离谱、也不是明显宽裕”，再补“T6、静载、已排奇异性”。不要只说“铝一般能到三百，所以没问题”。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q252">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q252">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q253">Q253｜普通ABS或PC出现50 MPa，与铝件50 MPa能一样看吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能。50 MPa对普通ABS已接近某些牌号的短时屈服，对PC也不是很宽裕；而对常温T6态6061，单看静态屈服通常相对低一些。塑料还要看温度、时间、缺口和应变，不能按金属的判断直接放行。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：用代表值“ABS约45、PC约65 MPa”形成对比，不要把它们升级为统一材料许用值。若是玻纤增强塑料，先确认牌号与方向，不能继续沿用未增强塑料的范围。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q253">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q253">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q254">Q254｜7075比6061强很多，刚度也会明显提高吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>一般不会。它们的模量都在70 GPa附近，所以同几何、同载荷下的弹性挠度不会随着屈服强度大幅改善。若问题是下沉，我先改截面高度、跨度和支撑；若主要是强度或允许减薄，才进一步比较高强铝的收益和代价。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“屈服差一截，模量差不多。”还应考虑耐蚀、加工、连接与成本；高强材料允许减薄后，刚度反而可能下降。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q254">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q254">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q255">Q255｜有人说不锈钢屈服都比铝高，这句话对吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能这样概括。常见退火供货304的规定塑性延伸强度可在二百MPa量级，与一些T6铝合金相比未必更高；但304模量约200 GPa，比铝约高三倍。冷作硬化的不锈钢又是另一种状态，不能把抗拉强度和屈服混在一起。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“钢更刚，不代表每种钢都比每种铝更难屈服。”本例为Core 304的指定供货条件，不能推广到高强弹簧钢或其他不锈钢状态。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q255">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q255">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q256">Q256｜PA66加30%玻纤，就可以当成轻质金属算了吗？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能。它的模量可到十GPa量级，明显高于普通未增强塑料，但仍低于铝，且纤维方向、吸湿和熔接线都很重要。比如一个具体牌号干态约10 GPa、调湿约6.8 GPa，所以材料状态和成型方向要进入模型。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“十GPa级、方向性、吸湿变化。”O2表中190／127 MPa是该牌号断裂应力，不要在口头回答时改叫屈服强度。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q256">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q256">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q257">Q257｜玻璃模量和铝差不多，是否能按铝的经验判强度？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能。某些盖板玻璃的模量约70 GPa，弹性刚度尺度与铝接近，但玻璃是脆性材料，表面和边缘缺陷、化学强化及残余应力会影响破裂。我会看主拉应力和代表性试验，不能给一个通用“低于多少MPa就安全”的结论。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“模量七十能记，许用强度不能凭材质名背。”强化层压应力也不能不加分析地当作整片允许拉应力。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q257">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q257">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q258">Q258｜橡胶的弹性模量或摩擦系数，能给一个常用值吗？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>只能给很粗的层级感，不能把一个值当默认输入。普通实心软橡胶的小应变刚度可能是MPa级，明显低于GPa级硬塑料，但硅胶、硬胶、泡棉和受约束压缩差别很大。摩擦系数还取决于对偶面、润滑、压力和速度，我会查数据或用试验识别。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：这个“MPa级”只是软材料层级，不是材料卡或所有橡胶的范围。被追问具体参数时，应转到指定牌号、变形区间和接触条件；邵氏硬度不能唯一决定完整本构。</p>
+<p><strong>核对实例</strong>：Sandia National Laboratories的Sylgard 184试样资料给23℃杨氏模量1.84MPa，说明某个具体硅胶可以落在这一层级；其配比、固化和测试条件不能省略。[M13] 另注意橡胶手册的“100%定伸应力／modulus at 100%”不是小应变杨氏模量，不要只因英文都有modulus就互换。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q258">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q258">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q259">Q259｜手机零件上几牛、几十牛，你怎样建立直觉？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我用重量作锚点：一公斤约10 N，200克手机自重大约2 N，所以20 N按压力约相当于两公斤重物的重量量级，已明显高于它自重。但零件应力还取决于受力面积和力臂，不能因产品轻就认为它只承受几牛。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：这些只是力的物理对照，不代表人机按钮、屏幕按压或连接器的统一试验力。实际载荷必须来自需求或测试。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q259">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q259">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q260">Q260｜小铰链的扭矩通常怎么看量级，不做完整计算能答吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会先估重量和有效力臂。比如教学假设0.5公斤屏幕、重心离轴约0.1米，最不利水平姿态的重力矩大约0.5 N·m，再叠加保持、摩擦和动态需求。这个量级不是统一铰链规格，还要同时检查底座会不会被抬起。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“一公斤、十厘米，约一牛米。”力臂要取垂直距离，角度一变重力矩也会变。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q260">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q260">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q261">Q261｜仿真形变0.1 mm，你第一反应是什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我先看这个数相对功能有多大。若原间隙只有0.2 mm，它已消耗一半；若是要求几十微米对位的光学件，就可能很重要。还要区分绝对位移、两件相对位移和卸载残余，不能孤立地说0.1 mm很小。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“零点一毫米就是一百微米。”这有助于尺度转换，但不是精密件或外观件的统一限值。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q261">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q261">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q262">Q262｜不推导公式，怎样说明加厚和缩短悬臂为什么有效？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>在简单矩形梁的线弹性弯曲里，厚度和长度对挠度都是三次方影响：厚度加倍可让弯曲刚度约八倍，长度减半可让挠度约降到八分之一。所以我常先考虑截面高度和力臂，但也要检查重量、空间和连接柔度。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“弯曲记三次方，轴向拉伸别照搬。”真实壳体的接触、筋和多向受力改变后，要重新分析。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q262">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q262">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q263">Q263｜看到仿真数值差了几个数量级，先排查什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先查单位和输入总量，再看材料、连接和约束。比如把铝的70 GPa写成70 MPa，会让线性模型软约一千倍；把40 kPa写成40 MPa，载荷也大一千倍。若只有尖角应力异常，我再查点载荷和奇异性，不先急着改结构。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“GPa对MPa一千倍，MPa就是N/mm²。”还要检查选多个面时是总力还是每面施力，不能把分布定义忽略。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q263">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q263">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q264">Q264｜消费电子中热变形会到零点几毫米吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>完全可能。以十厘米长铝件温升五十度作教学估算，自由热伸长约0.1 mm，已经能影响紧凑装配间隙。若与玻璃或钢粘接，还要看相对膨胀差和约束；自由膨胀本身不等于有很大的热应力。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“十厘米、五十度、铝伸长一成毫米。”不要把这个温差误说成所有产品的测试条件。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q264">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q264">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q265">Q265｜一米跌落到底是多大冲击？你能口头估到哪一步？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>静止从一米落下，速度是四五米每秒；200克的设备能量大约2 J。我能先报这两个量级，但不能只凭高度报峰值冲击力，因为停止距离、接触时间、角度和缓冲决定了力的时程。静重2 N不代表跌落接触力也是几牛。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：若面试官明确再给1 mm停止距离，可说能量法得到千牛级的位移平均力量级，但须强调不是峰值、也不是实际手机已验证的接触力。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q265">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q265">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q266">Q266｜为什么金属也要区分导热率，而塑料要特别注意温度？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>以常见实例，6061-T6导热率约170 W/(m·K)，304不锈钢约15，相差约一个数量级，不能都叫金属就认为散热一样。塑料除了导热路径，还要看温度下模量和强度；室温数据不能直接用于高温持续承载。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“铝百级、不锈钢十级”，仅对应所列材料实例。Delrin 500P指南中的室温／100℃差异可用于说明温度影响，但不代表所有塑料的折减比例。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q266">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q266">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q267">Q267｜注塑件有哪些值得记住的数值，又不能机械套用？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会记筋根厚常从邻壁的一半左右，也就是约40%～60%开始做缩水检查，但要按材料和模具修正。至于壁厚、拔模、收缩率和螺钉扭矩，我不会给所有零件统一数值，会结合流长、表面、牌号和供应商能力确认。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：讲一个具体牌号的0.5%～0.7%收缩实例时，要补“手册规定试样条件下的典型值”，不能把该范围说成全部塑料的收缩率。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q267">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q267">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q268">Q268｜面试官说“给经验值，别一直说查资料”，怎么回应？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会先给能确认的量级和条件，比如“常温6061-T6屈服二百多MPa、模量约70 GPa；150 MPa属于需要核对裕量的水平”。再用明确题设演示判断，比如材料下限240、系数1.5，对应160 MPa许用。这样能继续讨论，也不把记忆值当成产品放行依据。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：顺序是“给锚点、说判断、限定边界”，不要每句话都从“不能确定”开始；确实不知道的具体牌号应直接承认，不制造精确数。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q268">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q268">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q269">Q269｜没有白板，怎样口头解释一次仿真是否达标？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我先确认模型、载荷和网格结果可信，然后分开看强度和功能变形。金属静载按相应材料下限和安全系数形成许用应力；变形按间隙、精度或密封预算看相对位移。最后补疲劳、屈曲或长期效应等适用项，逐项说通过、失败或尚未验证。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：若追问具体值，再使用Q233和Q240的240／1.5／160、0.60扣预算得0.30的简单例子；初答无需把表格和公式逐项念完。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q269">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q269">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q270">Q270｜怎么训练，才能形成口头工程判断而不是背题？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>每题先用半分钟说结论和原因，再补一个带条件的量级或例子，最后说如何验证。我会练变体：换材料、加长力臂、升温、放松支撑或改变加载方向，看自己能不能解释趋势。算例用于检查理解，不要求普通线上首答逐行推导。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>练习方式</strong>：每天抽6题，覆盖材料／力学、工艺、质量、仿真和个人项目；录音后检查是否把典型值说成保证值、是否只讲名词、是否暗示未做过的经历。答清主导因素后停下，让面试官决定追问深度。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q270">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q270">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-o5">O5. 数值记忆训练与资料来源</h2>
+<h3 id="12">每天五分钟：12张记忆卡</h3>
+<table>
+<thead>
+<tr>
+<th>正面问句</th>
+<th>背面该记住的答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>钢、铝、普通硬塑料的模量？</td>
+<td>约200／70／2～3 GPa，室温初估；增强、软材料另论</td>
+</tr>
+<tr>
+<td>钢、铝、普通硬塑料的密度？</td>
+<td>约8／2.7／1～1.4 g/cm³，具体牌号再查</td>
+</tr>
+<tr>
+<td>T6态6061与7075屈服尺度？</td>
+<td>二百多与五百MPa量级；都是约70GPa模量，不要混淆</td>
+</tr>
+<tr>
+<td>普通ABS／PC／PC+ABS／POM屈服实例？</td>
+<td>约45／65／54／68 MPa；口头记几十MPa级、室温短时代表牌号</td>
+</tr>
+<tr>
+<td>一公斤和200克的重量？</td>
+<td>约10 N、2 N</td>
+</tr>
+<tr>
+<td>一牛米怎样建立直觉？</td>
+<td>10 N垂直作用在0.1 m力臂上</td>
+</tr>
+<tr>
+<td>MPa、GPa和N/mm²？</td>
+<td>1 MPa=1 N/mm²；1 GPa=1000 MPa</td>
+</tr>
+<tr>
+<td>0.1 mm是多少微米？</td>
+<td>100 μm；是否过大取决于功能预算</td>
+</tr>
+<tr>
+<td>一米跌落的速度与200克能量？</td>
+<td>约4.4 m/s、2 J；峰值力未定</td>
+</tr>
+<tr>
+<td>矩形梁厚度或长度的关键影响？</td>
+<td>弯曲中三次方，前提保持其他条件</td>
+</tr>
+<tr>
+<td>十厘米铝件升温五十度？</td>
+<td>自由伸长约0.1 mm；约束决定热应力</td>
+</tr>
+<tr>
+<td>150 MPa对6061与ABS意味着什么？</td>
+<td>对T6态6061需看裕量；对所列普通ABS已很异常。不能无材料条件判定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>复习节奏建议</strong>：当天学完后口述一次，次日、3天后、7天后再抽问；数值答到合理取整即可，但单位和条件必须正确。一次记不住全部时先保住模量、重量、单位和强度层级；不要优先背材料手册里的小数点。</p>
+<p><strong>答错后的修正方法</strong>：若把70 GPa说成70 MPa，回到单位卡；若把强度当刚度，回到材料对比题；若只会说数字不会说后果，用Q252／Q253解释同一应力对不同材料意味着什么。不得把此计划当作已测得的学习效果。</p>
+<h3 id="_11">官方资料索引与数字性质</h3>
+<p>核对日期2026-10-10。材料表是从以下制造商资料选择的代表实例；部分原始资料为早年版本，适合学习对照，不据此替代当前采购批次的受控规格。口头卡上的取整是本手册的记忆加工，不是原厂设计许用值。</p>
+<ul>
+<li><strong>[M1] <a href="https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1015/Kaiser_Aluminum_6061_Sheet_Coil_and_Plate.pdf">Kaiser 6061 Sheet, Coil &amp; Plate</a></strong>：T451、T6/T651典型机械性能及密度、热性能；表中typical不等于minimum。</li>
+<li><strong>[M2] <a href="https://www.hydro.com/en/global/aluminium/products/extruded-profiles/aluminium-extrusions-in-use/components-for-bicycles-and-cargobikes/">Hydro 6061产品应用与规格实例</a></strong>：6061-T6挤压产品与EN 755-2条件下的强度说明；实际需回到对应交货规格。</li>
+<li><strong>[M3] <a href="https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1042/Kaiser_Aluminum_7075_Tube_and_Pipe.pdf">Kaiser 7075 Tube &amp; Pipe</a></strong>：指定状态的典型强度与模量。</li>
+<li><strong>[M4] <a href="https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1040/Kaiser_Aluminum_5052_Tube_and_Pipe.pdf">Kaiser 5052 Tube &amp; Pipe</a></strong>：O／H32等状态的差别，不冒充板材采购下限。</li>
+<li><strong>[M5] <a href="https://www.outokumpu.com/-/media/files/products/core/outokumpu-core-range-datasheet.pdf">Outokumpu Core数据表</a></strong>：304产品形态对应的Rp0.2及物理性能；Rp0.2为规定塑性延伸强度，不等同严格零残余应变的界限。</li>
+<li><strong>[M6] <a href="https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html">INEOS Styrolution Terluran GP-35产品页</a></strong>：所引页面ASTM数据为psi，本表已换算MPa／GPa；不同试验方法资料不可不加说明地混合。</li>
+<li><strong>[M7] <a href="https://solutions.covestro.com/-/media/covestro/solution-center/brands/downloads/imported/1556888808.pdf?hash=87B76D68796A6204DEBBDDD6392BF92E&amp;rev=dc7c87801ace4f22a4a8bd34e7fe12ed">Covestro Makrolon典型性能表</a></strong>：Makrolon 2405的模量和屈服实例。</li>
+<li><strong>[M8] <a href="https://solutions.covestro.com/en/products/bayblend/bayblend-t65-xf_000000000006563805">Covestro Bayblend T65 XF</a></strong>：室温力学与规定试样条件下的成型收缩典型值。</li>
+<li><strong>[M9] <a href="https://www.delrin.com/delrin-design-guide-mod-3/">Delrin Design Guide Module III</a></strong>：500P等牌号的温度相关模量与强度示例，不把挠曲模量混称拉伸模量。</li>
+<li><strong>[M10] <a href="https://download.basf.com/p1/8a8082587fd4b608017fd65c882559b5/en/ULTRAMID%25C2%25AE_A3WG6_LT_BLACK">BASF Ultramid A3WG6 LT BK资料</a></strong>：干态／调湿值与断裂应力，不能改标为屈服强度。</li>
+<li><strong>[M11] <a href="https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/2020/Gorilla_Glass_3_ProdSheet.pdf">Corning Gorilla Glass 3产品资料</a></strong>：模量、密度和热膨胀；不提供本手册所宣称的统一玻璃许用应力。</li>
+<li><strong>[M12] <a href="https://www.protolabs.com/resources/design-tips/improving-part-design-with-uniform-wall-thickness/">Protolabs注塑壁厚与筋设计指南</a></strong>：筋厚经验起点及保持壁厚均匀的目的。</li>
+<li><strong>[M13] <a href="https://www.sandia.gov/polymer-properties/sylgard-184-youngs-modulus-at-23c/">Sandia：Sylgard 184的23℃杨氏模量</a></strong>、<a href="https://www.sandia.gov/polymer-properties/sylgard-184/">配方与制样资料</a>：国家实验室的特定材料测试实例，不推广成全部硅胶的固定模量。</li>
+<li><strong>密度交叉核对</strong>：<a href="https://www.covestro.com/-/media/covestro/solution-center/brands/downloads/imported/1556890114.pdf?hash=947804C7FCBA8C2658757CD4D101CDA0&amp;rev=a2b3b2a689874a7ea341b4d321ef6b73">Covestro Makrolon光学与物性资料</a>给2405等实例约1200kg/m³；<a href="https://www.delrin.com/wp-content/uploads/2024/07/Delrin-500CPE-Product-Data-Sheet-NA-revFNL.pdf">Delrin产品对照表</a>列相应POM实例1.42g/cm³。本手册取整为1.2与1.4作记忆锚点。</li>
+</ul>
+</section>
+<section class="chapter"><h2 id="chapter-o6">O6. 跨领域数量级速记：传动、制造、质量、测试与仿真</h2>
+<p>本节将同样的方法扩展到材料以外。标记 <strong>原厂实例</strong> 表示特定来源的条件数据，<strong>定义／关系</strong> 表示可核对的物理或统计关系，<strong>教学初算</strong> 表示明确假设下推得的数字，<strong>经验起点</strong> 表示需要进一步确认的范围。一个数字只有类别和条件说清，才有助于面试。</p>
+<h3 id="_12">跨领域记忆表</h3>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>可以记的数字／关系</th>
+<th>数字性质与条件</th>
+<th>口头判断与来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电机</td>
+<td>1 kW、3000 r/min约3.2 N·m；2 kW同转速约6.4 N·m</td>
+<td>教学初算，由机械轴功率P=Tω换算；不是所有电机的额定规格</td>
+<td>“功率相同也要看转速与曲线，峰值和连续扭矩分开。”可与Oriental Motor列出的100W、0.318N·m级伺服实例交叉理解。[D14]</td>
+</tr>
+<tr>
+<td>丝杠速度</td>
+<td>10 mm导程、600 r/min→100 mm/s</td>
+<td>定义关系：每转前进一个导程，无传动比时</td>
+<td>“导程翻倍，同转速线速度翻倍，但同推力的扭矩代价也增大。”[D1]</td>
+</tr>
+<tr>
+<td>丝杠驱动</td>
+<td>假设效率0.90，1000 N推力、10 mm导程需约1.8 N·m</td>
+<td>教学初算；只计该轴向力，不含额外旋转加速和预紧阻力</td>
+<td>“滚珠丝杠效率高，但不是无损。”THK具体示例取0.96，不将它推广为所有工况。[D1]</td>
+</tr>
+<tr>
+<td>丝杠高速</td>
+<td>同时受临界转速和厂家DN等限制；THK指定临界转速公式已含0.8系数</td>
+<td>原厂方法，使用该公式时不要再次无意识乘0.8</td>
+<td>“长丝杠不能只看电机转得多快。”[D2]</td>
+</tr>
+<tr>
+<td>轴承寿命</td>
+<td>L10对应90%统计可靠度；球轴承寿命指数3、滚子10/3</td>
+<td>基本额定寿命模型，载荷和适用条件满足时</td>
+<td>“同一球轴承载荷减半，基本计算寿命约八倍，但不覆盖污染、冲击与全部实际失效。”[D3]</td>
+</tr>
+<tr>
+<td>螺钉预紧</td>
+<td>教学假设T=0.6 N·m、d=3 mm、K=0.20→预紧约1000 N</td>
+<td>简化T≈KFd初算；K是假设，不是统一摩擦系数或M3推荐扭矩</td>
+<td>“很小的拧紧扭矩也能造成较大夹紧力，塑料柱承压和工艺窗口重要。”[D4]</td>
+</tr>
+<tr>
+<td>同步带张紧</td>
+<td>同一带、同一自由跨长下，张力约随基频平方变化</td>
+<td>弦模型及声学张紧适用条件；不是频率越高越好</td>
+<td>“频率翻倍对应约四倍张力，应查该传动的目标，不凭手感。”[D5]</td>
+</tr>
+<tr>
+<td>CNC公差</td>
+<td>Protolabs英国页面给一般±0.1 mm、部分网络能力可到±0.010 mm的实例</td>
+<td>供应商／服务能力实例，不是通用最小成本或图纸默认值</td>
+<td>“零点一和零点零一是不同成本层级；尺寸、装夹和检验也要确认。”[D6]</td>
+</tr>
+<tr>
+<td>注塑拔模</td>
+<td>原厂教学例：约25 mm高的非纹理筋可用1°说明；粗纹理例需更大角度</td>
+<td>工艺示例，角度依深度、材料、纹理和脱模变化</td>
+<td>“光面初步按度量级检查，深腔／纹理要增加，最终DFM确认。”[D7]</td>
+</tr>
+<tr>
+<td>注塑筋</td>
+<td>筋根厚约邻壁40%～60%是常见初筛范围</td>
+<td>原厂经验起点，外观与树脂相关</td>
+<td>“半壁厚左右先看缩痕，不代表强度和成型都自动满足。”[M12]</td>
+</tr>
+<tr>
+<td>测量系统</td>
+<td>Gage R&amp;R常见约定：&lt;10%通常可接受，10%～30%结合应用判断，&gt;30%通常需改进</td>
+<td>指定变差／公差口径下的常见指导，不把方差贡献率与标准差比例混用</td>
+<td>“先说分母是Study Variation还是Tolerance，再谈门槛。”[D8]</td>
+</tr>
+<tr>
+<td>过程能力</td>
+<td>Cp=1对应居中模型±3σ；Cp≈1.33对应约±4σ；Cpk考虑偏心</td>
+<td>采用稳定过程与相应σ定义的关系，正态时才可作相应尾部概率推断</td>
+<td>“1.33是常见讨论值，不自动等于所有客户合格线，更不等于必然零缺陷。”[D9]</td>
+</tr>
+<tr>
+<td>零失效样本</td>
+<td>独立同分布二项模型下，95%单侧置信证明R≥99%，零失效至少299次</td>
+<td>由二项概率推算；不是299次同一台相关循环就证明寿命可靠性</td>
+<td>“99%可靠和95%置信是两个数，十次成功不够。”[D10]</td>
+</tr>
+<tr>
+<td>采样</td>
+<td>理想带限信号采样率应高于最高频率2倍；观察波形常采用更高倍率</td>
+<td>理论与实际工程选择分开；NI资料给5倍或10倍等不同目的建议</td>
+<td>“实际还看传感器带宽、抗混叠、插值和峰值精度，10倍也不是万能。”[D11]</td>
+</tr>
+<tr>
+<td>工位节拍</td>
+<td>教学例：有效生产7小时、需求1000件，需求节拍约25 s/件</td>
+<td>由时间与需求定义算得，非行业统一周期</td>
+<td>“平均周期24秒不等于交付有余量，还要看瓶颈、停机、换型和良率。”</td>
+</tr>
+<tr>
+<td>网格／时间步</td>
+<td>不背通用1 mm网格或1 ms步长，观察目标量收敛与时间尺度</td>
+<td>仿真判断原则；示例变化2%／5%只是预先设定的练习门槛</td>
+<td>“毫米级厚壁件和薄胶层不该用同一网格尺子。”[D12]</td>
+</tr>
+<tr>
+<td>吸盘</td>
+<td>0.06 MPa压差、1 cm²有效面积对应6 N理想法向力</td>
+<td>物理初算，切向／剥离、泄漏与裕量另查</td>
+<td>“总理想吸力够也要逐杯看偏载，不能把气源负压等同杯端有效压差。”[D13]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">关于试验和流程，哪些数字应主动停止背诵</h3>
+<ul>
+<li><strong>摩擦系数</strong>：不把钢－钢、橡胶－玻璃各固定成一个值；必须有表面、润滑、法向力、速度和静／动条件。必要时口头说“我会先做敏感性区间，再测量”，而不是造出无来源区间。</li>
+<li><strong>螺钉扭矩</strong>：M3是直径信息，不给强度等级、母材、啮合、润滑和头部形式时，不能得出通用推荐扭矩。表中0.6 N·m只是量级演算，不可作为现场拧紧指导。</li>
+<li><strong>配合公差</strong>：H7是公差带位置与等级，不是对所有直径统一多少微米；必须查公称尺寸段和配合轴。也不能把供应商一般±0.1mm当轴承孔要求。</li>
+<li><strong>表面粗糙度与涂层</strong>：Ra与平面度不同，膜厚与单侧尺寸增长也不总相同；具体值回到功能和工艺。对不了解的表面处理，不编造万能膜厚。</li>
+<li><strong>疲劳与寿命</strong>：铝合金不得把某次高周试验值说成所有条件下无限寿命极限；预紧、缺口、平均应力和环境都会改变评价。</li>
+<li><strong>质量体系</strong>：不把“10件、3人、2次”或“Cpk≥1.33”当所有产品的法定要求。实际研究设计和阈值取决于风险、测量类型、客户与可用样本。</li>
+<li><strong>成本与量产交点</strong>：模具费、单价、交期波动较大，只能用供应商报价与题设数字说明方法，不背“超过某件数就必须开模”。</li>
+</ul>
+</section>
+<section class="chapter"><h2 id="chapter-o7">O7. 跨领域口头追问：16道</h2>
+<article class="question" data-priority="P0"><h3 id="Q271">Q271｜1kW电机大概有多大扭矩？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先要知道转速。以教学设定3000转每分钟为例，1kW轴功率对应约3.2牛米；转速减半但仍能输出同样功率时，扭矩才会翻倍。真实电机还要查扭矩转速曲线、过载时间和工作制，不能只用铭牌功率下结论。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“一千瓦、三千转、三点二牛米。”减速器能换来输出扭矩，但会降低速度、引入效率和回差，不能免费增加功率。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q271">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q271">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q272">Q272｜丝杠导程、转速和直线速度，你能口头连起来吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>导程就是一转前进多少。10毫米导程、600转每分钟，每秒十转，所以线速度约100毫米每秒；大导程能降低同速度所需转速，但同推力要求的扭矩更大。我还会查临界转速、长度和支承。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：THK资料给出推力与导程、效率和扭矩关系。[D1] 若额外假设0.9效率、1000N轴向力和10mm导程，扭矩初算约1.8N·m，不含其他惯性与损耗。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q272">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q272">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q273">Q273｜轴承载荷减半，寿命只是翻倍吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>在基本额定寿命模型下，球轴承指数是三次方，同一轴承等效载荷减半，计算寿命约八倍；滚子轴承指数不同。但这个趋势有条件，不代表污染、冲击或安装问题引起的实际寿命也按八倍变化。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“球三、滚子十除三、L10九成可靠度。”寿命单位要分百万转与小时，额定载荷不等于实际承受载荷。[D3]</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q273">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q273">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q274">Q274｜M3螺钉拧紧扭矩给多少，能报一个经验数吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>只知道M3还不够，我会先看螺钉等级、母材、啮合、润滑和头部承压。如果只是解释量级，假设扭矩0.6牛米、扭矩系数0.2，可能形成约一千牛的预紧；这说明小扭矩也可能压坏塑料柱，但不是我对所有M3的推荐值。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：正式值用Bossard等适用原厂计算／表格并做装配验证，特别检查最小夹紧力和最大不损伤界限。[D4] 不将K等同于单独的螺纹摩擦系数。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q274">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q274">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q275">Q275｜同步带张得更紧为什么可能更差？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>张紧过大会增加轴承和轴载荷，也可能增加损耗，不是越紧定位越好。声学张紧法中，在带和跨距不变的条件下，张力约随基频平方增长，频率翻倍不是只紧一点，而可能约四倍张力，所以应按原厂目标设定。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：Gates公式还需要带质量、宽度和自由跨长。[D5] 换带或跨长变化后，不能照搬同一个频率目标。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q275">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q275">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q276">Q276｜普通机加工能做到多大精度？线上怎样回答才不空泛？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会先问尺寸、材料、形位和检测要求，再报带来源的层级。比如Protolabs英国服务说明有一般±0.1毫米和部分网络能力到±0.010毫米的实例，能说明精度成本不同，但不能据此保证所有复杂薄壁件都能低成本做到百分之一毫米。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“十分之一与百分之一毫米是可讨论的能力层级，不是统一工艺标准。”关键配合按功能标注，由供应商确认工序与测量方案。[D6]</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q276">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q276">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q277">Q277｜注塑拔模角一般多大？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会按度量级先检查，光面短特征可讨论约一度这样的初始方案，深腔或纹理通常需要更大角度。但高度、树脂和表面纹理会影响脱模，不能把一度或两度当所有面通用要求，最后要做模具DFM。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：原厂教学中有约25mm高非纹理筋1°、粗纹理需要更大角度的例子；这是条件实例，不是产品保证规则。[D7] 与其背很多角度，不如解释为何纹理会增加脱模阻力。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q277">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q277">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q278">Q278｜Cpk的1、1.33这些数字意味着什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>它描述过程均值到较近规格边界相对于过程波动的距离。Cpk为1时较近边界大约离均值三倍标准差，1.33大约四倍；前提是估计和过程状态合理。是否接受按客户或项目要求，不是任何场景都统一1.33。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：“1对3σ，1.33约4σ。”要讲尾部不良率，还需分布假设；不混淆Cp、Cpk与Ppk，也不自行加入1.5σ漂移。[D9]</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q278">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q278">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q279">Q279｜量具R&amp;R的10%、30%，能直接拿来判吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>这是一组常见指导，低于10%通常较好，10%到30%要结合用途，超过30%往往要改进。但先说明分母是研究变差还是公差，而且不能把标准差比例和方差贡献率混用；关键特性还要按项目要求确认。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：这组数用于提示量测系统质量，不代替完整MSA，也不代表量具准确度百分比。[D8] 校准有效、分辨率高仍不一定测得可靠。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q279">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q279">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q280">Q280｜试了十次都成功，可以说可靠性99%吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能。成功比例和有置信度的可靠性下限不同。一个可记的教学锚点是：独立同分布、零失效的二项模型下，要以95%单侧置信支持99%成功率，需要约三百次，精确取整是299次；实际寿命试验还要另看模型和样本独立性。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：公式依据二项零失效概率R的n次方，由明确条件推算；NIST给出二项比例检验背景。[D10] 不把一台设备连续299次相关动作当299台独立寿命样本。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q280">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q280">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q281">Q281｜测100Hz振动，采样200Hz就够了吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能简单这样定。理想带限信号要求采样高于最高频率两倍，但实际还要传感器带宽、抗混叠和波形峰值精度。对明确带宽内的波形观察，我会考虑更高采样，比如按需求讨论五到十倍作为起点，再验证采集链，而不是把200Hz当保证。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：NI资料中的不同倍率是为不同重构和测量目标给的建议，不是互相矛盾的通用标准。[D11] 冲击信号含更高频分量，不能只按重复频率选采样。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q281">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q281">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q282">Q282｜一个工位24秒，能否满足每天1000件？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>要看有效生产时间、瓶颈和损失。比如教学设定每天有效七小时，千件对应需求节拍约25秒；24秒名义周期看似满足，但停机、换型、返工和其他工位可能吃掉余量，不能只用最快一次节拍承诺交付。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：25秒由七小时除千件计算，不是制造行业标准；有效时间定义应避免再把同一停机损失重复扣除。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q282">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q282">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q283">Q283｜网格通常设多少毫米？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我不按一个固定毫米值套所有零件，而是看最小关键特征、厚度、曲率、接触与输出量。先给合理初始网格，再做系统细化看功能位移和可评定应力；薄胶层与厚支架的网格尺度本来就不同。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：如果需要报具体尺寸，应指向某个已知几何的练习设置，同时说这不是合格标准。软件官方建议局部控制和适当细化，而不是统一1mm。[D12]</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q283">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q283">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q284">Q284｜仿真与试验相差5%，是不是就算准？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先看比较的是哪个量、测量不确定性和设计余量。5%对余量很大的位移可能可接受，对临界应力或精密间隙可能影响结论；还要看其他载荷和位置是否一致，不能凭单点5%吻合就说模型普遍可靠。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：5%在这里是面试给定情景，不是NAFEMS、ASME或SolidWorks统一放行线。校准与独立验证要分开，模型误差和数值收敛误差也要分开。</p>
+</details></div><div class="question-links">关联阅读：<a href="05-仿真测试实践分析.html#Q284">仿真测试实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q284">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q285">Q285｜经验阈值、原厂典型值和正式标准，口头怎样分清？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会说明数字身份：比如材料典型值是参考性能，供应商加工能力是该服务条件下的实例，经验筋厚是设计起点，项目许用应力才是批准后的比较线。说清这些，既能给量级判断，也不会把经验冒充标准。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：每个数字至少带“对象、条件、用途”三项；需要正式决定时再补来源、版本和批准依据。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q285">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q285">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q286">Q286｜忘了精确数字，如何继续给出专业判断？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会说出有把握的层级和比较，例如铝模量七十GPa级、未增强硬塑料几GPa级，然后说明这个差距对变形意味着什么。需要某牌号的确切许用值时我会明确暂不确认，并说查哪份原厂或项目资料，不用模糊记忆凑出精确数字。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>记忆与追问</strong>：能把方向、量级和设计后果讲清通常比背错一个精确值更好；但常用单位和本岗位核心参数应练到熟悉，而非把所有问题都推给查表。</p>
+</details></div><div class="question-links">关联阅读：<a href="06-常用数据和公式汇总.html#Q286">常用数据和公式汇总专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q286">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-o8">O8. 跨领域数字的网络核对与记忆层级</h2>
+<table>
+<thead>
+<tr>
+<th>核对类型</th>
+<th>本手册怎么处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原厂数据</td>
+<td>对照原厂网页／技术手册，写明牌号、状态或服务条件，保留链接</td>
+</tr>
+<tr>
+<td>统计与测量方法</td>
+<td>对照NIST、测量／统计软件原厂资料，写明分母、假设和门槛属性</td>
+</tr>
+<tr>
+<td>明确题设的心算</td>
+<td>核对所用关系后由脚本复算；不伪称网页直接给出相同例题结果</td>
+</tr>
+<tr>
+<td>找不到可靠通用值</td>
+<td>不填训练记忆猜测的精确数字，改列必须明确的条件与核对路径</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">第二组记忆卡：跨材料继续练</h3>
+<table>
+<thead>
+<tr>
+<th>正面</th>
+<th>背面</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1kW、3000转？</td>
+<td>约3.2N·m，轴功率关系；不是电机全转速能力</td>
+</tr>
+<tr>
+<td>10mm导程、600转？</td>
+<td>100mm/s；导程是每转前进量</td>
+</tr>
+<tr>
+<td>球轴承载荷减半？</td>
+<td>同一基本寿命模型约八倍；L10是九成可靠度</td>
+</tr>
+<tr>
+<td>小螺钉小扭矩就小夹力？</td>
+<td>不一定；K=0.2等明确假设下，M3的0.6N·m可初算到千牛级，不作推荐扭矩</td>
+</tr>
+<tr>
+<td>同步带频率翻倍？</td>
+<td>同带同跨条件张力约四倍，查目标而非越紧越好</td>
+</tr>
+<tr>
+<td>加工±0.1与±0.01mm？</td>
+<td>可作供应商能力层级例，关键尺寸要评审成本与检验</td>
+</tr>
+<tr>
+<td>Cp/Cpk的1与1.33？</td>
+<td>三倍与约四倍σ的距离概念，稳定性和分布先确认</td>
+</tr>
+<tr>
+<td>R&amp;R的10与30？</td>
+<td>常见指导，先说分母和比例口径，按应用确认</td>
+</tr>
+<tr>
+<td>99%可靠、95%置信、零失效？</td>
+<td>独立二项假设下约三百次，299为该式取整</td>
+</tr>
+<tr>
+<td>采样只两倍？</td>
+<td>理论边界不等于实际峰值／波形精度；带宽、滤波和采样共同决定</td>
+</tr>
+<tr>
+<td>7小时、1000件？</td>
+<td>约25秒需求节拍，还查损失与瓶颈</td>
+</tr>
+<tr>
+<td>网格1mm、误差5%？</td>
+<td>只能是具体题设或预定门槛，不能泛化成工程标准</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">核对来源</h3>
+<ul>
+<li><strong>[D1] <a href="https://tech.thk.com/en/products/pdf/en_b15_006.pdf">THK Ball Screw Features</a></strong>：导程、推力、驱动扭矩与效率关系；其特定例题效率0.96。口头0.90是本手册明示假设。</li>
+<li><strong>[D2] <a href="https://www.thk.com/us/en/products/ball_screw/selection/0007/">THK Permissible Rotational Speed</a></strong>：临界转速、DN及公式系数，核对是否已计入裕量。</li>
+<li><strong>[D3] <a href="https://cdn.skfmediahub.skf.com/api/public/0901d196802809de/pdf_preview_medium/Rolling_bearings_-_17000_1_EN_pdf_preview_medium.pdf">SKF轴承基本额定寿命</a></strong>：L10、寿命指数与使用限制。</li>
+<li><strong>[D4] <a href="https://www.bossard.com/ca-en/assembly-technology-expert/technical-information-and-tools/online-calculators-and-converters/">Bossard预紧、扭矩与摩擦计算入口</a></strong>：扭矩系数、摩擦离散、几何与材料的影响；本手册未将假设值作为厂商推荐。</li>
+<li><strong>[D5] <a href="https://www.gates.com/content/dam/gates/home/knowledge-center/resource-library/operating-manuals/SonicTensionMeter_Manual_Mar2018_HIRES_NOBLEED.pdf">Gates Sonic Tension Meter Manual</a></strong>：频率、跨距、带质量和张力关系。</li>
+<li><strong>[D6] <a href="https://www.protolabs.com/en-gb/services/cnc-machining/">Protolabs英国CNC服务能力</a></strong>：具体服务的±0.1mm及网络加工能力实例；地区、渠道和报价条件需确认。</li>
+<li><strong>[D7] <a href="https://www.protolabs.com/media/1011290/im-for-dummies-en.pdf">Protolabs注塑设计手册</a></strong>、<a href="https://www.protolabs.com/resources/design-tips/mold-texture-standards-and-finishes/">纹理与拔模说明</a>：高度、纹理与拔模角的关联。</li>
+<li><strong>[D8] <a href="https://blog.minitab.com/en/blog/quality-data-analysis-and-statistics/how-to-interpret-gage-output-part-2?hs_amp=true">Minitab Gage R&amp;R解释</a></strong>、<a href="https://support.minitab.com/minitab/media/pdfs/translate/Assistant_Gage_R_and_R.pdf">Gage R&amp;R研究说明</a>：百分比口径、常见指导与研究设计。</li>
+<li><strong>[D9] <a href="https://itl.nist.gov/div898/handbook/pmc/section1/pmc16.htm">NIST Process Capability</a></strong>：Cp/Cpk定义、适用条件与分布解释。</li>
+<li><strong>[D10] <a href="https://www.itl.nist.gov/div898/handbook/prc/section2/prc24.htm">NIST二项比例检验</a></strong>：二项统计基础；本题零失效样本由Rⁿ=0.05推算，不套指数寿命模型。</li>
+<li><strong>[D11] <a href="https://www.ni.com/en/shop/data-acquisition/measurement-fundamentals/analog-fundamentals/acquiring-an-analog-signal--bandwidth--nyquist-sampling-theorem-.html">NI采样与混叠</a></strong>、<a href="https://www.ni.com/en/shop/data-acquisition/how-to-choose-the-right-daq-hardware-for-your-measurement-system.html">NI数据采集硬件选择</a>：理论采样边界与实际波形采集建议；不同插值和重构条件会改变倍率选择。</li>
+<li><strong>[D12] <a href="https://help.solidworks.com/2026/english/SolidWorks/cworks/c_Meshing_Tips.htm?id=26.16.5">SolidWorks Meshing Tips</a></strong>：网格细化与局部处理；与前文收敛判断连用。</li>
+<li><strong>[D13] <a href="https://www.schmalz.com/en-us/support/know-how/vacuum-knowledge/the-vacuum-system-and-its-components/vacuum-suction-cups/technical-data-of-suction-cups">Schmalz吸盘技术数据</a></strong>：理论法向吸力与实际数据条件。</li>
+<li><strong>[D14] <a href="https://www.orientalmotor.com/servo-motors/tuning-free-servo-motors-nx.html">Oriental Motor NX伺服实例</a></strong>：额定与最大扭矩分列，可用于核对功率／转速／扭矩的对应及区别；本手册1kW／3000r/min仍为教学初算。</li>
+<li><strong>[D15] <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9">NIST SI单位与换算</a></strong>、<a href="https://pml.nist.gov/cuu/pdf/sp811.pdf">NIST SP811</a>：力、压强、功率等单位依据；<a href="https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm">NIST精确二项置信限</a>：补充299次样本推算的统计口径。</li>
+</ul>
+<p>资料核对日期：2026-10-10。教学假设不等于产品规格；来源未直接提供的例题结果，标为定义关系或教学初算，并列明计算条件。</p>
+</section>
+<section class="chapter"><h2 id="chapter-p1">P1. 现象分析题：把个例迁移成可复用的判断</h2>
+<p>本板块包含34道现象题：附着与摩擦8题、加速度与倾覆8题，以及振动、接触、热、密封和寿命18题。题目以因果链、常见误答和变式训练为主；云台与转子平衡见理论力学B4～B5。</p>
+<p><strong>答陌生现象时的五个动作</strong>：</p>
+<ol>
+<li><strong>限定现象</strong>：确认“打滑”指空转、侧滑还是水滑，“平衡”指重力矩小还是转子惯性不平衡小。先指出条件，不与面试官争措辞。</li>
+<li><strong>找主导变化</strong>：速度、加速度、温度、载荷、姿态、时间或装配状态变了什么？速度与加速度尤其不能混为一谈。</li>
+<li><strong>追载荷路径</strong>：外力从哪里来、通过何种接触或连接、哪个约束可能失效？内部力矩与外力矩不要重复计算。</li>
+<li><strong>比较边界</strong>：驱动力与附着、倾覆矩与恢复矩、激励频率与固有频率、变形与间隙，先达到哪个边界？</li>
+<li><strong>给判别试验</strong>：改变一个主导变量，用反力、力矩、电流、温度、频率或相对位移区分候选原因。把“可能”说成可检验假设，而非唯一答案。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>现象母题</th>
+<th>可以迁移的场景</th>
+<th>首答要抓住的关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速度上来才出问题</td>
+<td>涉水、旋转偏心、润滑膜、共振、风扇噪声</td>
+<td>驱动需求／流体支承／激励随速度怎样变</td>
+</tr>
+<tr>
+<td>一加速就抬起或滑移</td>
+<td>摩托车、AGV、托盘、机械臂、夹爪</td>
+<td>惯性与地面／夹具反力重新分配</td>
+</tr>
+<tr>
+<td>静止正常、动起来不正常</td>
+<td>云台、转子、反向间隙、线束、滚动快门</td>
+<td>重力、惯量、柔度、控制与测量分别看</td>
+</tr>
+<tr>
+<td>变热或放久才出问题</td>
+<td>热卡滞、双材料翘曲、密封、塑料夹紧</td>
+<td>相容变形、温度依赖与时间依赖</td>
+</tr>
+<tr>
+<td>越紧、越硬、越厚反而更差</td>
+<td>导轨、轴承、减振、跌落、密封垫</td>
+<td>主导机理与代价改变，不沿单一指标判断</td>
+</tr>
+<tr>
+<td>同样载荷、结果不一样</td>
+<td>玻璃边缘、螺钉扭矩、支撑布局、加载速率</td>
+<td>作用位置、接触面积、状态与路径不同</td>
+</tr>
+</tbody>
+</table>
+<p><strong>事实边界</strong>：正文是工程教学分析，不证明用户做过这些实验；所有标明教学假设的数值均经复算。网络资料用于核对机理、原厂配平步骤和标准范围，具体产品验收仍需受控要求。道路题仅作力学解释，不把经验关系转成驾驶安全速度或车辆操作建议。</p>
+</section>
+<section class="chapter"><h2 id="chapter-p2">P2. 附着、流体与摩擦：8道场景</h2>
+<article class="question" data-priority="P0"><h3 id="Q287">Q287｜为什么车轮过水坑，速度高时更容易打滑？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>如果这里指高速过积水时的水滑，关键是水来不及从轮胎接地区有效排走，形成水楔和动压力，承担了越来越多轮载，真正由路面接触承担的载荷减少，制动和转向附着随之下降。但一般湿滑不一定要超过某个统一速度，低速在低附着表面也可能滑。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>因果链</strong>：速度增加 → 排水过程与流体惯性更显著 → 接触区水压分布与支承比例变化 → 部分接地丧失乃至充分水滑 → 可传递的纵横向力下降。水滑依赖车速、水深、胎面排水、路面纹理、胎压与载荷等，并非“摩擦力一过某速度必然突然为零”。[P-S1]</p>
+<p><strong>常见误答</strong>：“水的黏度随车速变大”“高速让车变轻”“惯性大于摩擦所以任何水坑都要到固定速度才滑”。单说摩擦系数降低没有解释水滑的支承机制。</p>
+<p><strong>变式／判别</strong>：换水深、胎纹、路面或轮载时临界条件为何改变？可在受控台架测接触区、轮速、轮载与纵横向力，不在实际道路尝试找临界速度。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q287">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q287">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q288">Q288｜“需要超过一定速度才会打滑”这个前提一定对吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不一定。我会区分普通湿路附着不足、部分水膜导致的低摩擦和动态水滑。如果轮胎还接地，但驱动、制动或转向要求超过可用附着，低速也会滑；速度相关的明显门槛通常是在讨论某类水滑条件，不能推广到所有打滑。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>因果链</strong>：先辨失效类型，再解释阈值。普通轮胎滑移由力需求与附着能力共同决定；动态水滑强调水动力承担轮载。薄水膜、表面污染及不同制动状态可能改变机制，不必都由充分水滑解释。</p>
+<p><strong>变式</strong>：“车速很低但湿光滑地面起步空转”与“自由滚动车轮高速过积水转速下降”各属什么线索？后者是NASA研究所列可能表现之一，不是所有水滑必须出现的唯一证据。[P-S1]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q288">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q288">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q289">Q289｜能用伯努利方程算一个通用水滑速度吗？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不能只把速度代进动压就得到通用阈值。动压随速度平方增长能帮助理解趋势，但实际需要水压分布、接触面积、排水和轮胎变形。文献的经验速度关系有胎压、胎纹、水深和轮胎条件，不能直接作为所有汽车的安全车速。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>深入依据</strong>：NASA早期研究的简化关系有充分积水等明确假设；它忽略或简化了部分胎纹、黏性和路面因素。[P-S1] 本手册不让求职者背一个公里每小时阈值。即使用 <code>q≈ρv²/2</code> 估压力尺度，也不能假定该压强均匀作用于整个接地面积。</p>
+<p><strong>常见误答</strong>：“速度快，伯努利说明下面压力低，所以把轮胎吸起来。”此处需要解释的是轮胎挤排水产生的水动力支承，不能机械套流速大静压低。</p>
+<p><strong>变式</strong>：深水阻力使车减速，为什么还能同时发生轮胎失去附着？阻力与可用路面摩擦是不同分量。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q289">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q289">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q290">Q290｜加深胎纹、加宽轮胎或增加轮载，是否一定改善涉水附着？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>改善排水通常有帮助，但不能把所有变量都理解为越大越好。胎纹、水深、接地形状、胎压和轮载互相影响，宽胎也可能有更长的侧向排水路径。增加载荷同时改变接地面积和胎体变形，所以需要在明确条件下比较。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>分析要点</strong>：胎纹磨耗影响排水和湿地表现；名义接地面积不能直接当作真实橡胶有效接触面积。某些简化模型里轮载与面积共同变化，不能只保留更重压得住水的直觉。[P-S1、P-S2]</p>
+<p><strong>变式</strong>：相同胎压换更重载荷，是否一定提高临界速度？应回到胎体、面积与流体支承模型。不得把此分析解释为可自行超出厂商胎压或载荷要求。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q290">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q290">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q291">Q291｜为什么边转弯边急加速，更容易侧滑？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>轮胎纵向驱动和横向转弯都在使用有限的附着能力。转弯已经要求较大横向力，再增加驱动力可能让组合需求超过可用范围，湿地时余量更小。我要同时看轮载转移和轮胎特性，不把两个方向的最大力独立相加。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>因果链</strong>：转弯需求与速度、弯曲半径有关；驱动／制动引入纵向需求；法向载荷与路面状态决定可用组合包络。摩擦圆／椭圆是初步图像，真实轮胎并非固定μ的理想库仑块。[P-S3]</p>
+<p><strong>变式</strong>：AGV边横移边旋转、吸盘搬运同时侧向加速与翻转，也要做组合载荷判断。口述重点是“能力共享”，不必现场画完整轮胎图。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q291">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q291">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q292">Q292｜同一块软脚垫，慢推不滑，突然推会滑，是什么原因？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>先看突然加载是否提高了瞬时力和加速度、改变接触压缩与重心反力，再看静滑转变。并不是摩擦永远只由一个固定系数决定；软垫还有黏弹性、接触面积和加载速率影响，要用相同方向的力－位移或时间记录区分。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>常见误答</strong>：没测力就说一定是动摩擦比静摩擦小；突然施力可能还引入局部翘起和短时法向力下降。</p>
+<p><strong>变式／判别</strong>：保持峰值力不变但改变加载时间，或用刚垫替换软垫，现象怎样变化？比较接触压力与相对滑移，而非只记滑了多远。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q292">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q292">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q293">Q293｜抽屉、微型导轨或密封滑块，为什么低速更容易一顿一顿？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>可能是黏滑：驱动和结构先储存弹性变形，突破起动摩擦后突然滑动，力又下降，再重复。低速还可能受润滑膜、密封和控制分辨率影响。我会先看速度、驱动力与摩擦的对应，不直接把问题归咎于电机不够大。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>判别与改进</strong>：测低速往返力－速度曲线，改变润滑、预紧和控制参数；检查结构刚度与阻尼，区分机械黏滑、回差和控制极限环。摩擦随速度的Stribeck特性只是候选机理之一。[P-S8]</p>
+<p><strong>变式</strong>：摄像头调焦、自动门、注射推杆、微调台出现同类现象，应分别考虑工况与安全功能，不能复制同一参数。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q293">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q293">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q294">Q294｜油膜能让轴承减摩，水膜却让轮胎失控，这两者矛盾吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不矛盾，功能不同。轴承希望以受控油膜承载并减小固体接触摩擦，轮胎则需要与路面传递足够驱动和侧向力，水膜把接触隔开反而破坏功能。两者都要看流体膜形成条件，但不能仅凭有液体就判断好坏。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／判别</strong>：轴承启动时与稳态高速时摩擦为何不同？吸盘上的液体可能帮助密封，却也可能降低切向抗滑，法向吸力和侧向能力要分开。[P-S8、P-S10]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q294">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q294">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-p3">P3. 加速度、载荷转移与倾覆：8道场景</h2>
+<article class="question" data-priority="P0"><h3 id="Q295">Q295｜摩托车起步为什么会翘头？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>核心是向前加速时前轮减载。地面驱动力作用在重心下方，结合重力与支承力形成俯仰力矩，后轮承担更多法向载荷；前轮反力降到零，就达到抬离地面的条件。主要看加速度、重心位置和轴距，不是只看车速或发动机功率。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>深入模型</strong>：取车与骑手为整体，水平路面，轮距L，重心距后接地点向前x、高度h；在近似无俯仰角加速度、忽略空气力及转子角动量变化的初筛中：<code>N_f=m(gx−ah)/L</code>，<code>N_r=mg−N_f</code>。前轮离地边界为 <code>a/g=x/h</code>。前轮离地后约束变了，需要新的运动方程，不允许继续算负前轮反力。[P-S3]</p>
+<p><strong>常见误答</strong>：“速度一快就翘头”“前轮被发动机反扭矩直接抬起”“重心真的自动向后移动”。实际人体姿态／悬挂能改变重心，但即使刚体几何不变也会有载荷转移。</p>
+<p><strong>变式</strong>：同速匀速行驶与同速强加速，为什么前轮载荷不同？先说加速度，后补实际动力系统／悬挂瞬态。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q295">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q295">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q296">Q296｜地面越滑，摩托车越容易翘头吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不一定，常要比较先达到后轮附着极限还是先让前轮反力为零。路面很滑时，可能后轮先空转，实际加速度达不到翘头条件；附着充分时才可能把较大驱动力转成前轮减载。要比较两个边界，不能只看发动机扭矩。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>深入关系</strong>：沿用Q295的简化模型，纯后驱、忽略其他阻力时，纵向需求约ma且受后轮可用附着约μN_r限制；真实μ随轮胎工况变化。两个方程只用于解释竞争，不提供特定车辆的操控阈值。</p>
+<p><strong>变式／验证</strong>：AGV急加速时驱动轮打滑与整车倾覆也可能竞争；需记录地面反力、轮速与整车加速度，单看电机转速不能区分。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q296">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q296">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q297">Q297｜加配重会更不容易翘头吗？为什么骑手前倾有帮助？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>关键是配重放哪里。理想几何下翘头加速度与重心距后轮的水平距离和高度之比有关，总质量本身会约掉；前移或降低重心通常增加抗翘头能力，后方高处加重反而可能更差。实际能达到的加速度还受动力与附着限制。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>常见误答</strong>：把加重必然更稳当作结论；同一发动机加重后加速度降低，是动力层面的变化，不等于纯几何倾覆边界只由质量决定。</p>
+<p><strong>变式</strong>：物流机器人电池下移、机械臂前伸、相机脚架挂配重，分别如何改变重心与抗倾覆？挂着可摆动的配重还要考虑动态扰动。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q297">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q297">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q298">Q298｜车架后仰、悬挂压缩，就是载荷转移的原因吗？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>载荷转移不需要先有悬挂位移，刚体在加速度下也会改变前后反力。悬挂和俯仰会进一步改变重心几何与瞬态响应，驱动链和旋转部件的反作用也可能参与，但它们是在基本外力平衡上增加的真实因素。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>分析边界</strong>：隔离车架时发动机／传动对车架的力矩是外载；隔离整车加骑手时，其中很多是内部作用。真实旋转质量的角动量变化不能遗漏，也不能把同一发动机力矩和轮胎驱动力造成的效应重复加一遍。</p>
+<p><strong>变式</strong>：前驱、后驱或轮毂电机平台，加速时都会有载荷转移，但驱动轮附着余量和内部力路径不同。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q298">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q298">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q299">Q299｜为什么急刹可能后轮抬起，AGV货物也可能前倾？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>减速使支反力向前侧转移，后方支撑会减载；达到边界就可能抬起或向前倾倒。对货物还要比较先滑移还是先翻转，重心高、底座短和较大减速度通常更不利，不能只用静态重心在支撑区内来证明动态安全。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／判别</strong>：同样刹停速度，较短刹停时间为何更危险？主因是更大的减速度和动态载荷，若存在悬挂、货物晃动还需看时间历程。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q299">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q299">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q300">Q300｜机器人机械臂没超载，底盘为什么仍会翘轮？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>关节承载合格不等于整机稳定。机械臂伸出改变重心和外载力矩，运动加速度又带来惯性力矩，某侧轮反力可能先降到零。我会同时看整机支撑范围、姿态与加减速，而不是只查臂上电机额定扭矩。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：空载高速收臂、重载慢速伸臂，哪一个更危险？不能只按质量排序，应比较各自重力和惯性力矩、时序及接触状态。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q300">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q300">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q301">Q301｜推一台带脚轮的设备，为什么底部推得动，顶部推却会翻？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>推力高度越高，倾覆力矩越大。如果脚轮被阻挡、锁住或滚动阻力较大，设备不先移动，就可能先绕支撑边转动。我要比较移动阻力与倾覆边界，检查载荷高度和脚轮实际状态。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>迁移点</strong>：屏幕支架、显示器、抽屉柜、生产台车都是同一类“外力高度—支撑边界”问题。不能把脚轮设计只当成减摩，也要看侧向、越障与刹车状态。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q301">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q301">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q302">Q302｜相同位移、相同总用时，运动为何可能冲击感不同？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>位移和总时间一样，不代表速度、加速度及其变化率一样。突然切换加速度会激发结构振动、线束和接触冲击；平滑轨迹可以降低某些激励，但可能增加峰值速度或占用节拍余量，要按实际约束比较。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／判别</strong>：比较相同任务下的电流、加速度和残余振动时程，而不仅比较完成时间。云台快停、机械臂抓取和手机跌落缓冲都要考虑时间过程。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q302">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q302">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-p4">P4. 云台与动平衡：关联阅读</h2>
+<p>云台配平、转子静／动平衡与验收方法见理论力学B4～B5（Q303～Q316）。</p>
+<p><a href="理论力学与消费电子刚体分析专题.html#Q303">阅读云台配平与刚性转子动平衡</a>。本板块用于附着、倾覆、振动、热与接触现象的横向训练；云台知识按质心、惯量和空间刚体运动的知识链复习。</p>
+</section>
+<section class="chapter"><h2 id="chapter-p5">P5. 举一反三：振动、接触、热、密封与寿命18题</h2>
+<article class="question" data-priority="P0"><h3 id="Q317">Q317｜风扇在某一转速最响，更快反而安静，是动平衡忽然变好了吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不一定，可能是转频或叶片通过频率扫过结构共振。质量不平衡激励随速度增长，但系统响应还受刚度、阻尼与频率关系影响，峰值后下降不代表不平衡消失。我会测转速相关频谱，再区分不平衡、气动与结构问题。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／判别</strong>：改变固定方式或临时增加刚度后噪声峰值频率是否移动？加已知小试重是否改变同步幅相？一倍频也是线索而非唯一故障证明。[P-S6、P-S9]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q317">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q317">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q318">Q318｜云台增益调大、机械结构加硬，为什么有时抖得更厉害？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>更大增益可能放大测量噪声、摩擦或柔性模态，并消耗相位裕量；加硬则会移动模态和传递路径。结构、执行器、传感器与控制要一起看，不是增益或刚度越大就一定更稳，先区分机械共振和闭环振荡。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>判别</strong>：固定姿态比较不同增益、载荷与支承，观察振动频率和电流；改变结构后重新调参。原厂自动调参通常也以正确机械配平为前提。[P-S4、P-S9]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q318">生活场景实践分析专题</a> · <a href="07-关节模组电机面试专题.html#Q318">关节模组电机专题专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q318">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q319">Q319｜用更软的减振垫，为什么低速运动或低频扰动反而更差？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>软垫降低固有频率，可能改善某些高频隔振，却增加低频位移和接近共振时的放大，还可能损害定位刚度。我会按激励频带和允许位移选隔振与阻尼，不能只看材料摸起来软。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：相机软安装防电机高频振动，但步行时画面慢摆，如何在支承刚度、阻尼、控制与曝光之间取舍？先测激励和响应频谱。[P-S9]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q319">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q319">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q320">Q320｜同样停在一个位置，正向到达和反向到达却不一样，为什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>常见候选是回差、摩擦滞后和弹性变形，方向反转时接触侧或传动受力改变。编码器若在电机侧，也可能看不到输出端误差。我会做同向和反向到位对照，先区分重复性、回差和绝对精度。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／验证</strong>：增加预紧可能减小回差，但也增加摩擦与温升；不能只靠软件回零掩盖机械问题。用输出端测量和载荷变化区分几何间隙与弹性滞后。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q320">生活场景实践分析专题</a> · <a href="07-关节模组电机面试专题.html#Q320">关节模组电机专题专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q320">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q321">Q321｜导轨锁紧后变涩，稍微松螺钉反而顺畅，是否螺钉太多？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>可能是基面不平、导轨平行度或装配顺序让导向过约束，拧紧把误差转成内力。螺钉数量本身不是根因，我会测安装基准和各阶段阻力，按定位与浮动设计修正，而不是把松着用当作最终解决。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：薄框上的双轴承、两根平行导轨、手机滑盖机构都可能出现几何相容问题。额外约束能提高名义刚度，也可能降低装配容错。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q321">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q321">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q322">Q322｜相同螺钉、相同扭矩，塑料壳这批裂、那批松，为什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>扭矩到预紧并非固定比例，润滑、螺纹、头部摩擦和工具变化都会影响夹力。塑料柱的孔径、熔接线、含水与长期松弛也不同，所以要同时查拧紧工艺窗口和零件材料工艺，不能只把扭矩设成一个固定数字。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>判别</strong>：记录扭矩－角度、装配深度和裂纹位置，检查螺钉顶底、有效啮合及承压；用代表性样件验证最小夹紧与最大不损伤条件。延伸到Q052、Q213、Q274。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q322">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q322">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q323">Q323｜铝框和玻璃粘好时很平，升温后翘曲，为什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>材料自由热膨胀不同，被胶层约束后需要通过应力、剪切与弯曲来相容。还要查温度不均、胶厚和固化残余应力，不能只说铝膨胀而忽略另一层。改善需要兼顾柔顺、定位、胶接和密封。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：双金属温控片利用的就是类似差异膨胀导致弯曲；相同材料两侧温度不同也可能翘曲。改变温度均匀性与胶层布置可区分来源。[P-S11]</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q323">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q323">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q324">Q324｜轴系冷态顺畅，工作一段时间发热卡死，为什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>温升可能改变配合、游隙和预紧，双端轴向夹死时热伸长会转成额外载荷，摩擦又产生更多热。也要检查润滑、密封和对中，我会把温度、驱动电流与转动阻力一起记录，不能只换更大电机。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／判别</strong>：浮动端释放后是否改善？不同温度区域是轴先热还是座先热？不能仅凭钢与铝的系数顺序判断间隙一定变大或变小，需要实际几何和温场。</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q324">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q324">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q325">Q325｜卡扣刚装时很紧，放几天却松了，属于强度不够吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>可能是塑料应力松弛或蠕变，也可能有装配就位、磨损和环境变化。短时强度够不代表长期保持力稳定，我会看是否持续承受变形、温湿度与材料曲线，再测保持力随时间变化。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：提高初始扣合量可能提高短时保持，却加重应变和长期问题；应考虑让结构锁止承担保持而非长期依赖大弹性预变形。不同材料的“放久”机制需验证，不能统一称疲劳。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q325">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q325">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q326">Q326｜防水垫压得更紧，为什么可能更容易漏或装坏？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>过度压缩可能使垫片挤出、端盖弯曲或产生局部不均，装配力也可能损伤螺柱。密封看的是合适压缩窗口、连续接触与长期恢复，不是总力越大越好。我要把沟槽、公差、材料和老化一起看。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／判别</strong>：常温通过、温循后漏，先测端盖翘曲和材料松弛；从一角先漏，检查局部支撑与表面缺陷，而不只平均压缩率。[P-S8]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q326">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q326">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q327">Q327｜吸盘能竖直提起玻璃，一横移却滑落，为什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>法向吸力和切向能力不是同一指标。横移增加惯性和偏心矩，切向摩擦、杯体变形或边缘剥离可能先到极限；水、油膜又可能降低抗滑。我会查杯端压差和实际接触状态，再做组合载荷验证。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：总真空源读数正常也不能证明每杯正常；泄漏、管路压降和工件翘曲都可能改变负载分配。[P-S10]</p>
+</details></div><div class="question-links">关联阅读：<a href="04-生产场景量产实践分析.html#Q327">生产场景（量产环节）实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q327">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q328">Q328｜密封产品从冷处到热处，外壳为什么可能鼓起或按键手感变化？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>如果内部气体近似封闭，温度变化会改变内压，再通过外壳、膜片和密封的柔度改变形状与手感。同时材料本身也会热胀和软化，我会区分压差效应与纯热变形，考虑透气或压力平衡结构的代价。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>教学关系</strong>：固定气体量和近似固定容积下，绝对压力随绝对温度成比例；真实外壳会变形、可能泄漏，不能用摄氏温度直接成比例，也不能忽略外部气压。此处给关系，不规定通用试验压差。</p>
+<p><strong>变式</strong>：乘飞机、海拔变化与水下压力也涉及压差，但边界与时间常数不同；静态密封通过不等于所有压力循环通过。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q328">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q328">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q329">Q329｜同样力按屏幕中心不碎，靠边或用尖头按却碎了，为什么？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>同样总力不代表同样局部应力。接触面积、曲率、支撑距离和边缘缺陷会改变应力状态；玻璃对拉应力与缺陷敏感，所以载荷位置和压头形状都重要。我会用匹配实际支撑与接触的模型和试验比较。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>误答纠正</strong>：不能只拿平均压强F/A判断玻璃弯曲破裂；也不能因为中心位移更大，就认为中心一定最危险。联系Q215和Q257。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q329">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q329">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q330">Q330｜跌落保护壳越硬越厚，就一定越保护内部器件吗？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>不一定，外壳防穿透和内部冲击隔离是不同目标。更硬可能缩短停止过程、提高传递加速度；合适的吸能行程能降低冲击，但太软也可能到底碰撞。我会比较姿态、能量路径和器件相对位移，而不只看外壳应力。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：同样质量、不同缓冲材料与厚度，要测压缩／回弹曲线和应变率影响；不能只凭硬度或静态模量排序。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q330">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q330">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q331">Q331｜洗衣机、风扇或转台转起来振动，为什么不能一概说动平衡差？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>质量不平衡是候选原因，但松动、轴弯、不对中、轴承问题、周期外力和共振也会振。我会看转速阶次、幅相、测点和工况变化；一倍频能提示不平衡，却不是唯一证据，支撑状态也会改变振幅。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式／判别</strong>：负载重新分布后变化明显，偏心可能性上升；固定方式改变后峰值频率移动，提示结构动态影响。最终用受控修正和复测证明原因，不靠单张频谱定罪。[P-S6、P-S9]</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q331">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q331">主手册同题</a></div></article>
+<article class="question" data-priority="P1"><h3 id="Q332">Q332｜机械上振动很小，视频为什么仍出现“果冻”或条纹？【P1】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>成像是机械运动、曝光与读出的共同结果。滚动快门不同扫描行在不同时间曝光，小幅高频角运动也可能扭曲画面；条纹还可能与照明闪烁或电子因素有关。我会对照快门、曝光、光源和外部测振，而不是看到画面异常就继续加配重。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：改变曝光／读出方式后画面变化而机械频谱不变，是成像链路的重要线索；没有相机读出参数时不报通用可接受振幅。角度到像面的初算见Q315。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q332">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q332">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q333">Q333｜零件轻载静置没问题，反复小动作一段时间后却断，怎么解释？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我会考虑疲劳、微动磨损或反复冲击，先看断口位置与载荷循环，而不是只比较一次静载应力。装配预紧、缺口、表面和环境可能放大局部循环损伤；塑料或胶层还可能混有时间效应，需要证据区分。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>变式</strong>：同样峰值力，单次慢加载与反复快速反向的寿命不能直接等同。改大圆角、降低应力幅和消除接头滑移通常比只提高静强度更有针对性。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q333">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q333">主手册同题</a></div></article>
+<article class="question" data-priority="P0"><h3 id="Q334">Q334｜遇到从没见过的现象，怎样不靠猜也能给出像工程师的回答？【P0】</h3><div class="answer"><div class="oral-answer"><div class="oral-label">口头首答 · 约30–60秒</div><p>我先确认变化的是速度、加速度、温度还是姿态，再确定分析对象与载荷路径，找可能首先失效的接触或功能边界。提出两三个有物理依据的候选原因，并说改变哪个变量、测什么可以区分；暂时不能唯一确定时会明确，不把一个术语当最终答案。</p></div><details class="technical-details"><summary>展开依据、算例与操作步骤（按需复习）</summary><p><strong>示范</strong>：“高速才抖，可能是速度相关激励增长，也可能扫过共振；我先看频率是否随转速走，再改变支撑和载荷，区分激励源与响应放大。”这种回答比只说‘共振’或‘动平衡’更完整。</p>
+<p><strong>停止条件</strong>：首答讲清主要假设、主导机理和一个判别办法即可，等待追问；不要把所有力学名词都列一遍。数值不熟时给可信层级并说明来源，不编造具体阈值。</p>
+</details></div><div class="question-links">关联阅读：<a href="03-生活场景实践分析.html#Q334">生活场景实践分析专题</a> · <a href="机械结构工程师面试与知识强化手册.html#Q334">主手册同题</a></div></article>
+</section>
+<section class="chapter"><h2 id="chapter-p6">P6. 现象迁移、数量级记忆与模拟追问</h2>
+<h3 id="_16">附着与倾覆的两个关系锚点</h3>
+<table>
+<thead>
+<tr>
+<th>锚点</th>
+<th>条件与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水动力压力尺度随速度平方增长</td>
+<td>用于解释趋势；接触面积、排水与变形变化时不能保证总支承严格按平方增长，不给公路通用速度门槛</td>
+</tr>
+<tr>
+<td>翘头初筛看a/g与x/h比较</td>
+<td>水平面、准稳态俯仰、忽略空气力及旋转角动量变化的简化；不是车辆最终安全极限</td>
+</tr>
+</tbody>
+</table>
+<p>所有数值为本节教学假设或物理关系复算；没有把任何数值指定为DJI、车辆或ISO的通用合格线。</p>
+<h3 id="_17">面试官连续追问的示范路线</h3>
+<p><strong>路线A：从涉水到接触</strong>：为什么高速更容易水滑 → 低速一定不滑吗 → 胎纹影响什么 → 能否直接用伯努利算临界速度 → 哪些实验能区分湿滑与水滑 → 如果换成低速AGV的湿光滑地面，主导机制会不会改变。</p>
+<p><strong>路线B：从翘头到整机稳定</strong>：为什么起步翘头 → 看速度还是加速度 → 发动机反扭矩是不是唯一原因 → 湿地会先空转还是先翘头 → 加重一定有帮助吗 → 机器人抬臂／急停怎样用同一思路分析。</p>
+<p><strong>路线C：从云台到转子（完整题目见<a href="理论力学与消费电子刚体分析专题.html#Q303">理论力学B4～B5</a>）</strong>：什么叫动平衡 → 静平衡是否足够 → 举纯力偶不平衡例子 → 如何测量并修正 → 云台放手不倒说明什么 → 如何建立残余力矩与画质指标 → 换镜头或变焦后为什么要复查。</p>
+<p><strong>路线D：陌生故障定位</strong>：高速才抖 → 为什么不一定是动平衡 → 改变速度、加速度、支撑和增益分别能区分什么 → 确定一个最小验证计划 → 避免用试验后临时改变的门槛宣称通过。</p>
+<h3 id="_18">横向出题生成表：一题可练多个变体</h3>
+<table>
+<thead>
+<tr>
+<th>换一个条件</th>
+<th>面试官可能问</th>
+<th>你要重新检查的东西</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速度变，加速度不变</td>
+<td>一定更易倾覆吗？</td>
+<td>区分几何惯性、流体、转动与空气力</td>
+</tr>
+<tr>
+<td>加速度变，最高速不变</td>
+<td>为什么更抖／更易松脱？</td>
+<td>惯性力、驱动裕量、反力转移与轨迹</td>
+</tr>
+<tr>
+<td>总重量不变，位置变</td>
+<td>为什么电机电流和稳定性变化？</td>
+<td>重心、惯量、力臂，不只看质量</td>
+</tr>
+<tr>
+<td>总重心不变，轴向分布变</td>
+<td>为什么转子静止正常、旋转摇摆？</td>
+<td>力偶不平衡与主惯性轴</td>
+</tr>
+<tr>
+<td>正向换反向</td>
+<td>为什么到位误差不同？</td>
+<td>回差、摩擦、接触侧与控制滞后</td>
+</tr>
+<tr>
+<td>室温换热态</td>
+<td>为什么间隙或阻力变化？</td>
+<td>热相容、材料变化、润滑和预紧</td>
+</tr>
+<tr>
+<td>短时换长期</td>
+<td>为什么保持力下降？</td>
+<td>松弛、蠕变、磨损、疲劳的区别</td>
+</tr>
+<tr>
+<td>静态换冲击</td>
+<td>为什么高强度仍损坏？</td>
+<td>接触时间、能量、应变率和局部路径</td>
+</tr>
+<tr>
+<td>刚支撑换软支撑</td>
+<td>为什么有时隔振、有时放大？</td>
+<td>固有频率、阻尼、行程与激励频带</td>
+</tr>
+<tr>
+<td>原件换附件／线缆</td>
+<td>为什么配平失效？</td>
+<td>新质量配置、线缆力矩与惯量耦合</td>
+</tr>
+</tbody>
+</table>
+<p><strong>练习要求</strong>：不背每题唯一原因。先给当前条件下最可能的主导机理，再给一个能排除其他原因的动作。对诸如“越快一定越滑”“越重一定越稳”这种前提，温和限定后继续分析，不停在反驳题目本身。</p>
+<h3 id="_19">来源索引与边界</h3>
+<p>资料核对日期：2026-10-10。数值锚点由明确假设推算，以下来源用于核对物理机理、实际原厂步骤和标准范围；旧版技术资料用于基础概念，不冒充最新产品参数。</p>
+<ul>
+<li><strong>[P-S1] <a href="https://ntrs.nasa.gov/citations/19640000612">NASA TN D-2056：轮胎水滑现象</a></strong>及<a href="https://ntrs.nasa.gov/api/citations/19640000612/downloads/19640000612.pdf">原始报告</a>：水动力支承、接地区变化、速度关系与假设；并非道路安全速度表。</li>
+<li><strong>[P-S2] <a href="https://www.michelinman.com/auto/auto-tips-and-advice/tire-damage/tread-problems">Michelin轮胎磨耗与湿地表现</a></strong>：胎面状态与湿地附着关联，不据此得出任意胎纹／载荷组合的定量阈值。</li>
+<li><strong>[P-S3] <a href="https://unifind.unipd.it/resource/item/102848">Padova大学：Motorcycle Dynamics作者资料</a></strong>；<a href="https://www.research.unipd.it/retrieve/8c297c2f-6e2a-48a0-9dfb-d0d053d45e61/1-s2.0-S0967066124003836-main.pdf">Anti-wheelie systems研究论文</a>：轮胎力、加速／制动俯仰与多体分析背景。Q295的简化反力式在文中列明假设，自行由整体平衡推导，不声称直接等同论文全模型。</li>
+<li><strong>[P-S4] <a href="https://repair.dji.com/help/content?customId=01700007642&amp;lang=en&amp;paperDocType=ARTICLE&amp;re=US&amp;spaceId=17">DJI Ronin系列配平指导</a></strong>、<a href="https://www.dji.com/downloads/products/rs-4">RS4官方手册下载入口</a>、<a href="https://dl.djicdn.com/downloads/ronin/en/Ronin_User_Manual_v2.0_en_160229.pdf">Ronin官方配平说明书</a>：多轴、多姿态及实际配置的机械配平；具体流程依型号，不把用户设置检查称为ISO转子平衡试验。</li>
+<li><strong>RS4操作细节核对</strong>：<a href="https://dl.djicdn.com/downloads/DJI_RS_4/UM/DJI_RS_4_User_Manual_v1.0__EN.pdf">RS4／RS4 Pro v1.0官方PDF</a>，印刷页14～17的配平流程。适用于对应型号的配平操作说明，不代表实物操作或验证记录。</li>
+<li><strong>[P-S5] <a href="https://www.schenck-rotec.com.sg/why-balancing/dynamic-unbalances.html">Schenck动态不平衡</a></strong>及<a href="https://www.schenck-rotec.com.au/why-balancing/couple-unbalances.html">力偶不平衡</a>：静不平衡与力偶、两平面校正的区别。</li>
+<li><strong>[P-S6] <a href="https://www.bksv.com/media/doc/17-227.pdf">Brüel &amp; Kjær：Static and Dynamic Balancing</a></strong>：转速基准、幅相、试重和校正复测方法。本文仅采用基本方法，不照搬其中旧设备精度或年代较早的标准表述。</li>
+<li><strong>[P-S7] <a href="https://www.iso.org/standard/54074.html">ISO 21940-11:2016范围</a></strong>及<a href="https://www.iso.org/standard/78116.html">2022修订</a>：刚性行为转子的残余不平衡、容差平面与误差要求；<a href="https://www.iso.org/ics/21.120.40/x/">ISO平衡标准目录</a>供查适用版本。仅核对公开范围，实际采用需受控全文，不自行指定所有云台的G等级。</li>
+<li><strong>[P-S8] <a href="https://evolution.skf.com/using-a-friction-model-as-an-engineering-tool-3/">SKF摩擦模型与Stribeck曲线</a></strong>、<a href="https://www.parker.com/content/dam/Parker-com/Literature/Praedifa/Catalogs/Catalog_O-Ring-Handbook_PTD5705-EN.pdf">Parker O-Ring Handbook</a>：润滑、摩擦、黏滑与密封设计。</li>
+<li><strong>[P-S9] <a href="https://evolution.skf.com/us/damping-in-a-rolling-bearing/">SKF轴承支撑与共振阻尼</a></strong>、<a href="https://cdn.skfmediahub.skf.com/api/public/0901d196801082e3/pdf_preview_medium/0901d196801082e3_pdf_preview_medium.pdf">SKF振动诊断资料</a>：不平衡激励与结构响应、其他振动原因的区分。</li>
+<li><strong>[P-S10] <a href="https://www.schmalz.com/en-us/support/know-how/vacuum-knowledge/the-vacuum-system-and-its-components/vacuum-suction-cups/technical-data-of-suction-cups">Schmalz吸盘技术数据</a></strong>：法向、切向与工况数据的区别。</li>
+<li><strong>[P-S11] <a href="https://ntrs.nasa.gov/citations/19940000147">NASA双材料热弯曲说明</a></strong>：不同热膨胀导致弯曲的机理；与前文材料原厂温度数据、热失配案例连用。</li>
+<li><strong>成像与压力补充</strong>：<a href="https://docs.baslerweb.com/electronic-shutter-types">Basler电子快门类型</a>、<a href="https://assets-ctf.baslerweb.com/dg51pdwahxgw/7ntd9P0LbEeEmxKj6Q6J1h/cb845234f745dddab95f3ee64994dd7d/BAS1401_White_Paper_Rolling_Shutter.pdf">滚动快门技术说明</a>用于区分运动模糊和滚动读出失真；<a href="https://www.edmundoptics.com/knowledge-center/tech-tools/imaging-system-parameter-calculator/">Edmund Optics成像参数工具</a>用于核对焦距、像元和角度尺度关联；<a href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/equation-of-state-ideal-gas-2/">NASA理想气体状态关系</a>用于Q328的绝对压力／温度关系。</li>
+</ul>
+<p>现象解释需要证据区分候选原因；教学分析不代表已验证的个人项目成果。</p>
+<!-- VERSIONS_START -->
+</section>
+<section class="chapter"><h2 id="version-history">版本记录</h2>
+<p>版本号按项目记录统一编排；v1.x为历史阶段的回溯标签，日期统一记为资料整理日，不代表当时曾发布同名版本。版本表只记录编辑沿革，技术参数的来源与适用条件仍见正文。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>日期</th>
+<th>变更内容</th>
+<th>对本册的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1.4</td>
+<td>2026-10-10</td>
+<td>口头作答与数量级体系</td>
+<td>为已有题目提供口头首答，增加Q251～Q286及记忆卡。</td>
+</tr>
+<tr>
+<td>v1.5</td>
+<td>2026-10-10</td>
+<td>现象分析体系</td>
+<td>增加Q287～Q334；形成涉水、倾覆、云台及横向迁移案例。</td>
+</tr>
+<tr>
+<td>v1.6</td>
+<td>2026-10-10</td>
+<td>动平衡章节归属调整</td>
+<td>Q303～Q316与验收表归入理论力学B4～B5，其他专题保留索引。</td>
+</tr>
+<tr>
+<td>v1.7</td>
+<td>2026-10-10</td>
+<td>目录迁移与编辑交接</td>
+<td>迁移到面经聚合目录，建立当前Markdown主源与维护工具。</td>
+</tr>
+<tr>
+<td>v2.0</td>
+<td>2026-10-11</td>
+<td>文档规范化与统一入口</td>
+<td>正文清除编辑沿革；文末版本表、阅读索引、主专题互链与离线统一入口。</td>
+</tr>
+<tr>
+<td>v2.1</td>
+<td>2026-10-11</td>
+<td>材料力学公式、定理与工程场景深化</td>
+<td>补充公式边界、控制条件与可复算案例的关联入口；同步全站题库导航。</td>
+</tr>
+<tr>
+<td>v2.2</td>
+<td>2026-10-11</td>
+<td>五板块重排与独立索引</td>
+<td>阅读导航连接五板块；原文件及旧章节链接继续保留。</td>
+</tr>
+<tr>
+<td>v2.3</td>
+<td>2026-10-11</td>
+<td>三科纯理论覆盖补充</td>
+<td>同步五板块总题数、版本和关联导航；本册原有题目内容与归属保持不变。</td>
+</tr>
+<tr>
+<td>v2.4</td>
+<td>2026-10-11</td>
+<td>公差与尺寸链的跨板块补充</td>
+<td>同步五板块导航与当前版本；原有题目内容保持不变。</td>
+</tr>
+<tr>
+<td>v2.5</td>
+<td>2026-10-11</td>
+<td>轴承选型、公差与装配的跨板块补充</td>
+<td>同步五板块导航与当前版本；原有题目内容保持不变。</td>
+</tr>
+<tr>
+<td>v2.6</td>
+<td>2026-10-11</td>
+<td>成对角接触轴承轴座设计的具体场景深化</td>
+<td>同步五板块导航与当前版本；原有题目内容保持不变。</td>
+</tr>
+<tr>
+<td>v2.7</td>
+<td>2026-10-19</td>
+<td>关节模组电机与电驱集成的跨板块补充</td>
+<td>同步五板块导航与版本；原有题目内容保持不变。</td>
+</tr>
+<tr>
+<td>v2.7.1</td>
+<td>2026-10-20</td>
+<td>Q555电机拓扑与尺寸取舍算例深化</td>
+<td>同步版本与导航，题目内容不变。</td>
+</tr>
+<tr>
+<td>v2.7.2</td>
+<td>2026-10-21</td>
+<td>公开仓库准备与应聘背景匿名化</td>
+<td>同步版本与导航；技术题目内容不变。</td>
+</tr>
+</tbody>
+</table>
+<!-- VERSIONS_END --></section><p class="footer">口头先讲判断、依据和条件；详细计算供追问或线下复习。数字不替代受控设计要求，例题不替代真实经历。</p></main><script>
+const query=document.querySelector('#query'),priority=document.querySelector('#priority'),count=document.querySelector('#count');
+const chapters=[...document.querySelectorAll('.chapter')],questions=[...document.querySelectorAll('.question')];
+function filter(){
+ const terms=query.value.trim().toLowerCase().split(/\s+/).filter(Boolean),level=priority.value;let shown=0;
+ questions.forEach(q=>{const content=q.textContent.toLowerCase();const ok=terms.every(t=>/^q\d{3}$/.test(t)?q.querySelector('h3').id.toLowerCase()===t:content.includes(t))&&(!level||q.dataset.priority===level);q.hidden=!ok;if(ok)shown++});
+ const active=terms.length>0||!!level;
+ chapters.forEach(c=>{const qs=[...c.querySelectorAll('.question')];c.hidden=active&&(qs.length===0||qs.every(q=>q.hidden))});
+ document.querySelector('#intro').hidden=active;
+ count.textContent=`显示 ${shown} / ${questions.length} 道题 · 关键词检索覆盖问题与答案 · 可按题号检索`;
+ document.querySelector('#empty').hidden=shown!==0;
+}
+query.addEventListener('input',filter);priority.addEventListener('change',filter);
+document.querySelector('#toggle').addEventListener('click',()=>{const active=document.body.classList.toggle('practice');document.querySelector('#toggle').textContent=active?'显示期望答复':'隐藏答复，开始自测';document.querySelector('#toggle').setAttribute('aria-pressed',String(active))});
+document.querySelector('#expand').addEventListener('click',()=>{const ds=[...document.querySelectorAll('.technical-details')];const expand=ds.some(d=>!d.open);ds.forEach(d=>d.open=expand);document.querySelector('#expand').textContent=expand?'收起全部深入复习':'展开全部深入复习';document.querySelector('#expand').setAttribute('aria-pressed',String(expand))});
+let printState=[];
+window.addEventListener('beforeprint',()=>{printState=[...document.querySelectorAll('details')].map(d=>[d,d.open]);printState.forEach(([d])=>d.open=true)});
+window.addEventListener('afterprint',()=>printState.forEach(([d,open])=>d.open=open));
+document.querySelector('#print').addEventListener('click',()=>window.print());
+document.querySelectorAll('aside a').forEach(a=>a.addEventListener('click',()=>{query.value='';priority.value='';filter()}));
+filter();
+function revealHash(){const id=decodeURIComponent(location.hash.slice(1));const target=document.getElementById(id);if(!target)return;query.value='';priority.value='';filter();let p=target.parentElement;while(p){if(p.tagName==='DETAILS')p.open=true;p=p.parentElement}requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}));}
+window.addEventListener('hashchange',revealHash);if(location.hash)revealHash();
+function notifyReader(){if(window.parent!==window){window.parent.postMessage({type:'handbook-loaded',file:decodeURIComponent(location.pathname.split('/').pop()),fragment:location.hash,title:document.title},'*');}}
+notifyReader();window.addEventListener('hashchange',notifyReader);
+</script></body></html>

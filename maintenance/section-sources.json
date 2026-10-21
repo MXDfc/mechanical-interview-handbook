@@ -1,0 +1,331 @@
+[
+  {
+    "source": {
+      "section": "B3",
+      "exclude": [
+        "常用方程与最容易漏掉的条件"
+      ]
+    },
+    "sha256": "6de84cfe5ab1eb99be3f80e878393c537168d97dcd919b798544d58fc7aa25a3"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L1 理论力学"
+    },
+    "sha256": "70f7751a5a93e0643153032f93a0d44d9e54ddfe5fce5d5e7b65bf0af210dbfe"
+  },
+  {
+    "source": {
+      "section": "C6"
+    },
+    "sha256": "995e459704a26c9d186aaa4589716d1c54bd532fdff3d53ab6420f497b3fc2e9"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L2 材料力学"
+    },
+    "sha256": "aa91fb3c3a59cd5b91095e390d609b98fdca77151f1f503380507daac53957a2"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L5 材料与表面工程"
+    },
+    "sha256": "d8a83db315edd860fd81a5462447869fc5af9d2cf1afaa5105e1d5d608c03dad"
+  },
+  {
+    "source": {
+      "section": "D1"
+    },
+    "sha256": "8ddb520a316e980d780203b5acadf1e63b6160ea99a27642831e37db74e39183"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L3 机械原理"
+    },
+    "sha256": "c329d574d7e701dc5600051e90d377a37063bb54e7f706e5b3391607cd67acc8"
+  },
+  {
+    "source": {
+      "section": "E1"
+    },
+    "sha256": "157df4b6a2e873778b5e0ac9ed8458f040c22542f1e6d40baa699f65303b31c4"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L4 机械设计"
+    },
+    "sha256": "93100d70f72cd05ad265c0e16944fa90c824a51289202d76579b1442f9b7638b"
+  },
+  {
+    "source": {
+      "section": "F1"
+    },
+    "sha256": "b8a82af30564cc5bed98cb491905a610294f8950372857a313c18079268de593"
+  },
+  {
+    "source": {
+      "section": "E2"
+    },
+    "sha256": "1221eb19c2860f6277fe7043ad78535df1afcd33be45f2c278670e61939d3d5a"
+  },
+  {
+    "source": {
+      "section": "E7"
+    },
+    "sha256": "709b64fdda8a5a3773d6edc6bf61bd6e4e6e6934a1c8c2b82ac3fe9f753a2ebd"
+  },
+  {
+    "source": {
+      "section": "P1"
+    },
+    "sha256": "dca0b6427b9f372e6ade782c7b9d5cd60f0fe31d1d01fb198f33d91f94630190"
+  },
+  {
+    "source": {
+      "section": "P6",
+      "exclude": [
+        "附着与倾覆的两个关系锚点"
+      ]
+    },
+    "sha256": "a0938ab4b6d5dd330a7ae45efb85915ce837ae0194c238b7f15f5bc5f675fcaa"
+  },
+  {
+    "source": {
+      "section": "材料映射：哪些内容值得重点问"
+    },
+    "sha256": "527cd243f9796579bd1efa92416004a7442684eb6aff548f6b14b6b9f3ab611b"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L14 机器人系统集成"
+    },
+    "sha256": "be379f69743397fc3ed9494f562828e57cb774bec1f1c97bd8ada0c673da7306"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L15 按目标行业"
+    },
+    "sha256": "d8f4b127ddcf6d23d99445247186701b47d1baf729572676c13e11bb8b89a0ee"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L6 图纸"
+    },
+    "sha256": "bf8ecceb2f17fa57a92e4ab2b1dbc1486f1876851af021a3084105b6897081f7"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L7 机加工"
+    },
+    "sha256": "9268e395e4c109f9c97874a7ae368c8adc82f6468d54745f5723b2f1497af6a8"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L8 铸造"
+    },
+    "sha256": "be6a9c30541639bd2b26f074b290c5df1433993eb7a6373e57f1b8c539c7dc08"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L9 注塑"
+    },
+    "sha256": "210937ca7c09f2971f25d309e866d201ebd8ba034482b70d3555d6ef20d9d2fa"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L10 产品开发"
+    },
+    "sha256": "71ee30f4fe14619c2353a198827805c9f8cb9f83b21d0c53ef441acf5202bcbd"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L11 质量"
+    },
+    "sha256": "634e48556f3e842078d21535cc130f890cafd7084c86d83e1ad20630604202a0"
+  },
+  {
+    "source": {
+      "section": "J2"
+    },
+    "sha256": "b55a6db3989a54d495c8415ecdb898f98aa48838236a7edfb1735e9dddbd9a14"
+  },
+  {
+    "source": {
+      "section": "J5"
+    },
+    "sha256": "e8d826e602f50790f3aadfe3563236269bf9463750d683425a6c36abc99d1840"
+  },
+  {
+    "source": {
+      "section": "J7"
+    },
+    "sha256": "54c324376873ee0f44de8f2a865f06d558cb3c4c76cff587567fbb18c2ae6ca2"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L12 有限元"
+    },
+    "sha256": "b943a32edebf186db1be17c303cb60ae4532b73990f85bed043f98b0915a3fde"
+  },
+  {
+    "source": {
+      "section": "L",
+      "subsection": "L13 测试"
+    },
+    "sha256": "88f192e1097aa8ac73093fa19e9bf77b11e18ceb46fa8069c306874aacf1231e"
+  },
+  {
+    "source": {
+      "section": "F4"
+    },
+    "sha256": "43bbd5f05c05a1427f1a33e2f872c75cecd7d121e59009e8457a18fc8c50e650"
+  },
+  {
+    "source": {
+      "section": "E5"
+    },
+    "sha256": "b558174d98ee4228303c488d35739f021426c8384b37677beeef2eaa5d7fa034"
+  },
+  {
+    "source": {
+      "section": "E10"
+    },
+    "sha256": "67fba8e60be458bf9b5125be8f977cd2c44e7b45d492598d68b5fd76ff160ee3"
+  },
+  {
+    "source": {
+      "section": "B3",
+      "subsection": "常用方程与最容易漏掉的条件"
+    },
+    "sha256": "9858d40cec96c344ead2499e69f94c26a6806e71609a163d4da6edcc7a22c019"
+  },
+  {
+    "source": {
+      "section": "B5"
+    },
+    "sha256": "69679c91098ee77b2b8d213cff58d2a6765f9427c2e7db43a32566032488f6f8"
+  },
+  {
+    "source": {
+      "section": "P6",
+      "subsection": "附着与倾覆的两个关系锚点"
+    },
+    "sha256": "3719b374930c4d2c583cd2b1849d9094c31d0923b50c16db41e1f9f915281555"
+  },
+  {
+    "source": {
+      "section": "C1"
+    },
+    "sha256": "c24ddfead1ff330ba987a5ab584eec3aaf5c109ba2612547584719fa1a8773c4"
+  },
+  {
+    "source": {
+      "section": "C2"
+    },
+    "sha256": "2403f10503f146c36a68589388075b664c6ef7a887c06f9b0a50464fe2fc7adc"
+  },
+  {
+    "source": {
+      "section": "C5"
+    },
+    "sha256": "c120e53faf57af6e2eabc4d10b0c0b254fd779f9ab1efc7117dc6dbad579eddd"
+  },
+  {
+    "source": {
+      "section": "O2"
+    },
+    "sha256": "ed3638f5ff91868428fa8ad18983b023218015eed492037357472b8962a46ced"
+  },
+  {
+    "source": {
+      "section": "O3"
+    },
+    "sha256": "e885e688e0808fd5c2b85b3a52ac15e552bb9b7657f2aafa15a78bc834e60125"
+  },
+  {
+    "source": {
+      "section": "O5"
+    },
+    "sha256": "cb1af1c0496c5c41394d36cdf802fc0d9e873a5410c85c6613417fb6475f7402"
+  },
+  {
+    "source": {
+      "section": "O6"
+    },
+    "sha256": "c281fe4db9206e7f61ab28af505534c5bad18f99a08ad88df29ca1e667807ca5"
+  },
+  {
+    "source": {
+      "section": "O8"
+    },
+    "sha256": "556d424e56b6ae28793b14d65bd099e14cc453124f410f6615e5bdf8095928b4"
+  },
+  {
+    "source": {
+      "section": "使用说明与考核尺度"
+    },
+    "sha256": "610108e172f00a22ace49842669f96f2b51527dc0acf368851f4e09cf14a91cb"
+  },
+  {
+    "source": {
+      "section": "O1"
+    },
+    "sha256": "fa1867ea606590a9777587dca4b9307a3d7fdc8bd5a9d3e58b2687ab2763a883"
+  },
+  {
+    "source": {
+      "section": "M"
+    },
+    "sha256": "eb9a26b9a37076be50f961e7738a46f17e8258a0af361a1161e6394174e68f6c"
+  },
+  {
+    "source": {
+      "section": "N"
+    },
+    "sha256": "82d0b61ea521799348d3583bcd060f4bd247aa0b4556e632b448ef455ea9e9a9"
+  },
+  {
+    "source": {
+      "section": "F5"
+    },
+    "sha256": "454bdd8374b105e60f9251a40d7c3682cd72eb3c312056b07c3719b88607560f"
+  },
+  {
+    "source": {
+      "section": "E6"
+    },
+    "sha256": "b797afef776aa44c7e716e28483a841fbf0880a67fa1676091b26c6349d77c91"
+  },
+  {
+    "source": {
+      "section": "E11"
+    },
+    "sha256": "8f24543b5be4dd384be6a88dbcc56a42163b5f8885de0c7edbac0513f2e7026c"
+  },
+  {
+    "source": {
+      "section": "E16"
+    },
+    "sha256": "70468ecac051888a711db1e9d1fd135a465319438c5cff32029d94a597032775"
+  },
+  {
+    "source": {
+      "section": "E16"
+    },
+    "sha256": "70468ecac051888a711db1e9d1fd135a465319438c5cff32029d94a597032775"
+  }
+]
